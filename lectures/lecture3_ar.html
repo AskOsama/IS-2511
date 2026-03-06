@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرة الثالثة: عملية تقييم المخاطر التفصيلية</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture3.html" class="lang-button" title="Switch to English">English</a>
+    </div>
+
+    <header>
+        <h1>عملية تقييم المخاطر التفصيلية</h1>
+        <p class="subtitle">المحاضرة الثالثة: تحديد الأصول والتهديدات ونقاط الضعف وتحليل المخاطر</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>المحتويات</h2>
+        <ul>
+            <li><a href="#objectives">أهداف التعلم</a></li>
+            <li><a href="#asset-identification">1. تحديد الأصول (Asset Identification)</a></li>
+            <li><a href="#terminology">2. المصطلحات الرئيسية (Key Terminology)</a></li>
+            <li><a href="#threat-identification">3. تحديد التهديدات (Threat Identification)</a></li>
+            <li><a href="#threat-sources">4. مصادر التهديدات (Threat Sources)</a></li>
+            <li><a href="#vulnerability">5. تحديد نقاط الضعف (Vulnerability Identification)</a></li>
+            <li><a href="#analyze-risks">6. تحليل المخاطر (Analyzing Risks)</a></li>
+            <li><a href="#likelihood">7. تحديد الاحتمالية (Determine Likelihood)</a></li>
+            <li><a href="#consequence">8. تحديد العواقب (Determine Consequence)</a></li>
+            <li><a href="#resultant-risk">9. تحديد المخاطر الناتجة (Determine Resultant Risk)</a></li>
+            <li><a href="#risk-register">10. سجل المخاطر (Risk Register)</a></li>
+            <li><a href="#exercises">11. تمارين للطلاب</a></li>
+            <li><a href="#summary">الملخص</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>أهداف التعلم</h2>
+            <p>بنهاية هذه المحاضرة، ستكون قادراً على:</p>
+            <ul>
+                <li>تحديد وتصنيف الأصول المؤسسية (Organizational Assets)</li>
+                <li>فهم المصطلحات الرئيسية في أمن تقنية المعلومات</li>
+                <li>تحديد التهديدات (Threats) ومصادرها التي تؤثر على أصول تقنية المعلومات</li>
+                <li>التعرف على نقاط الضعف (Vulnerabilities) وتحليلها في أنظمة تقنية المعلومات</li>
+                <li>تحليل المخاطر بناءً على الاحتمالية (Likelihood) والعواقب (Consequence)</li>
+                <li>تحديد مستويات المخاطر الناتجة</li>
+                <li>توثيق وتقييم المخاطر باستخدام سجل المخاطر (Risk Register)</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Asset Identification -->
+        <section id="asset-identification" class="content-section">
+            <h2>1. تحديد الأصول (Asset Identification)</h2>
+
+            <div class="definition">
+                <h3>ما هو الأصل (Asset)؟</h3>
+                <p><strong>الأصل</strong> هو "أي شيء يحتاج إلى حماية" — أي شيء ذو قيمة للمنظمة يساعدها في تحقيق أهدافها. يمكن أن تكون الأصول <strong>ملموسة</strong> (أجهزة، مباني) أو <strong>غير ملموسة</strong> (بيانات، سمعة، ملكية فكرية).</p>
+            </div>
+
+            <h3>تحديد أصول المنظمة</h3>
+            <p>الخطوة الأولى في تقييم المخاطر هي تحديد ما يحتاج إلى حماية. في الممارسة العملية، ركز على تحديد <strong>الأصول المهمة</strong> — الأكثر أهمية لعمليات المنظمة وأهدافها.</p>
+
+            <article class="security-concept">
+                <h4>كيفية تحديد الأصول</h4>
+                <ul>
+                    <li><strong>الاستعانة بالخبرات:</strong> استشر الأشخاص في المجالات ذات الصلة بالمنظمة لتحديد الأصول الرئيسية</li>
+                    <li><strong>إجراء المقابلات:</strong> حدد وقابل الموظفين الذين يفهمون الأنظمة والبيانات الحيوية</li>
+                    <li><strong>استخدام قوائم التحقق:</strong> ارجع إلى قوائم التحقق في معايير الأمان المختلفة (ISO 27001، NIST)</li>
+                    <li><strong>جرد الأنظمة:</strong> فهرسة الأجهزة والبرمجيات والبيانات ومكونات الشبكة</li>
+                </ul>
+            </article>
+
+            <!-- Asset Types Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">أنواع الأصول المؤسسية</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">🖥️</div>
+                        <h4>الأجهزة (Hardware)</h4>
+                        <p>الخوادم، أجهزة التوجيه، محطات العمل، الأجهزة المحمولة</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">💾</div>
+                        <h4>البرمجيات والبيانات</h4>
+                        <p>التطبيقات، قواعد البيانات، الملكية الفكرية</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👥</div>
+                        <h4>الأفراد والمهارات</h4>
+                        <p>خبرات الموظفين، المعرفة المؤسسية</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🏢</div>
+                        <h4>المنشآت والسمعة</h4>
+                        <p>المباني، صورة العلامة التجارية، ثقة العملاء</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-message">
+                <p><strong>المبدأ الرئيسي:</strong> ليست جميع الأصول متساوية. ركز جهود تقييم المخاطر على الأصول الأكثر أهمية لعمليات الأعمال وأهدافها. يمنع النهج المنظم إغفال الأصول المهمة ولكن الأقل وضوحاً.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Key Terminology -->
+        <section id="terminology" class="content-section">
+            <h2>2. المصطلحات الرئيسية (Key Terminology)</h2>
+
+            <p>قبل المتابعة في تقييم المخاطر، من الضروري فهم المصطلحات الرئيسية التالية وكيفية ارتباطها ببعضها:</p>
+
+            <div class="definition">
+                <h3>ما هو الأصل (Asset)؟</h3>
+                <p><strong>الأصل (Asset):</strong> أي شيء له قيمة للمنظمة. يشمل ذلك العناصر المادية (الخوادم، المباني)، والعناصر الرقمية (قواعد البيانات، الشيفرة المصدرية)، والعناصر غير الملموسة (السمعة، خبرات الموظفين).</p>
+            </div>
+
+            <div class="definition">
+                <h3>ما هو التهديد (Threat)؟</h3>
+                <p><strong>التهديد (Threat):</strong> سبب محتمل لحادث غير مرغوب فيه قد يؤدي إلى ضرر لنظام أو منظمة. يمكن أن تكون التهديدات طبيعية (زلازل، فيضانات) أو من صنع الإنسان (قراصنة، موظفون ساخطون).</p>
+            </div>
+
+            <div class="definition">
+                <h3>ما هي نقطة الضعف (Vulnerability)؟</h3>
+                <p><strong>نقطة الضعف (Vulnerability):</strong> ضعف في أصل أو مجموعة أصول يمكن استغلاله بواسطة تهديد. تشمل الأمثلة البرمجيات غير المحدثة، كلمات المرور الضعيفة، أو نقص الأمان المادي.</p>
+            </div>
+
+            <div class="definition">
+                <h3>ما هي المخاطرة (Risk)؟</h3>
+                <p><strong>المخاطرة (Risk):</strong> احتمال أن يستغل تهديد معين نقاط ضعف أصل أو مجموعة أصول ليتسبب في خسارة أو ضرر للأصول. توجد المخاطرة عندما يتداخل تهديد ونقطة ضعف لأصل معين.</p>
+            </div>
+
+            <div class="key-message">
+                <p><strong>كيف ترتبط ببعضها:</strong> <strong>الأصل</strong> لديه <strong>نقاط ضعف</strong> يمكن استغلالها بواسطة <strong>تهديدات</strong>، مما يخلق <strong>مخاطرة</strong>. يجب أن تتوفر جميع العناصر الثلاثة (أصل + نقطة ضعف + تهديد) لوجود مخاطرة.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Threat Identification -->
+        <section id="threat-identification" class="content-section">
+            <h2>3. تحديد التهديدات (Threat Identification)</h2>
+
+            <div class="definition">
+                <h3>ما هو تحديد التهديدات؟</h3>
+                <p><strong>تحديد التهديدات</strong> هو عملية تحديد ما يمكن أن يسبب ضرراً لأصول المنظمة. يجيب عن الأسئلة الرئيسية: <em>من أو ما الذي يمكن أن يسبب ضرراً؟</em> و<em>كيف يمكن أن يحدث هذا؟</em></p>
+            </div>
+
+            <h3>المبادئ الرئيسية لتحديد التهديدات</h3>
+            <ul>
+                <li>التهديدات هي أي شيء يعيق أو يمنع الأصل من توفير المستويات المناسبة من خدمات الأمان الرئيسية: <strong>السرية، السلامة، التوفر، المساءلة، الأصالة، والموثوقية</strong></li>
+                <li>قد يكون للأصول <strong>تهديدات متعددة</strong> — خادم واحد قد يواجه تهديدات من القراصنة وانقطاع التيار والسرقة المادية</li>
+                <li>يعتمد تحديد التهديدات على <strong>خبرة مقيّم المخاطر</strong> ومعرفته بالمنظمة</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>مصادر معلومات التهديدات</h4>
+                <ul>
+                    <li><strong>إحصاءات التأمين:</strong> احتمالات التهديدات الطبيعية من بيانات الصناعة</li>
+                    <li><strong>معايير الأمان:</strong> قوائم التهديدات المحتملة في معايير مثل ISO 27005</li>
+                    <li><strong>مسوحات أمن تقنية المعلومات:</strong> تقارير الصناعة عن مشهد التهديدات الحالي</li>
+                    <li><strong>التحذيرات الحكومية:</strong> معلومات من وكالات الأمن السيبراني</li>
+                    <li><strong>سياق المنظمة:</strong> تهديدات مخصصة للبيئة المحددة</li>
+                    <li><strong>نقاط الضعف المعروفة:</strong> تهديدات تتعلق بنقاط ضعف أنظمة تقنية المعلومات الموجودة</li>
+                </ul>
+            </article>
+
+            <div class="warning-box">
+                <h4>خطأ شائع</h4>
+                <p>لا تركز فقط على التهديدات التقنية. ضع في اعتبارك التهديدات المادية (الكوارث الطبيعية، السرقة)، والتهديدات البشرية (الهندسة الاجتماعية، التهديدات الداخلية)، وتهديدات العمليات (فشل الإجراءات، الخطأ البشري).</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Threat Sources -->
+        <section id="threat-sources" class="content-section">
+            <h2>4. مصادر التهديدات (Threat Sources)</h2>
+
+            <h3>تصنيف التهديدات</h3>
+            <p>يمكن تصنيف التهديدات إلى فئتين رئيسيتين:</p>
+
+            <!-- Threat Classification Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">تصنيف مصادر التهديدات</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">🌊</div>
+                        <h4>تهديدات طبيعية</h4>
+                        <p>"أفعال القدر" — الزلازل، الفيضانات، العواصف، الحرائق</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">⚠️</div>
+                        <h4>عرضية من صنع الإنسان</h4>
+                        <p>أخطاء بشرية، فشل المعدات، أخطاء التكوين</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🎯</div>
+                        <h4>متعمدة من صنع الإنسان</h4>
+                        <p>القرصنة، التخريب، السرقة، هجمات البرمجيات الخبيثة</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👤</div>
+                        <h4>تهديدات داخلية</h4>
+                        <p>موظفون ساخطون، إهمال الموظفين، المتعاقدون</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>تقييم المهاجمين البشريين</h4>
+                <p>عند تقييم التهديدات المتعمدة، ضع في اعتبارك العوامل التالية حول المهاجمين المحتملين:</p>
+                <ul>
+                    <li><strong>الدافع (Motivation):</strong> لماذا يهاجمون؟ (مكسب مالي، انتقام، أيديولوجيا، تجسس)</li>
+                    <li><strong>القدرة (Capability):</strong> ما المهارات والأدوات التي يمتلكونها؟</li>
+                    <li><strong>الموارد (Resources):</strong> ما التمويل والوقت والبنية التحتية المتاحة لهم؟</li>
+                    <li><strong>احتمالية الهجوم (Probability):</strong> ما مدى احتمال استهدافهم لهذه المنظمة؟</li>
+                    <li><strong>الردع (Deterrence):</strong> ما الضوابط الموجودة التي قد تثبط الهجوم؟</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>السياق التاريخي مهم:</strong> ضع دائماً في اعتبارك أي تاريخ سابق للهجمات على المنظمة. يمكن أن تشير الحوادث السابقة إلى جهات تهديد مستمرة، أو نقاط ضعف دائمة، أو أنماط مؤسسية تجذب المهاجمين.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Vulnerability Identification -->
+        <section id="vulnerability" class="content-section">
+            <h2>5. تحديد نقاط الضعف (Vulnerability Identification)</h2>
+
+            <div class="definition">
+                <h3>ما هو تحديد نقاط الضعف؟</h3>
+                <p><strong>تحديد نقاط الضعف</strong> هو عملية إيجاد العيوب أو نقاط الضعف القابلة للاستغلال في أنظمة تقنية المعلومات أو عمليات المنظمة. يحدد مدى قابلية تطبيق وأهمية التهديدات على المنظمة.</p>
+            </div>
+
+            <h3>المبادئ الرئيسية</h3>
+            <ul>
+                <li>تحديد العيوب أو نقاط الضعف القابلة للاستغلال في أنظمة وعمليات تقنية المعلومات بالمنظمة</li>
+                <li>تحديد مدى قابلية تطبيق وأهمية كل تهديد للمنظمة</li>
+                <li>يلزم <strong>مزيج من التهديد ونقطة الضعف</strong> لإنشاء مخاطرة على أصل</li>
+                <li>استخدام قوائم نقاط الضعف المحتملة من معايير وقواعد بيانات الأمان</li>
+            </ul>
+
+            <!-- Vulnerability Process -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">من نقطة الضعف إلى المعالجة</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>التحديد</h4>
+                        <p>إيجاد نقاط الضعف في الأنظمة والعمليات</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>التحليل</h4>
+                        <p>تقييم الخطورة وقابلية الاستغلال</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>تقييم المخاطر</h4>
+                        <p>المطابقة مع التهديدات لتحديد المخاطر</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>المعالجة</h4>
+                        <p>تطبيق الضوابط لمعالجة نقاط الضعف</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>مثال: نقطة ضعف في تطبيق ويب</h4>
+                <p>تطبيق ويب لديه <strong>ثغرة حقن SQL غير مرقعة</strong> (نقطة ضعف). القراصنة الخارجيون يبحثون بنشاط عن مثل هذه العيوب (تهديد). معاً، يخلق هذا <strong>مخاطرة عالية</strong> على قاعدة بيانات العملاء (أصل). بدون التهديد، نقطة الضعف وحدها مجرد ضعف؛ وبدون نقطة الضعف، لا يمكن تحقيق التهديد.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Analyzing Risks -->
+        <section id="analyze-risks" class="content-section">
+            <h2>6. تحليل المخاطر (Analyzing Risks)</h2>
+
+            <div class="definition">
+                <h3>ما هو تحليل المخاطر؟</h3>
+                <p><strong>تحليل المخاطر</strong> يتضمن تحديد احتمالية وعواقب التهديدات المحددة لاشتقاق تقييم شامل للمخاطر. الهدف هو ترتيب المخاطر بحيث يمكن تحديد أولويات معالجتها.</p>
+            </div>
+
+            <h3>عملية تحليل المخاطر</h3>
+            <ul>
+                <li>تحديد <strong>احتمالية حدوث</strong> كل تهديد محدد للأصل، مع مراعاة الضوابط الموجودة (العمليات والإجراءات الإدارية والتشغيلية والتقنية)</li>
+                <li>تحديد <strong>العواقب</strong> في حال حدوث التهديد</li>
+                <li>اشتقاق <strong>تقييم المخاطر الشامل</strong> لكل تهديد</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>معادلة المخاطر</h4>
+                <div style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 8px; margin: 1rem 0;">
+                    <strong style="font-size: 1.5em; color: var(--primary-color);">المخاطرة = احتمالية حدوث التهديد × التكلفة على المنظمة</strong>
+                </div>
+                <p>في الممارسة العملية، من الصعب جداً تحديد القيم الدقيقة. لذلك نستخدم تقييمات <strong>نوعية</strong> (وليست كمية) لكل من الاحتمالية والعواقب. الهدف هو ترتيب المخاطر الناتجة لتحديد أولويات المعالجة.</p>
+            </article>
+
+            <div class="warning-box">
+                <h4>اعتبار مهم</h4>
+                <p>تؤثر الضوابط الموجودة على تقييم الاحتمالية. عند تقييم الاحتمالية، ضع في اعتبارك ما هي الضوابط الإدارية والتشغيلية والتقنية الموجودة بالفعل والتي تقلل من تعرض المنظمة للمخاطر.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Determine Likelihood -->
+        <section id="likelihood" class="content-section">
+            <h2>7. تحديد الاحتمالية (Determine Likelihood)</h2>
+
+            <p>يتم تقييم الاحتمالية على مقياس من 5 مستويات، من نادر إلى شبه مؤكد. لكل مستوى تعريف موسع لمساعدة المقيّمين على إصدار أحكام متسقة:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التقييم</th>
+                            <th>الاحتمالية</th>
+                            <th>التعريف الموسع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>نادر (Rare)</strong></td>
+                            <td>قد يحدث فقط في ظروف استثنائية وقد يُعتبر "سوء حظ" أو غير محتمل للغاية.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>غير محتمل (Unlikely)</strong></td>
+                            <td>قد يحدث في وقت ما لكنه غير متوقع بالنظر إلى الضوابط الحالية والظروف والأحداث الأخيرة.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>محتمل (Possible)</strong></td>
+                            <td>قد يحدث في وقت ما، لكن احتماله مثل عدمه. قد يكون من الصعب التحكم في حدوثه بسبب التأثيرات الخارجية.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>مرجح (Likely)</strong></td>
+                            <td>من المحتمل حدوثه في بعض الظروف ولا ينبغي التفاجؤ إذا حدث.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>شبه مؤكد (Almost Certain)</strong></td>
+                            <td>من المتوقع حدوثه في معظم الظروف وبالتأكيد عاجلاً أم آجلاً.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>نصيحة:</strong> عند تحديد الاحتمالية، ضع دائماً في اعتبارك الضوابط الموجودة. تهديد قد يكون "شبه مؤكد" بدون ضوابط قد يُصنف "محتمل" إذا كانت ضوابط قوية موجودة بالفعل.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Determine Consequence -->
+        <section id="consequence" class="content-section">
+            <h2>8. تحديد العواقب (Determine Consequence)</h2>
+
+            <p>يتم تقييم العواقب على مقياس من 6 مستويات، من ضئيل إلى كارثة شاملة. يصف كل مستوى شدة ومدة التأثير:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التقييم</th>
+                            <th>العاقبة</th>
+                            <th>التعريف الموسع</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>ضئيل (Insignificant)</strong></td>
+                            <td>عادةً نتيجة خرق أمني طفيف في منطقة واحدة. من المحتمل أن يستمر التأثير أقل من عدة أيام ويتطلب فقط نفقات طفيفة للإصلاح.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>طفيف (Minor)</strong></td>
+                            <td>نتيجة خرق أمني في منطقة أو منطقتين. من المحتمل أن يستمر التأثير أقل من أسبوع، ويمكن التعامل معه على مستوى القسم أو المشروع دون تدخل الإدارة.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>متوسط (Moderate)</strong></td>
+                            <td>خروقات أمنية نظامية محدودة (وربما مستمرة). من المحتمل أن يستمر التأثير حتى أسبوعين ويتطلب عموماً تدخل الإدارة. ستكون هناك تكاليف امتثال مستمرة.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>كبير (Major)</strong></td>
+                            <td>خرق أمني نظامي مستمر. من المحتمل أن يستمر التأثير 4-8 أسابيع ويتطلب تدخلاً إدارياً كبيراً وموارد للتغلب عليه. تكاليف الامتثال المتوقعة كبيرة. فقدان الأعمال ممكن.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>كارثي (Catastrophic)</strong></td>
+                            <td>خرق أمني نظامي كبير. سيستمر التأثير 3 أشهر أو أكثر وستحتاج الإدارة العليا للتدخل طوال المدة. تكاليف الامتثال كبيرة جداً. نقاش عام وفقدان الثقة في المنظمة محتمل. إجراءات جنائية أو تأديبية ممكنة.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td><strong>كارثة شاملة (Doomsday)</strong></td>
+                            <td>حالات متعددة من الخروقات الأمنية النظامية الكبرى. لا يمكن تحديد مدة التأثير وستضطر الإدارة العليا لوضع الشركة تحت الإدارة الطوعية أو إعادة هيكلة كبرى. إجراءات جنائية ضد الإدارة العليا متوقعة، وفقدان كبير للأعمال والفشل في تحقيق الأهداف أمر لا مفر منه.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 9: Determine Resultant Risk -->
+        <section id="resultant-risk" class="content-section">
+            <h2>9. تحديد المخاطر الناتجة (Determine Resultant Risk)</h2>
+
+            <p>يتم تحديد المخاطر الناتجة بالجمع بين تقييم الاحتمالية وتقييم العواقب باستخدام المصفوفة التالية:</p>
+
+            <!-- Risk Matrix -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">مصفوفة تقييم المخاطر 5×6</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="text-align: center; font-weight: bold;">
+                        <thead>
+                            <tr>
+                                <th style="background: #e9ecef;">الاحتمالية \ العاقبة</th>
+                                <th style="background: var(--primary-color); color: white;">كارثة شاملة (6)</th>
+                                <th style="background: var(--primary-color); color: white;">كارثي (5)</th>
+                                <th style="background: var(--primary-color); color: white;">كبير (4)</th>
+                                <th style="background: var(--primary-color); color: white;">متوسط (3)</th>
+                                <th style="background: var(--primary-color); color: white;">طفيف (2)</th>
+                                <th style="background: var(--primary-color); color: white;">ضئيل (1)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>شبه مؤكد (5)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>مرجح (4)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>محتمل (3)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>غير محتمل (2)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>نادر (1)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="diagram-note">E = بالغ الخطورة | H = مرتفع | M = متوسط | L = منخفض</p>
+            </div>
+
+            <h3>وصف مستويات المخاطر</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>مستوى المخاطر</th>
+                            <th>الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="background: #f1b0b7; color: #721c24;"><strong>بالغ الخطورة (E)</strong></td>
+                            <td>يتطلب بحثاً تفصيلياً وتخطيطاً إدارياً على مستوى المديرين التنفيذيين. مطلوب تخطيط ومراقبة مستمرة مع مراجعات منتظمة. تعديلات جوهرية في الضوابط متوقعة، مع تكاليف قد تتجاوز التوقعات الأصلية.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع (H)</strong></td>
+                            <td>يتطلب اهتمام الإدارة، لكن يمكن ترك الإدارة والتخطيط لقادة المشاريع أو الفرق الكبار. تخطيط ومراقبة مستمرة مع مراجعات منتظمة محتملة، ويمكن تلبية تعديل الضوابط من الموارد الموجودة.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #ffeeba; color: #856404;"><strong>متوسط (M)</strong></td>
+                            <td>يمكن إدارته بإجراءات المراقبة والاستجابة المحددة الموجودة. إدارة الموظفين مناسبة مع المراقبة والمراجعات المناسبة.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #d4edda; color: #155724;"><strong>منخفض (L)</strong></td>
+                            <td>يمكن إدارته من خلال الإجراءات الروتينية.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 10: Risk Register -->
+        <section id="risk-register" class="content-section">
+            <h2>10. سجل المخاطر (Risk Register)</h2>
+
+            <div class="definition">
+                <h3>ما هو سجل المخاطر؟</h3>
+                <p><strong>سجل المخاطر (Risk Register)</strong> هو وثيقة رسمية تسجل جميع المخاطر المحددة ونتائج تحليلها وخطط معالجتها. يعمل كأداة مركزية لتتبع وإدارة المخاطر المؤسسية.</p>
+            </div>
+
+            <h3>نموذج سجل المخاطر</h3>
+            <p>يعرض الجدول التالي نموذج سجل مخاطر مع مثالين:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الأصل</th>
+                            <th>التهديد/نقطة الضعف</th>
+                            <th>الضوابط الموجودة</th>
+                            <th>الاحتمالية</th>
+                            <th>العاقبة</th>
+                            <th>مستوى المخاطر</th>
+                            <th>الأولوية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>جهاز توجيه الإنترنت (Internet Router)</td>
+                            <td>هجوم قرصنة خارجي</td>
+                            <td>كلمة مرور المسؤول فقط</td>
+                            <td>محتمل</td>
+                            <td>متوسط</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>1</strong></td>
+                        </tr>
+                        <tr>
+                            <td>تدمير مركز البيانات (Data Center)</td>
+                            <td>حريق أو فيضان عرضي</td>
+                            <td>لا يوجد (لا خطة تعافي من الكوارث)</td>
+                            <td>غير محتمل</td>
+                            <td>كبير</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>لماذا نحدد الأولويات؟</strong> تحدد أولوية المخاطر الترتيب الذي تُعالج به المخاطر. تحصل المخاطر ذات الأولوية الأعلى على الاهتمام والموارد أولاً. تراعي الأولوية كلاً من مستوى المخاطر وأهمية الأصل للمنظمة.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>11. تمارين للطلاب</h2>
+
+            <p>أكمل التمارين التالية لتطبيق فهمك لعملية تقييم المخاطر:</p>
+
+            <article class="security-concept">
+                <h4>التمرين 1: ما هو الأصل في أمن تقنية المعلومات؟</h4>
+                <p>عرّف ما هو الأصل في سياق أمن تقنية المعلومات. قدم ثلاثة أمثلة على أصول ملموسة وثلاثة أمثلة على أصول غير ملموسة لجامعة.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 2: ما الفرق بين التهديد ونقطة الضعف؟</h4>
+                <p>اشرح الفرق بين التهديد ونقطة الضعف بكلماتك الخاصة. ثم قدم مثالاً حيث يستغل تهديد محدد نقطة ضعف محددة لإنشاء مخاطرة.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 3: كيف تُحسب المخاطرة؟</h4>
+                <p>صف معادلة المخاطر واشرح لماذا يُفضل استخدام التقييمات النوعية على القيم الكمية في الممارسة العملية. باستخدام جداول الاحتمالية والعواقب من هذه المحاضرة، احسب مستوى المخاطر للسيناريو التالي:</p>
+                <ul>
+                    <li>خادم بريد إلكتروني للشركة بدون فلترة للرسائل المزعجة (نقطة ضعف)</li>
+                    <li>هجمات تصيد تستهدف الموظفين (تهديد) — الاحتمالية: مرجح (4)</li>
+                    <li>اختراق محتمل للبيانات إذا سُرقت بيانات الاعتماد — العاقبة: كبير (4)</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 4: لماذا تقييم المخاطر مهم للمنظمات؟</h4>
+                <p>اذكر أربعة أسباب على الأقل لضرورة إجراء المنظمات لتقييمات مخاطر منتظمة. ضع في اعتبارك كلاً من فوائد إجراء تقييم المخاطر وعواقب عدم إجرائه.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 5: بناء سجل مخاطر</h4>
+                <p><strong>السيناريو:</strong> شركة تجارة إلكترونية صغيرة لديها الأصول التالية: خادم ويب، قاعدة بيانات العملاء، بوابة الدفع، ومحطات عمل الموظفين.</p>
+                <p><strong>المهمة:</strong> أنشئ سجل مخاطر يحتوي على 4 إدخالات على الأقل. لكل إدخال، حدد الأصل والتهديد/نقطة الضعف والضوابط الموجودة والاحتمالية والعاقبة ومستوى المخاطر (باستخدام المصفوفة) وأولوية المخاطر.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 6: تحليل مصادر التهديدات</h4>
+                <p><strong>السيناريو:</strong> وكالة حكومية تخزن وثائق سرية رقمياً. تشير المعلومات الاستخباراتية الأخيرة إلى أن دولة أجنبية تستهدف وكالات مماثلة.</p>
+                <p><strong>المهمة:</strong> حلل مصادر التهديدات باستخدام العوامل الخمسة لتقييم المهاجمين البشريين (الدافع، القدرة، الموارد، احتمالية الهجوم، الردع). ما مستوى المخاطر الذي ستحدده؟</p>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>الملخص والنقاط الرئيسية</h2>
+
+            <h3>ما تعلمناه</h3>
+            <ol>
+                <li><strong>تحديد الأصول</strong> هو أساس تقييم المخاطر — يجب أن تعرف ما يحتاج إلى حماية قبل أن تتمكن من تقييم المخاطر.</li>
+
+                <li><strong>المصطلحات الرئيسية</strong> (الأصل، التهديد، نقطة الضعف، المخاطرة) تشكل مفردات تقييم المخاطر. تتواجد المخاطرة فقط عندما يستطيع تهديد استغلال نقطة ضعف في أصل.</li>
+
+                <li><strong>تحديد التهديدات</strong> يتطلب النظر في كل من المصادر الطبيعية والبشرية، وتقييم المهاجمين البشريين بناءً على الدافع والقدرة والموارد والاحتمالية والردع.</li>
+
+                <li><strong>تحديد نقاط الضعف</strong> يجد نقاط الضعف القابلة للاستغلال. نقطة ضعف بدون تهديد مقابل لا تخلق مخاطرة، والعكس صحيح.</li>
+
+                <li><strong>تحليل المخاطر</strong> يستخدم المعادلة: المخاطرة = الاحتمالية × التكلفة. في الممارسة العملية، تُستخدم التقييمات النوعية (من نادر إلى شبه مؤكد، من ضئيل إلى كارثة شاملة) لأن القيم الدقيقة صعبة التحديد.</li>
+
+                <li><strong>مصفوفة المخاطر</strong> تجمع بين الاحتمالية (5 مستويات) والعواقب (6 مستويات) لإنتاج أربعة مستويات للمخاطر: بالغ الخطورة، مرتفع، متوسط، ومنخفض.</li>
+
+                <li><strong>سجل المخاطر</strong> يوثق جميع النتائج ويوفر قائمة مرتبة بأولويات المخاطر للمعالجة.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>التطلع إلى الأمام:</strong> في المحاضرة القادمة، سنستكشف <strong>معالجة المخاطر (Risk Treatment)</strong> — نتعلم البدائل المختلفة للتعامل مع المخاطر المحددة، بما في ذلك القبول والتجنب والنقل وتقليل المخاطر، موضحة من خلال دراسة حالة مناجم النجمة الفضية (Silver Star Mines).</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>الاعتمادات والإسناد</h2>
+            <p class="credits-intro">جميع الرسوم البيانية في هذه الوثيقة هي أعمال تعليمية أصلية تم إنشاؤها خصيصاً لهذا المقرر.</p>
+            <ul class="credits-list">
+                <li><strong>رسم أنواع الأصول:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>تصنيف مصادر التهديدات:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>مخطط تدفق عملية نقاط الضعف:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>مصفوفة تقييم المخاطر:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index_ar.html">&rarr; العودة إلى الصفحة الرئيسية</a>
+        </p>
+    </footer>
+</body>
+</html>

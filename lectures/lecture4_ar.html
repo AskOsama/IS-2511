@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرة الرابعة: معالجة المخاطر</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture4.html" class="lang-button" title="Switch to English">English</a>
+    </div>
+
+    <header>
+        <h1>معالجة المخاطر</h1>
+        <p class="subtitle">المحاضرة الرابعة: إدارة ومعالجة المخاطر المحددة</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>المحتويات</h2>
+        <ul>
+            <li><a href="#objectives">أهداف التعلم</a></li>
+            <li><a href="#risk-treatment">1. ما هي معالجة المخاطر؟ (Risk Treatment)</a></li>
+            <li><a href="#alternatives">2. بدائل معالجة المخاطر (Risk Treatment Alternatives)</a></li>
+            <li><a href="#case-study">3. دراسة حالة: مناجم النجمة الفضية (Silver Star Mines)</a></li>
+            <li><a href="#assets">4. الأصول (Assets)</a></li>
+            <li><a href="#threats">5. التهديدات ونقاط الضعف (Threats & Vulnerabilities)</a></li>
+            <li><a href="#register">6. سجل المخاطر (Risk Register)</a></li>
+            <li><a href="#choosing">7. اختيار استراتيجية المعالجة</a></li>
+            <li><a href="#exercises">8. تمارين للطلاب</a></li>
+            <li><a href="#summary">الملخص</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>أهداف التعلم</h2>
+            <p>بنهاية هذه المحاضرة، ستكون قادراً على:</p>
+            <ul>
+                <li>فهم مفهوم معالجة المخاطر (Risk Treatment) في إدارة أمن تقنية المعلومات</li>
+                <li>تحديد بدائل معالجة المخاطر المختلفة</li>
+                <li>شرح متى يتم قبول أو تجنب أو نقل أو تقليل المخاطر</li>
+                <li>تحليل دراسة حالة واقعية (مناجم النجمة الفضية - Silver Star Mines)</li>
+                <li>التعرف على أهمية سجل المخاطر (Risk Register) في إدارة المخاطر</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: What is Risk Treatment? -->
+        <section id="risk-treatment" class="content-section">
+            <h2>1. ما هي معالجة المخاطر؟ (Risk Treatment)</h2>
+
+            <div class="definition">
+                <h3>ما هي معالجة المخاطر؟</h3>
+                <p><strong>معالجة المخاطر (Risk Treatment)</strong> هي عملية اختيار وتنفيذ تدابير لتعديل المخاطر. بعد تحديد المخاطر وتحليلها وتقييمها من خلال تقييم المخاطر، يجب على المنظمة أن تقرر كيفية التعامل مع كل خطر بناءً على مستواه وتكلفة المعالجة.</p>
+            </div>
+
+            <h3>قرار المعالجة</h3>
+            <p>يعتمد قرار معالجة المخاطر على التوازن بين <strong>مستوى المخاطر</strong> و<strong>تكلفة المعالجة</strong>:</p>
+
+            <article class="security-concept">
+                <h4>مستوى المخاطر مقابل تكلفة المعالجة</h4>
+                <ul>
+                    <li><strong>مخاطر بالغة الخطورة + تكلفة معالجة منخفضة:</strong> نفذ المعالجة فوراً</li>
+                    <li><strong>مخاطر مرتفعة + تكلفة معالجة معتدلة:</strong> المعالجة مبررة عموماً</li>
+                    <li><strong>مخاطر متوسطة + تكلفة معالجة معتدلة:</strong> يلزم حكم — وازن بين التكاليف والفوائد</li>
+                    <li><strong>مخاطر منخفضة + تكلفة معالجة عالية:</strong> غير اقتصادي للمعالجة — اقبل المخاطر</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>المبدأ الرئيسي:</strong> معالجة المخاطر لا تعني إزالة جميع المخاطر — فهذا مستحيل وغير عملي. الهدف هو تقليل المخاطر إلى <strong>مستوى مقبول</strong> ضمن شهية المنظمة للمخاطر، مع الاستخدام الفعال للموارد المتاحة.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Risk Treatment Alternatives -->
+        <section id="alternatives" class="content-section">
+            <h2>2. بدائل معالجة المخاطر (Risk Treatment Alternatives)</h2>
+
+            <p>هناك خمسة بدائل رئيسية لمعالجة المخاطر المحددة. يعتمد الاختيار على طبيعة المخاطر ومستواها وظروف المنظمة:</p>
+
+            <!-- Treatment Alternatives Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">بدائل معالجة المخاطر الخمسة</h3>
+                </div>
+                <div class="four-areas-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="area-card">
+                        <div class="area-icon">✅</div>
+                        <h4>القبول (Accept)</h4>
+                        <p>قبول المخاطر عندما تتجاوز تكلفة المعالجة الفائدة</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🚫</div>
+                        <h4>التجنب (Avoid)</h4>
+                        <p>عدم المضي في النشاط المسبب للمخاطر</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🔄</div>
+                        <h4>النقل (Transfer)</h4>
+                        <p>نقل المخاطر إلى طرف ثالث (تأمين، تعهيد)</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📉</div>
+                        <h4>تقليل العواقب</h4>
+                        <p>تعديل استخدام الأصل لتقليل التأثير عند حدوث المخاطر</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🛡️</div>
+                        <h4>تقليل الاحتمالية</h4>
+                        <p>تنفيذ ضوابط مناسبة لجعل المخاطر أقل احتمالاً</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>1. قبول المخاطر (Risk Acceptance)</h4>
+                <p><strong>قبول المخاطر</strong> — ربما بسبب التكلفة المفرطة لمعالجة المخاطر. تعترف المنظمة بوجود المخاطر لكنها تقرر عدم اتخاذ إجراء.</p>
+                <ul>
+                    <li><strong>متى تُستخدم:</strong> تكلفة المعالجة تتجاوز الخسارة المحتملة، أو مستوى المخاطر منخفض</li>
+                    <li><strong>المتطلب:</strong> يجب أن يكون قراراً واعياً وموثقاً من الإدارة</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>مثال: قبول المخاطر</h4>
+                <p>طابعة قديمة للشركة بها ثغرة معروفة، لكنها على جزء معزول من الشبكة، تطبع فقط مستندات غير حساسة، وسيتم استبدالها خلال 3 أشهر. تكلفة الترقيع تتجاوز المخاطر الضئيلة، لذا تقبل الإدارة رسمياً المخاطر.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>2. تجنب المخاطر (Risk Avoidance)</h4>
+                <p><strong>عدم المضي في النشاط</strong> المسبب للمخاطر. هذا يزيل المخاطر بالكامل لكنه يعني أيضاً فقدان الراحة أو الفائدة من النشاط.</p>
+                <ul>
+                    <li><strong>متى تُستخدم:</strong> المخاطر مرتفعة جداً ولا توجد ضوابط كافية لتقليلها</li>
+                    <li><strong>المقايضة:</strong> فقدان فرصة عمل أو وظيفة</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>مثال: تجنب المخاطر</h4>
+                <p>قررت شركة عدم تقديم شبكة Wi-Fi عامة في مكاتبها لأن خطر اختراق الشبكة عبر شبكة لاسلكية مفتوحة مرتفع جداً وتكاليف الأمان لحمايتها بشكل صحيح لا تبررها الفائدة التجارية.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>3. نقل المخاطر (Risk Transfer)</h4>
+                <p><strong>نقل المخاطر إلى طرف ثالث</strong> من خلال التأمين أو التعهيد. المخاطر لا تزال موجودة، لكن العبء المالي أو التشغيلي يُشارك أو يُنقل.</p>
+                <ul>
+                    <li><strong>متى تُستخدم:</strong> المخاطر ذات تأثير مالي عالٍ لكن المنظمة تفتقر للخبرة لإدارتها</li>
+                    <li><strong>الطرق:</strong> شراء تأمين سيبراني، تعهيد عمليات تقنية المعلومات لمقدمي خدمات مُدارة</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>مثال: نقل المخاطر</h4>
+                <p>تشتري شركة تأمين المسؤولية السيبرانية الذي يغطي تكاليف إشعار اختراق البيانات والرسوم القانونية وتعويض العملاء. خطر الاختراق لا يزال موجوداً، لكن التأثير المالي يُنقل إلى مزود التأمين.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>4. تقليل العواقب (Reduce Consequence)</h4>
+                <p><strong>تعديل استخدامات الأصل</strong> لتقليل التأثير في حال تحقق المخاطر. هذا لا يمنع الحادث لكنه يحد من الضرر.</p>
+                <ul>
+                    <li><strong>متى تُستخدم:</strong> لا يمكنك منع التهديد لكن يمكنك الحد من تأثيره</li>
+                    <li><strong>الطرق:</strong> نسخ احتياطية خارجية، خطط التعافي من الكوارث، تجزئة البيانات</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>مثال: تقليل العواقب</h4>
+                <p>تحتفظ شركة بنسخ احتياطية خارجية لجميع البيانات الحيوية. إذا قام فيروس الفدية بتشفير خوادمها، يمكنها الاستعادة من النسخ الاحتياطية بدلاً من دفع الفدية. الهجوم لا يزال يحدث، لكن العاقبة تتقلص من كارثية إلى طفيفة.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>5. تقليل الاحتمالية (Reduce Likelihood)</h4>
+                <p><strong>تنفيذ ضوابط مناسبة</strong> لجعل حدث المخاطر أقل احتمالاً للوقوع. هذا هو أكثر مناهج معالجة المخاطر شيوعاً.</p>
+                <ul>
+                    <li><strong>متى تُستخدم:</strong> توجد ضوابط فعالة متاحة بتكلفة معقولة</li>
+                    <li><strong>الطرق:</strong> جدران الحماية، ضوابط الوصول، التشفير، تدريب الموظفين، التحديثات</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>مثال: تقليل الاحتمالية</h4>
+                <p>تنفذ شركة المصادقة متعددة العوامل (MFA) لجميع الوصول عن بُعد. هذا يجعل الوصول غير المصرح به أقل احتمالاً بكثير حتى لو تم اختراق كلمات المرور، مما يقلل الاحتمالية من "شبه مؤكد" إلى "غير محتمل".</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Case Study -->
+        <section id="case-study" class="content-section">
+            <h2>3. دراسة حالة: مناجم النجمة الفضية (Silver Star Mines)</h2>
+
+            <div class="definition">
+                <h3>عن مناجم النجمة الفضية</h3>
+                <p><strong>مناجم النجمة الفضية (Silver Star Mines)</strong> هي عملية خيالية لشركة تعدين عالمية توضح كيف يعمل تقييم ومعالجة المخاطر في بيئة صناعية واقعية.</p>
+            </div>
+
+            <h3>ملف الشركة</h3>
+            <ul>
+                <li><strong>النوع:</strong> شركة تعدين عالمية بعمليات واسعة النطاق</li>
+                <li><strong>البنية التحتية لتقنية المعلومات:</strong> واسعة، تشمل برمجيات أعمال شائعة وأنظمة خاصة بالصناعة</li>
+                <li><strong>الأنظمة الحيوية:</strong> بعض أنظمة تقنية المعلومات تتعلق مباشرة بالصحة والسلامة (SCADA)</li>
+                <li><strong>تطور الشبكة:</strong> الأنظمة المعزولة سابقاً أصبحت الآن متصلة بالشبكة، مما يزيد سطح الهجوم</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>منهج تقييم المخاطر</h4>
+                <ul>
+                    <li>قررت مناجم النجمة الفضية استخدام <strong>المنهج المدمج (Combined Approach)</strong> لتقييم المخاطر</li>
+                    <li>صناعة التعدين في <strong>الطرف الأقل خطورة من الطيف</strong> مقارنة بالمؤسسات المالية</li>
+                    <li>قررت الإدارة <strong>قبول المخاطر المتوسطة أو المنخفضة</strong> — فقط المخاطر المرتفعة والبالغة الخطورة تتطلب معالجة</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Section 4: Assets -->
+        <section id="assets" class="content-section">
+            <h2>4. الأصول (Assets)</h2>
+
+            <p>حدد تقييم المخاطر أصول تقنية المعلومات الرئيسية التالية التي تتطلب الحماية:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الأصل</th>
+                            <th>خصائص الأمان</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>عقد وشبكة SCADA</td>
+                            <td>الموثوقية والسلامة (Reliability & Integrity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>الملفات المخزنة ومعلومات قاعدة البيانات</td>
+                            <td>السلامة (Integrity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>النظام المالي</td>
+                            <td>التوفر والسلامة (Availability & Integrity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>نظام المشتريات</td>
+                            <td>التوفر والسلامة (Availability & Integrity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>نظام الصيانة/الإنتاج</td>
+                            <td>التوفر والسلامة (Availability & Integrity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>خدمات البريد</td>
+                            <td>التوفر والسلامة والسرية (Availability, Integrity & Confidentiality)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4>أصل حيوي: أنظمة SCADA</h4>
+                <p>أنظمة SCADA (التحكم الإشرافي واكتساب البيانات) حيوية بشكل خاص لأنها تتحكم مباشرة في عمليات التعدين المادية. قد يؤدي اختراق هذه الأنظمة إلى تلف المعدات أو حوادث بيئية أو حتى فقدان الأرواح. لهذا السبب فإن موثوقية وسلامة SCADA هي الأصل الأعلى أولوية.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Threats & Vulnerabilities -->
+        <section id="threats" class="content-section">
+            <h2>5. التهديدات ونقاط الضعف (Threats & Vulnerabilities)</h2>
+
+            <p>تم تحديد التهديدات ونقاط الضعف التالية لكل أصل:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الأصل</th>
+                            <th>التهديد/نقطة الضعف</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>عقد وشبكة SCADA</strong></td>
+                            <td>تعديل غير مصرح به لنظام التحكم</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الملفات المخزنة ومعلومات قاعدة البيانات</strong></td>
+                            <td>إتلاف أو سرقة أو فقدان المعلومات</td>
+                        </tr>
+                        <tr>
+                            <td><strong>النظام المالي</strong></td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                        </tr>
+                        <tr>
+                            <td><strong>نظام المشتريات</strong></td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                        </tr>
+                        <tr>
+                            <td><strong>نظام الصيانة/الإنتاج</strong></td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                        </tr>
+                        <tr>
+                            <td><strong>خدمات البريد</strong></td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Risk Register -->
+        <section id="register" class="content-section">
+            <h2>6. سجل المخاطر (Risk Register)</h2>
+
+            <p>سجل المخاطر الكامل لمناجم النجمة الفضية، يعرض جميع المخاطر المقيّمة مع تقييماتها وأولوياتها:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الأصل</th>
+                            <th>التهديد/نقطة الضعف</th>
+                            <th>الضوابط الموجودة</th>
+                            <th>الاحتمالية</th>
+                            <th>العاقبة</th>
+                            <th>مستوى المخاطر</th>
+                            <th>الأولوية</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>موثوقية وسلامة عقد وشبكة SCADA</td>
+                            <td>تعديل غير مصرح به لنظام التحكم</td>
+                            <td>جدران حماية متعددة الطبقات وخوادم</td>
+                            <td>نادر</td>
+                            <td>كبير</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>1</strong></td>
+                        </tr>
+                        <tr>
+                            <td>سلامة الملفات المخزنة ومعلومات قاعدة البيانات</td>
+                            <td>إتلاف، سرقة، فقدان المعلومات</td>
+                            <td>جدار حماية، سياسات</td>
+                            <td>محتمل</td>
+                            <td>كبير</td>
+                            <td style="background: #f1b0b7; color: #721c24;"><strong>بالغ الخطورة</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>توفر وسلامة النظام المالي</td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                            <td>جدار حماية، سياسات</td>
+                            <td>محتمل</td>
+                            <td>متوسط</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>3</strong></td>
+                        </tr>
+                        <tr>
+                            <td>توفر وسلامة نظام المشتريات</td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                            <td>جدار حماية، سياسات</td>
+                            <td>محتمل</td>
+                            <td>متوسط</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>4</strong></td>
+                        </tr>
+                        <tr>
+                            <td>توفر وسلامة نظام الصيانة/الإنتاج</td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                            <td>جدار حماية، سياسات</td>
+                            <td>محتمل</td>
+                            <td>طفيف</td>
+                            <td style="background: #ffeeba; color: #856404;"><strong>متوسط</strong></td>
+                            <td><strong>5</strong></td>
+                        </tr>
+                        <tr>
+                            <td>توفر وسلامة وسرية خدمات البريد</td>
+                            <td>هجمات/أخطاء تؤثر على النظام</td>
+                            <td>جدار حماية، بوابة بريد خارجية</td>
+                            <td>شبه مؤكد</td>
+                            <td>طفيف</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>مرتفع</strong></td>
+                            <td><strong>6</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>ملاحظة رئيسية:</strong> لاحظ أن نظام SCADA هو الأولوية 1 رغم أن احتماليته "نادر" لأن عواقب الفشل "كبيرة" وتتضمن الصحة والسلامة. نظام الملفات/قاعدة البيانات مصنف "بالغ الخطورة" لأن كلاً من الاحتمالية (محتمل) والعاقبة (كبير) مهمتان.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Choosing a Treatment Strategy -->
+        <section id="choosing" class="content-section">
+            <h2>7. اختيار استراتيجية المعالجة</h2>
+
+            <p>يعتمد اختيار بديل المعالجة المناسب على عدة عوامل. استخدم إطار القرار التالي:</p>
+
+            <!-- Decision Framework Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">إطار قرار معالجة المخاطر</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>تقييم مستوى المخاطر</h4>
+                        <p>حدد ما إذا كانت المخاطر بالغة الخطورة أو مرتفعة أو متوسطة أو منخفضة</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>تقييم الخيارات</h4>
+                        <p>ادرس جميع بدائل المعالجة الخمسة</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>تحليل التكلفة والفائدة</h4>
+                        <p>قارن تكلفة المعالجة مقابل تأثير المخاطر</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>التنفيذ والمراقبة</h4>
+                        <p>طبق المعالجة المختارة وتتبع فعاليتها</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>متى تُطبق كل بديل</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>المعالجة</th>
+                            <th>الأفضل عندما...</th>
+                            <th>مثال</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>القبول</strong></td>
+                            <td>المخاطر منخفضة أو تكلفة المعالجة تتجاوز الخسارة المحتملة</td>
+                            <td>مخاطر تشويه موقع داخلي طفيف</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التجنب</strong></td>
+                            <td>المخاطر مرتفعة جداً ولا يمكن التحكم فيها بشكل كافٍ</td>
+                            <td>إيقاف استخدام نظام قديم غير مدعوم</td>
+                        </tr>
+                        <tr>
+                            <td><strong>النقل</strong></td>
+                            <td>تأثير مالي مرتفع يمكن التأمين عليه أو تعهيده</td>
+                            <td>شراء تأمين المسؤولية السيبرانية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>تقليل العواقب</strong></td>
+                            <td>لا يمكن منع التهديد لكن يمكن الحد من الضرر</td>
+                            <td>تنفيذ خطة التعافي من الكوارث ونسخ احتياطية خارجية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>تقليل الاحتمالية</strong></td>
+                            <td>ضوابط فعالة متاحة بتكلفة معقولة</td>
+                            <td>نشر جدران الحماية والمصادقة متعددة العوامل وكشف التسلل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4>معالجات متعددة</h4>
+                <p>في الممارسة العملية، غالباً ما تطبق المنظمات <strong>بدائل معالجة متعددة</strong> لمخاطرة واحدة. على سبيل المثال، قد تقلل مناجم النجمة الفضية احتمالية هجمات SCADA من خلال جدران حماية إضافية وتقلل العواقب من خلال أنظمة إيقاف السلامة المعزولة وتنقل المخاطر المتبقية من خلال التأمين.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>8. تمارين للطلاب</h2>
+
+            <p>أكمل التمارين التالية لتطبيق فهمك لمعالجة المخاطر:</p>
+
+            <article class="security-concept">
+                <h4>التمرين 1: ما هي معالجة المخاطر؟</h4>
+                <p>عرّف معالجة المخاطر بكلماتك الخاصة. اشرح العلاقة بين تقييم المخاطر (من المحاضرة 3) ومعالجة المخاطر. لماذا يجب أن يسبق تقييم المخاطر معالجتها؟</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 2: ما هي بدائل معالجة المخاطر الرئيسية؟</h4>
+                <p>اذكر واشرح بإيجاز كل بديل من بدائل معالجة المخاطر الخمسة. لكل بديل، قدم مثالاً واقعياً مختلفاً عن الأمثلة المقدمة في المحاضرة.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 3: لماذا سجل المخاطر مهم؟</h4>
+                <p>اشرح الغرض من سجل المخاطر وأهميته. ما المعلومات التي يحتويها وكيف يدعم اتخاذ القرارات الإدارية؟ ماذا يحدث عندما لا تحتفظ المنظمة بسجل مخاطر؟</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 4: ما هو الغرض من دراسة حالة مناجم النجمة الفضية؟</h4>
+                <p>حلل دراسة حالة مناجم النجمة الفضية. لماذا اختاروا المنهج المدمج؟ بالنظر إلى سجل المخاطر، ما المخاطر التي يجب معالجتها أولاً وما بدائل المعالجة التي توصي بها لأعلى 3 مخاطر أولوية؟</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 5: خطة معالجة مخاطر المستشفى</h4>
+                <p><strong>السيناريو:</strong> أكمل مستشفى تقييم المخاطر وحدد المخاطر التالية:</p>
+                <ol>
+                    <li>هجوم فيروس فدية على سجلات المرضى — مستوى المخاطر: بالغ الخطورة</li>
+                    <li>انقطاع التيار الكهربائي المؤثر على غرف العمليات — مستوى المخاطر: مرتفع</li>
+                    <li>إرسال الموظفين لبيانات المرضى بالخطأ عبر البريد — مستوى المخاطر: متوسط</li>
+                    <li>تشويه طفيف للموقع الإلكتروني — مستوى المخاطر: منخفض</li>
+                </ol>
+                <p><strong>المهمة:</strong> لكل خطر، أوصِ ببديل معالجة واحد أو أكثر وبرر اختيارك. ضع في اعتبارك المهمة الحيوية للمستشفى في رعاية المرضى.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 6: بناء خطة معالجة</h4>
+                <p><strong>السيناريو:</strong> باستخدام سجل مخاطر مناجم النجمة الفضية، أنشئ خطة معالجة لجميع المخاطر المصنفة مرتفعة أو أعلى. لكل خطر، حدد بديل/بدائل المعالجة التي ستطبقها، والإجراءات المحددة المتخذة، ومستوى المخاطر المتبقي المتوقع بعد المعالجة.</p>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>الملخص والنقاط الرئيسية</h2>
+
+            <h3>ما تعلمناه</h3>
+            <ol>
+                <li><strong>معالجة المخاطر</strong> هي عملية اختيار وتنفيذ تدابير لتعديل المخاطر. تأتي بعد تقييم المخاطر وتحدد كيفية التعامل مع كل خطر محدد.</li>
+
+                <li><strong>خمسة بدائل للمعالجة</strong> موجودة: قبول المخاطر، تجنب المخاطر، نقل المخاطر، تقليل العواقب، وتقليل الاحتمالية. لكل بديل حالات استخدام ومقايضات محددة.</li>
+
+                <li><strong>قرار المعالجة</strong> يوازن بين مستوى المخاطر وتكلفة المعالجة. ليست جميع المخاطر تحتاج معالجة نشطة — بعضها يمكن قبوله إذا تجاوزت تكلفة المعالجة الخسارة المحتملة.</li>
+
+                <li><strong>دراسة حالة مناجم النجمة الفضية</strong> توضح كيف تطبق منظمة واقعية المنهج المدمج لتحديد الأصول والتهديدات ونقاط الضعف وبناء سجل مخاطر مرتب بالأولويات.</li>
+
+                <li><strong>سجل المخاطر</strong> هو الوثيقة المركزية لإدارة المخاطر. يسجل جميع المخاطر المحددة مع تحليلها ويوفر قائمة مرتبة بالأولويات لقرارات المعالجة.</li>
+
+                <li><strong>معالجات متعددة</strong> يمكن تطبيقها على مخاطرة واحدة. غالباً ما تجمع المنظمات بين الاستراتيجيات لإدارة شاملة للمخاطر.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>التطلع إلى الأمام:</strong> في المحاضرة القادمة، سنستكشف <strong>الضوابط الأمنية (Security Controls)</strong> بعمق — نتعلم كيفية اختيار وتنفيذ ومراقبة الضوابط التقنية والإدارية والمادية المحددة المستخدمة لمعالجة المخاطر المحددة.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>الاعتمادات والإسناد</h2>
+            <p class="credits-intro">جميع الرسوم البيانية في هذه الوثيقة هي أعمال تعليمية أصلية تم إنشاؤها خصيصاً لهذا المقرر.</p>
+            <ul class="credits-list">
+                <li><strong>رسم بدائل معالجة المخاطر:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>إطار قرار معالجة المخاطر:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index_ar.html">&rarr; العودة إلى الصفحة الرئيسية</a>
+        </p>
+    </footer>
+</body>
+</html>

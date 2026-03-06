@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 2: Security Risk Assessment</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture2_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Security Risk Assessment</h1>
+        <p class="subtitle">Lecture 2: Approaches to Assessing Security Risks</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#overview">1. Overview</a></li>
+            <li><a href="#baseline">2. Baseline Approach</a></li>
+            <li><a href="#informal">3. Informal Approach</a></li>
+            <li><a href="#formal">4. Formal Approach (Detailed Risk Analysis)</a></li>
+            <li><a href="#combined">5. Combined Approach</a></li>
+            <li><a href="#comparison">6. Comparison of Approaches</a></li>
+            <li><a href="#exercises">7. Student Exercises</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Understand the role and importance of Security Risk Assessment</li>
+                <li>Identify key concepts in security risk assessment</li>
+                <li>Differentiate between risk assessment approaches (Baseline, Informal, Formal, Combined)</li>
+                <li>Compare advantages and limitations of each approach</li>
+                <li>Understand the Detailed Risk Analysis Process and risk scoring</li>
+                <li>Apply risk assessment concepts to real-world scenarios</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="content-section">
+            <h2>1. Overview</h2>
+
+            <div class="definition">
+                <h3>What is Security Risk Assessment?</h3>
+                <p><strong>Security Risk Assessment</strong> is a systematic process of identifying, analyzing, and evaluating security risks to an organization's information assets. It helps organizations make informed decisions about how to protect their assets effectively.</p>
+            </div>
+
+            <h3>Key Questions Risk Assessment Answers</h3>
+            <ul>
+                <li><strong>What assets need protection?</strong> - Identifying critical information assets</li>
+                <li><strong>What threats exist?</strong> - Understanding potential sources of harm</li>
+                <li><strong>What vulnerabilities are present?</strong> - Identifying weaknesses that could be exploited</li>
+                <li><strong>What are the risks?</strong> - Combining likelihood and impact</li>
+                <li><strong>What controls should be implemented?</strong> - Selecting appropriate countermeasures</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Consequences of Not Doing Risk Assessment</h4>
+                <ul>
+                    <li>Resources wasted on protecting low-value assets</li>
+                    <li>Critical assets left unprotected</li>
+                    <li>Compliance failures and legal penalties</li>
+                    <li>Unexpected security incidents with severe impact</li>
+                    <li>Loss of customer trust and reputation damage</li>
+                </ul>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Why Choose an Approach?</strong> Organizations must choose their risk assessment approach based on their size, resources, regulatory requirements, and risk tolerance. There is no one-size-fits-all solution.</p>
+            </div>
+
+            <!-- Risk Assessment Approaches Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Four Risk Assessment Approaches</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">📋</div>
+                        <h4>Baseline Approach</h4>
+                        <p>Use standard industry controls and checklists</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👤</div>
+                        <h4>Informal Approach</h4>
+                        <p>Rely on expert judgment and experience</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📊</div>
+                        <h4>Formal Approach</h4>
+                        <p>Structured, documented risk analysis</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🔄</div>
+                        <h4>Combined Approach</h4>
+                        <p>Blend of all approaches for optimal results</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/risk_assessment_demo.html" class="demo-link">Try Interactive Risk Assessment Demo</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Baseline Approach -->
+        <section id="baseline" class="content-section">
+            <h2>2. Baseline Approach</h2>
+
+            <div class="definition">
+                <h3>What is the Baseline Approach?</h3>
+                <p>The <strong>Baseline Approach</strong> involves implementing a standard set of security controls based on industry best practices, without conducting a detailed risk analysis. It uses pre-defined security standards and checklists.</p>
+            </div>
+
+            <h3>How It Works</h3>
+            <p>Organizations select a recognized security standard or framework and implement its recommended controls:</p>
+            <ul>
+                <li><strong>ISO 27002:</strong> Code of practice with 93 security controls</li>
+                <li><strong>NIST Cybersecurity Framework:</strong> US government standard with 5 functions</li>
+                <li><strong>CIS Controls:</strong> Prioritized list of 18 critical security controls</li>
+                <li><strong>Industry-specific standards:</strong> PCI DSS (payment cards), HIPAA (healthcare)</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>Typical Baseline Controls</h4>
+                <ul>
+                    <li><strong>Password policies:</strong> Minimum length, complexity requirements, expiration</li>
+                    <li><strong>Multi-factor authentication (MFA):</strong> Something you know + something you have</li>
+                    <li><strong>Firewalls:</strong> Network perimeter protection</li>
+                    <li><strong>Regular patching:</strong> Keeping systems updated</li>
+                    <li><strong>Backup procedures:</strong> Regular data backups with testing</li>
+                    <li><strong>Antivirus/Antimalware:</strong> Endpoint protection</li>
+                    <li><strong>Access controls:</strong> Role-based access management</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Advantages:</strong> Easy to implement, low cost, fast deployment, provides a good starting point for organizations new to security, and ensures compliance with industry standards.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Not tailored to specific organizational needs</li>
+                    <li>May result in over-securing low-risk areas (wasting resources)</li>
+                    <li>May under-secure high-risk areas (leaving gaps)</li>
+                    <li>Does not consider unique threats or business context</li>
+                    <li>"One size fits all" approach may not fit well</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: Small Retail Store</h4>
+                <p>A small retail store implements PCI DSS baseline controls for handling credit card data. They install a firewall, encrypt card data, and use strong passwords. However, they may not need the same level of physical security controls as a data center, and they may have unique risks related to point-of-sale terminals that the baseline doesn't fully address.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Informal Approach -->
+        <section id="informal" class="content-section">
+            <h2>3. Informal Approach</h2>
+
+            <div class="definition">
+                <h3>What is the Informal Approach?</h3>
+                <p>The <strong>Informal Approach</strong> relies on the knowledge, experience, and judgment of security experts or experienced staff to identify and assess risks without following a formal methodology.</p>
+            </div>
+
+            <h3>How It Works</h3>
+            <p>Security decisions are made based on:</p>
+            <ul>
+                <li><strong>Expert judgment:</strong> Drawing on years of security experience</li>
+                <li><strong>Interviews:</strong> Talking with staff about their concerns and observations</li>
+                <li><strong>Workshops:</strong> Group discussions to brainstorm risks</li>
+                <li><strong>Intuition:</strong> "Gut feeling" about what might go wrong</li>
+                <li><strong>Past incidents:</strong> Learning from previous security events</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>Typical Activities</h4>
+                <ul>
+                    <li>Walkthroughs of facilities and systems</li>
+                    <li>Informal conversations with department heads</li>
+                    <li>Review of recent security incidents</li>
+                    <li>Quick security audits based on experience</li>
+                    <li>Brainstorming sessions with IT staff</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Advantages:</strong> Fast to perform, flexible and adaptable, can be organization-specific, low cost, good for identifying obvious risks quickly, and leverages deep organizational knowledge.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Highly subjective - depends on the expert's knowledge</li>
+                    <li>Results vary between assessors</li>
+                    <li>May miss risks outside the expert's experience</li>
+                    <li>Difficult to justify decisions to auditors or management</li>
+                    <li>No documentation or audit trail</li>
+                    <li>Expert bias can lead to blind spots</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: IT Manager Assessment</h4>
+                <p>An experienced IT manager walks through the office and notices that server room access is not restricted. Based on past experience at other companies, they recommend installing a card access system. While this addresses a real risk, they might miss other risks like insider threats or social engineering because they haven't systematically analyzed all possible threats.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Formal Approach (Detailed Risk Analysis) -->
+        <section id="formal" class="content-section">
+            <h2>4. Formal Approach (Detailed Risk Analysis)</h2>
+
+            <div class="definition">
+                <h3>What is the Formal Approach?</h3>
+                <p>The <strong>Formal Approach</strong> (also called Detailed Risk Analysis) is a structured, documented process that systematically identifies, analyzes, and evaluates all security risks. It uses a defined methodology to calculate risk scores.</p>
+            </div>
+
+            <h3>How It Works</h3>
+            <p>The formal approach follows a structured process:</p>
+            <ol>
+                <li><strong>Asset Identification:</strong> Catalog all information assets</li>
+                <li><strong>Asset Classification:</strong> Determine value and criticality</li>
+                <li><strong>Threat Identification:</strong> List all potential threats</li>
+                <li><strong>Vulnerability Assessment:</strong> Identify weaknesses</li>
+                <li><strong>Likelihood Assessment:</strong> Estimate probability of threats</li>
+                <li><strong>Impact Assessment:</strong> Estimate consequences if threats materialize</li>
+                <li><strong>Risk Calculation:</strong> Combine likelihood and impact</li>
+                <li><strong>Risk Prioritization:</strong> Rank risks for treatment</li>
+            </ol>
+
+            <article class="security-concept">
+                <h4>Risk Scoring Formula</h4>
+                <p>Risk is calculated by multiplying Likelihood by Impact:</p>
+                <div style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 8px; margin: 1rem 0;">
+                    <strong style="font-size: 1.5em; color: var(--primary-color);">Risk Score = Likelihood (L) × Impact (I)</strong>
+                </div>
+                <p>Both Likelihood and Impact are typically rated on a scale of 1-5:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Likelihood Description</th>
+                            <th>Impact Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1 - Very Low</strong></td>
+                            <td>Rare, unlikely to occur</td>
+                            <td>Negligible impact</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2 - Low</strong></td>
+                            <td>Possible but not expected</td>
+                            <td>Minor impact, easily recovered</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3 - Medium</strong></td>
+                            <td>Could occur occasionally</td>
+                            <td>Moderate impact, some disruption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4 - High</strong></td>
+                            <td>Likely to occur</td>
+                            <td>Significant impact, major disruption</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 - Very High</strong></td>
+                            <td>Almost certain to occur</td>
+                            <td>Catastrophic, business-threatening</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article class="security-concept">
+                <h4>Risk Score Ranges</h4>
+                <p>The resulting risk scores (1-25) are categorized into risk levels:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Score Range</th>
+                            <th>Risk Level</th>
+                            <th>Action Required</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-5</strong></td>
+                            <td style="background: #d4edda; color: #155724;">LOW</td>
+                            <td>Accept or monitor</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6-12</strong></td>
+                            <td style="background: #fff3cd; color: #856404;">MEDIUM</td>
+                            <td>Implement controls when feasible</td>
+                        </tr>
+                        <tr>
+                            <td><strong>15-25</strong></td>
+                            <td style="background: #f8d7da; color: #721c24;">HIGH</td>
+                            <td>Immediate action required</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <!-- Risk Matrix Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">5×5 Risk Assessment Matrix</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="text-align: center; font-weight: bold;">
+                        <thead>
+                            <tr>
+                                <th style="background: #e9ecef;">L \ I</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>5</strong></td>
+                                <td style="background: #ffeeba;">5</td>
+                                <td style="background: #fff3cd;">10</td>
+                                <td style="background: #f8d7da;">15</td>
+                                <td style="background: #f5c6cb;">20</td>
+                                <td style="background: #f1b0b7;">25</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>4</strong></td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #ffeeba;">8</td>
+                                <td style="background: #fff3cd;">12</td>
+                                <td style="background: #f8d7da;">16</td>
+                                <td style="background: #f5c6cb;">20</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>3</strong></td>
+                                <td style="background: #d4edda;">3</td>
+                                <td style="background: #d4edda;">6</td>
+                                <td style="background: #ffeeba;">9</td>
+                                <td style="background: #fff3cd;">12</td>
+                                <td style="background: #f8d7da;">15</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>2</strong></td>
+                                <td style="background: #d4edda;">2</td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #d4edda;">6</td>
+                                <td style="background: #ffeeba;">8</td>
+                                <td style="background: #fff3cd;">10</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>1</strong></td>
+                                <td style="background: #d4edda;">1</td>
+                                <td style="background: #d4edda;">2</td>
+                                <td style="background: #d4edda;">3</td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #d4edda;">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="diagram-note">Green = Low Risk (1-5) | Yellow = Medium Risk (6-12) | Red = High Risk (15-25)</p>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Advantages:</strong> Accurate and comprehensive, provides defensible decisions, creates documentation for compliance, identifies all risks systematically, and supports informed resource allocation.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>Time-consuming to perform thoroughly</li>
+                    <li>Expensive - requires skilled resources</li>
+                    <li>Requires trained risk assessment experts</li>
+                    <li>Can be overwhelming for small organizations</li>
+                    <li>May produce analysis paralysis</li>
+                    <li>Needs regular updates as threats change</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Combined Approach -->
+        <section id="combined" class="content-section">
+            <h2>5. Combined Approach</h2>
+
+            <div class="definition">
+                <h3>What is the Combined Approach?</h3>
+                <p>The <strong>Combined Approach</strong> blends elements of Baseline, Informal, and Formal approaches to create a practical, efficient risk assessment process that balances thoroughness with resource constraints.</p>
+            </div>
+
+            <h3>How It Works - The 3-Stage Process</h3>
+
+            <!-- Combined Approach Flowchart -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Combined Approach Flow</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Baseline</h4>
+                        <p>Apply standard controls first</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Informal</h4>
+                        <p>Expert review for gaps</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Formal</h4>
+                        <p>Deep analysis for high-risk areas</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>Stage 1: Baseline (Foundation)</h4>
+                <p>Start by implementing standard industry controls:</p>
+                <ul>
+                    <li>Select appropriate security framework (ISO 27002, NIST, CIS)</li>
+                    <li>Implement all applicable baseline controls</li>
+                    <li>This provides immediate protection for common threats</li>
+                    <li>Achieves "minimum acceptable security level"</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Stage 2: Informal (Gap Analysis)</h4>
+                <p>Use expert judgment to identify gaps and organization-specific risks:</p>
+                <ul>
+                    <li>Conduct interviews with key stakeholders</li>
+                    <li>Review unique business processes and assets</li>
+                    <li>Identify risks not covered by baseline</li>
+                    <li>Prioritize areas requiring deeper analysis</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Stage 3: Formal (Deep Dive)</h4>
+                <p>Apply detailed risk analysis only to high-value or high-risk areas:</p>
+                <ul>
+                    <li>Conduct full risk assessment for critical assets</li>
+                    <li>Calculate risk scores for prioritized threats</li>
+                    <li>Document findings for compliance requirements</li>
+                    <li>Justify additional security investments</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Why the Combined Approach is Recommended:</strong> It balances cost, speed, and accuracy. Organizations get immediate protection from baseline controls, leverage expert knowledge for quick wins, and invest formal analysis resources only where they matter most.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>Limitations</h4>
+                <ul>
+                    <li>May initially miss some risks in areas not prioritized for formal analysis</li>
+                    <li>Requires coordination between different assessment activities</li>
+                    <li>Still needs skilled resources for informal and formal stages</li>
+                    <li>May be complex to manage for very small teams</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: Medium-Sized Hospital</h4>
+                <p>A hospital uses the combined approach:</p>
+                <ol>
+                    <li><strong>Baseline:</strong> Implements HIPAA-required controls across all systems</li>
+                    <li><strong>Informal:</strong> Security officer identifies unique risks in their telemedicine platform</li>
+                    <li><strong>Formal:</strong> Conducts detailed risk analysis only for the patient records database and telemedicine system, which contain the most sensitive data</li>
+                </ol>
+                <p>This approach protects all areas while focusing detailed analysis on the most critical systems.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Comparison of Approaches -->
+        <section id="comparison" class="content-section">
+            <h2>6. Comparison of Approaches</h2>
+
+            <p>The following table compares all four risk assessment approaches across key features:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Baseline</th>
+                            <th>Informal</th>
+                            <th>Formal</th>
+                            <th>Combined</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Cost</strong></td>
+                            <td>Low</td>
+                            <td>Low</td>
+                            <td>High</td>
+                            <td>Medium</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Time Required</strong></td>
+                            <td>Fast</td>
+                            <td>Fast</td>
+                            <td>Slow</td>
+                            <td>Moderate</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Expertise Needed</strong></td>
+                            <td>Low</td>
+                            <td>High</td>
+                            <td>High</td>
+                            <td>Medium-High</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accuracy</strong></td>
+                            <td>Low-Medium</td>
+                            <td>Medium</td>
+                            <td>High</td>
+                            <td>High</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tailored to Organization</strong></td>
+                            <td>No</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Documentation</strong></td>
+                            <td>Checklist only</td>
+                            <td>Minimal</td>
+                            <td>Comprehensive</td>
+                            <td>Comprehensive</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Support</strong></td>
+                            <td>Good</td>
+                            <td>Poor</td>
+                            <td>Excellent</td>
+                            <td>Excellent</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Best For</strong></td>
+                            <td>Small orgs, quick start</td>
+                            <td>Experienced teams</td>
+                            <td>Regulated industries</td>
+                            <td>Most organizations</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Recommendation:</strong> For most organizations, the <strong>Combined Approach</strong> offers the best balance of protection, cost, and compliance. Start with baseline controls, use expert judgment to identify unique risks, and apply formal analysis where it matters most.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>7. Student Exercises</h2>
+
+            <p>Complete the following exercises to apply your understanding of risk assessment approaches:</p>
+
+            <article class="security-concept">
+                <h4>Exercise 1: Medical Clinic Scenario</h4>
+                <p><strong>Scenario:</strong> A small medical clinic with 5 doctors and 10 staff members needs to protect patient health records. They have limited IT budget and no dedicated security staff.</p>
+                <p><strong>Tasks:</strong></p>
+                <ol>
+                    <li>Which risk assessment approach would you recommend? Why?</li>
+                    <li>What baseline standard should they follow?</li>
+                    <li>Identify 3 specific risks they should assess</li>
+                    <li>For each risk, estimate Likelihood (1-5) and Impact (1-5)</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 2: E-Commerce Platform</h4>
+                <p><strong>Scenario:</strong> An online retail company processes 10,000 credit card transactions daily. They operate in multiple countries and must comply with PCI DSS.</p>
+                <p><strong>Tasks:</strong></p>
+                <ol>
+                    <li>Which approach is most suitable given compliance requirements?</li>
+                    <li>What assets should receive formal risk analysis?</li>
+                    <li>Create a simple risk register with 5 key risks</li>
+                    <li>Prioritize the risks using the L×I formula</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 3: National Bank</h4>
+                <p><strong>Scenario:</strong> A national bank with 500 branches is implementing a new mobile banking application. They face strict regulatory oversight and potential nation-state threats.</p>
+                <p><strong>Tasks:</strong></p>
+                <ol>
+                    <li>Why would the baseline approach alone be insufficient?</li>
+                    <li>Design a combined approach strategy for this bank</li>
+                    <li>What areas would require formal detailed risk analysis?</li>
+                    <li>How would you justify the cost of formal analysis to management?</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 4: University IT Department</h4>
+                <p><strong>Scenario:</strong> A university manages student records, research data, and online learning platforms. They have experienced IT staff but limited security expertise.</p>
+                <p><strong>Tasks:</strong></p>
+                <ol>
+                    <li>Identify the most critical information assets</li>
+                    <li>What threats are unique to educational institutions?</li>
+                    <li>Design a 3-stage combined approach for this university</li>
+                    <li>Create a risk matrix for their top 5 risks</li>
+                </ol>
+            </article>
+
+            <div class="example">
+                <h4>Sample Solution: Medical Clinic (Exercise 1)</h4>
+                <p><strong>Recommended Approach:</strong> Combined, with emphasis on Baseline</p>
+                <p><strong>Reasoning:</strong> Small budget and no security staff means they need quick, cost-effective protection. HIPAA baseline provides the foundation.</p>
+                <p><strong>Key Risks:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risk</th>
+                            <th>Likelihood</th>
+                            <th>Impact</th>
+                            <th>Score</th>
+                            <th>Level</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ransomware on patient records</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td style="color: #c53030;">HIGH</td>
+                        </tr>
+                        <tr>
+                            <td>Unauthorized access to records</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>12</td>
+                            <td style="color: #c05621;">MEDIUM</td>
+                        </tr>
+                        <tr>
+                            <td>Lost/stolen laptop with data</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>9</td>
+                            <td style="color: #c05621;">MEDIUM</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>Security Risk Assessment</strong> is essential for protecting information assets effectively and allocating security resources wisely.</li>
+
+                <li><strong>The Baseline Approach</strong> uses standard controls from frameworks like ISO 27002, NIST, and CIS Controls. It's fast and cheap but not tailored to specific needs.</li>
+
+                <li><strong>The Informal Approach</strong> relies on expert judgment and experience. It's flexible but subjective and may miss risks.</li>
+
+                <li><strong>The Formal Approach</strong> (Detailed Risk Analysis) uses systematic methods to calculate risk scores (L × I). It's accurate but time-consuming and expensive.</li>
+
+                <li><strong>Risk Scoring</strong> uses a 5×5 matrix where scores 1-5 are Low, 6-12 are Medium, and 15-25 are High risk.</li>
+
+                <li><strong>The Combined Approach</strong> is recommended for most organizations - start with baseline, add expert review, and apply formal analysis to critical areas.</li>
+
+                <li><strong>Approach Selection</strong> depends on organization size, resources, regulatory requirements, and risk tolerance.</li>
+
+                <li><strong>No approach is perfect</strong> - each has advantages and limitations that must be considered.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will explore security controls in depth - learning how to select, implement, and monitor the right controls to address identified risks.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>Risk Assessment Approaches Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Risk Matrix:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Combined Approach Flowchart:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>

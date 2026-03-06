@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 4: Risk Treatment</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture4_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Risk Treatment</h1>
+        <p class="subtitle">Lecture 4: Managing and Treating Identified Risks</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#risk-treatment">1. What is Risk Treatment?</a></li>
+            <li><a href="#alternatives">2. Risk Treatment Alternatives</a></li>
+            <li><a href="#case-study">3. Case Study: Silver Star Mines</a></li>
+            <li><a href="#assets">4. Silver Star Mines: Assets</a></li>
+            <li><a href="#threats">5. Silver Star Mines: Threats & Vulnerabilities</a></li>
+            <li><a href="#register">6. Silver Star Mines: Risk Register</a></li>
+            <li><a href="#choosing">7. Choosing a Treatment Strategy</a></li>
+            <li><a href="#exercises">8. Student Exercises</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Understand the concept of risk treatment in IT security management</li>
+                <li>Identify different risk treatment alternatives</li>
+                <li>Explain when to accept, avoid, transfer, or reduce risk</li>
+                <li>Analyze a real-world case study (Silver Star Mines)</li>
+                <li>Recognize the importance of the risk register in managing risks</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: What is Risk Treatment? -->
+        <section id="risk-treatment" class="content-section">
+            <h2>1. What is Risk Treatment?</h2>
+
+            <div class="definition">
+                <h3>What is Risk Treatment?</h3>
+                <p><strong>Risk treatment</strong> is the process of selecting and implementing measures to modify risk. After risks have been identified, analyzed, and evaluated through risk assessment, the organization must decide how to handle each risk based on its level and the cost of treatment.</p>
+            </div>
+
+            <h3>The Treatment Decision</h3>
+            <p>The decision to treat a risk depends on the balance between the <strong>risk level</strong> and the <strong>cost of treatment</strong>:</p>
+
+            <article class="security-concept">
+                <h4>Risk Level vs. Cost of Treatment</h4>
+                <ul>
+                    <li><strong>Extreme risk + Low treatment cost:</strong> Implement treatment immediately</li>
+                    <li><strong>High risk + Moderate treatment cost:</strong> Treatment is generally justified</li>
+                    <li><strong>Medium risk + Moderate treatment cost:</strong> Judgment needed — weigh costs vs. benefits</li>
+                    <li><strong>Low risk + High treatment cost:</strong> Uneconomic to treat — accept the risk</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Key Principle:</strong> Risk treatment is not about eliminating all risks — that is impossible and impractical. The goal is to reduce risks to an <strong>acceptable level</strong> within the organization's risk appetite, while making efficient use of available resources.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Risk Treatment Alternatives -->
+        <section id="alternatives" class="content-section">
+            <h2>2. Risk Treatment Alternatives</h2>
+
+            <p>There are five main alternatives for treating identified risks. The choice depends on the nature of the risk, its level, and the organization's circumstances:</p>
+
+            <!-- Treatment Alternatives Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Five Risk Treatment Alternatives</h3>
+                </div>
+                <div class="four-areas-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="area-card">
+                        <div class="area-icon">✅</div>
+                        <h4>Accept</h4>
+                        <p>Accept the risk when treatment cost exceeds the benefit</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🚫</div>
+                        <h4>Avoid</h4>
+                        <p>Do not proceed with the activity causing the risk</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🔄</div>
+                        <h4>Transfer</h4>
+                        <p>Shift the risk to a third party (insurance, outsourcing)</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📉</div>
+                        <h4>Reduce Consequence</h4>
+                        <p>Modify asset usage to reduce impact if risk occurs</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🛡️</div>
+                        <h4>Reduce Likelihood</h4>
+                        <p>Implement controls to make the risk less likely to occur</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>1. Risk Acceptance</h4>
+                <p><strong>Accept the risk</strong> — perhaps because of the excessive cost of risk treatment. The organization acknowledges the risk exists but decides not to take action.</p>
+                <ul>
+                    <li><strong>When to use:</strong> The cost of treatment exceeds the potential loss, or the risk level is low</li>
+                    <li><strong>Requirement:</strong> Must be a conscious, documented decision by management</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example: Risk Acceptance</h4>
+                <p>A company's older printer has a known vulnerability, but it is on an isolated network segment, only prints non-sensitive documents, and will be replaced in 3 months. The cost of patching exceeds the minimal risk, so management formally accepts the risk.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>2. Risk Avoidance</h4>
+                <p><strong>Do not proceed with the activity</strong> that causes the risk. This eliminates the risk entirely but also means losing the convenience or benefit of the activity.</p>
+                <ul>
+                    <li><strong>When to use:</strong> The risk is too high and no adequate controls can reduce it</li>
+                    <li><strong>Trade-off:</strong> Loss of business opportunity or functionality</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example: Risk Avoidance</h4>
+                <p>A company decides not to offer public Wi-Fi in its offices because the risk of network intrusion through an open wireless network is too high and the security costs to properly protect it are not justified by the business benefit.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>3. Risk Transfer</h4>
+                <p><strong>Transfer the risk to a third party</strong> through insurance or outsourcing. The risk still exists, but the financial or operational burden is shared or shifted.</p>
+                <ul>
+                    <li><strong>When to use:</strong> The risk has high financial impact but the organization lacks expertise to manage it</li>
+                    <li><strong>Methods:</strong> Buy cyber insurance, outsource IT operations to managed service providers</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example: Risk Transfer</h4>
+                <p>A company purchases cyber liability insurance that covers the costs of data breach notification, legal fees, and customer compensation. The risk of a breach still exists, but the financial impact is transferred to the insurance provider.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>4. Reduce Consequence</h4>
+                <p><strong>Modify the uses of an asset</strong> to reduce the impact should the risk materialize. This does not prevent the incident but limits the damage.</p>
+                <ul>
+                    <li><strong>When to use:</strong> You cannot prevent the threat but can limit its impact</li>
+                    <li><strong>Methods:</strong> Offsite backups, disaster recovery plans, data segmentation</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example: Reduce Consequence</h4>
+                <p>A company maintains offsite backups of all critical data. If ransomware encrypts their servers, they can restore from backups rather than paying the ransom. The attack still occurs, but the consequence is reduced from Catastrophic to Minor.</p>
+            </div>
+
+            <article class="security-concept">
+                <h4>5. Reduce Likelihood</h4>
+                <p><strong>Implement suitable controls</strong> to make the risk event less likely to occur. This is the most common risk treatment approach.</p>
+                <ul>
+                    <li><strong>When to use:</strong> There are effective controls available at reasonable cost</li>
+                    <li><strong>Methods:</strong> Firewalls, access controls, encryption, staff training, patching</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example: Reduce Likelihood</h4>
+                <p>A company implements multi-factor authentication (MFA) for all remote access. This makes unauthorized access much less likely even if passwords are compromised, reducing likelihood from "Almost Certain" to "Unlikely."</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Case Study: Silver Star Mines -->
+        <section id="case-study" class="content-section">
+            <h2>3. Case Study: Silver Star Mines</h2>
+
+            <div class="definition">
+                <h3>About Silver Star Mines</h3>
+                <p><strong>Silver Star Mines</strong> is a fictional operation of a global mining company that illustrates how risk assessment and treatment work in a real-world industrial setting.</p>
+            </div>
+
+            <h3>Company Profile</h3>
+            <ul>
+                <li><strong>Type:</strong> Global mining company with large-scale operations</li>
+                <li><strong>IT Infrastructure:</strong> Extensive, including both common business software and industry-specific systems</li>
+                <li><strong>Critical Systems:</strong> Some IT systems directly relate to health and safety (SCADA)</li>
+                <li><strong>Network Evolution:</strong> Formerly isolated systems are now networked, increasing attack surface</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>Risk Assessment Approach</h4>
+                <ul>
+                    <li>Silver Star Mines decided on a <strong>combined approach</strong> to risk assessment</li>
+                    <li>The mining industry is at the <strong>less risky end of the spectrum</strong> compared to financial institutions</li>
+                    <li>Management has decided to <strong>accept moderate or low risk</strong> — only high and extreme risks require treatment</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Section 4: Assets -->
+        <section id="assets" class="content-section">
+            <h2>4. Silver Star Mines: Assets</h2>
+
+            <p>The risk assessment identified the following key IT assets requiring protection:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Asset</th>
+                            <th>Security Properties</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td>SCADA nodes and network</td>
+                            <td>Reliability and Integrity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td>Stored file and database information</td>
+                            <td>Integrity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td>Financial system</td>
+                            <td>Availability and Integrity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td>Procurement system</td>
+                            <td>Availability and Integrity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td>Maintenance/Production system</td>
+                            <td>Availability and Integrity</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td>Mail services</td>
+                            <td>Availability, Integrity, and Confidentiality</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4>Critical Asset: SCADA Systems</h4>
+                <p>SCADA (Supervisory Control and Data Acquisition) systems are particularly critical because they directly control physical mining operations. Compromise of these systems could lead to equipment damage, environmental incidents, or even loss of life. This is why SCADA reliability and integrity is the highest priority asset.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Threats & Vulnerabilities -->
+        <section id="threats" class="content-section">
+            <h2>5. Silver Star Mines: Threats & Vulnerabilities</h2>
+
+            <p>The following threats and vulnerabilities were identified for each asset:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Threat/Vulnerability</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SCADA nodes and network</strong></td>
+                            <td>Unauthorized modification of control system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stored file and database information</strong></td>
+                            <td>Corruption, theft, loss of information</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Financial system</strong></td>
+                            <td>Attacks/errors affecting the system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Procurement system</strong></td>
+                            <td>Attacks/errors affecting the system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maintenance/Production system</strong></td>
+                            <td>Attacks/errors affecting the system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Mail services</strong></td>
+                            <td>Attacks/errors affecting the system</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 6: Risk Register -->
+        <section id="register" class="content-section">
+            <h2>6. Silver Star Mines: Risk Register</h2>
+
+            <p>The complete risk register for Silver Star Mines, showing all assessed risks with their ratings and priorities:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Threat/Vulnerability</th>
+                            <th>Existing Controls</th>
+                            <th>Likelihood</th>
+                            <th>Consequence</th>
+                            <th>Level of Risk</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Reliability and integrity of SCADA nodes and network</td>
+                            <td>Unauthorized modification of control system</td>
+                            <td>Layered firewalls & servers</td>
+                            <td>Rare</td>
+                            <td>Major</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>1</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Integrity of stored file and database information</td>
+                            <td>Corruption, theft, loss of info</td>
+                            <td>Firewall, policies</td>
+                            <td>Possible</td>
+                            <td>Major</td>
+                            <td style="background: #f1b0b7; color: #721c24;"><strong>Extreme</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Availability and integrity of Financial System</td>
+                            <td>Attacks/errors affecting system</td>
+                            <td>Firewall, policies</td>
+                            <td>Possible</td>
+                            <td>Moderate</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>3</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Availability and integrity of Procurement System</td>
+                            <td>Attacks/errors affecting system</td>
+                            <td>Firewall, policies</td>
+                            <td>Possible</td>
+                            <td>Moderate</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>4</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Availability and integrity of Maintenance/Production System</td>
+                            <td>Attacks/errors affecting system</td>
+                            <td>Firewall, policies</td>
+                            <td>Possible</td>
+                            <td>Minor</td>
+                            <td style="background: #ffeeba; color: #856404;"><strong>Medium</strong></td>
+                            <td><strong>5</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Availability, integrity and confidentiality of mail services</td>
+                            <td>Attacks/errors affecting system</td>
+                            <td>Firewall, ext mail gateway</td>
+                            <td>Almost Certain</td>
+                            <td>Minor</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>6</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Key Observation:</strong> Notice that the SCADA system is Priority 1 despite having "Rare" likelihood because the consequence of failure is "Major" and involves health and safety. The file/database system is rated "Extreme" because both likelihood (Possible) and consequence (Major) are significant.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Choosing a Treatment Strategy -->
+        <section id="choosing" class="content-section">
+            <h2>7. Choosing a Treatment Strategy</h2>
+
+            <p>Selecting the right treatment alternative depends on several factors. Use the following decision framework:</p>
+
+            <!-- Decision Framework Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Risk Treatment Decision Framework</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Assess Risk Level</h4>
+                        <p>Determine if risk is Extreme, High, Medium, or Low</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Evaluate Options</h4>
+                        <p>Consider all five treatment alternatives</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Cost-Benefit Analysis</h4>
+                        <p>Compare treatment cost vs. risk impact</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>Implement & Monitor</h4>
+                        <p>Apply chosen treatment and track effectiveness</p>
+                    </div>
+                </div>
+            </div>
+
+            <h3>When to Apply Each Alternative</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Treatment</th>
+                            <th>Best When...</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Accept</strong></td>
+                            <td>Risk is low or treatment cost exceeds potential loss</td>
+                            <td>Minor cosmetic website defacement risk on internal portal</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Avoid</strong></td>
+                            <td>Risk is too high and cannot be adequately controlled</td>
+                            <td>Discontinuing use of an unsupported legacy system</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transfer</strong></td>
+                            <td>High financial impact but can be insured or outsourced</td>
+                            <td>Purchasing cyber liability insurance for data breaches</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reduce Consequence</strong></td>
+                            <td>Cannot prevent the threat but can limit damage</td>
+                            <td>Implementing disaster recovery and offsite backups</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Reduce Likelihood</strong></td>
+                            <td>Effective controls are available at reasonable cost</td>
+                            <td>Deploying firewalls, MFA, and intrusion detection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="warning-box">
+                <h4>Multiple Treatments</h4>
+                <p>In practice, organizations often apply <strong>multiple treatment alternatives</strong> to a single risk. For example, Silver Star Mines might reduce the likelihood of SCADA attacks through additional firewalls AND reduce the consequence through isolated safety shutdown systems AND transfer residual risk through insurance.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>8. Student Exercises</h2>
+
+            <p>Complete the following exercises to apply your understanding of risk treatment:</p>
+
+            <article class="security-concept">
+                <h4>Exercise 1: What is risk treatment?</h4>
+                <p>Define risk treatment in your own words. Explain the relationship between risk assessment (from Lecture 3) and risk treatment. Why must risk assessment come before risk treatment?</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 2: What are the main risk treatment alternatives?</h4>
+                <p>List and briefly describe each of the five risk treatment alternatives. For each one, provide a real-world example different from those given in the lecture.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 3: Why is a risk register important?</h4>
+                <p>Explain the purpose and importance of a risk register. What information does it contain and how does it support management decision-making? What happens when an organization does not maintain a risk register?</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 4: What is the purpose of the Silver Star Mines case study?</h4>
+                <p>Analyze the Silver Star Mines case study. Why did they choose the combined approach? Looking at the risk register, which risks should be treated first and which treatment alternatives would you recommend for the top 3 priority risks?</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 5: Hospital Risk Treatment Plan</h4>
+                <p><strong>Scenario:</strong> A hospital has completed a risk assessment and identified the following risks:</p>
+                <ol>
+                    <li>Ransomware attack on patient records — Risk Level: Extreme</li>
+                    <li>Power outage affecting operating rooms — Risk Level: High</li>
+                    <li>Staff accidentally emailing patient data — Risk Level: Medium</li>
+                    <li>Minor website defacement — Risk Level: Low</li>
+                </ol>
+                <p><strong>Task:</strong> For each risk, recommend one or more treatment alternatives and justify your choice. Consider the hospital's critical mission of patient care.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 6: Build a Treatment Plan</h4>
+                <p><strong>Scenario:</strong> Using the Silver Star Mines risk register, create a treatment plan for all risks rated High or above. For each risk, specify the treatment alternative(s) you would apply, the specific actions to be taken, and the expected residual risk level after treatment.</p>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>Risk Treatment</strong> is the process of selecting and implementing measures to modify risk. It follows risk assessment and determines how each identified risk will be handled.</li>
+
+                <li><strong>Five Treatment Alternatives</strong> exist: Risk Acceptance, Risk Avoidance, Risk Transfer, Reduce Consequence, and Reduce Likelihood. Each has specific use cases and trade-offs.</li>
+
+                <li><strong>The treatment decision</strong> balances risk level against cost of treatment. Not all risks need active treatment — some can be accepted if the cost of treatment exceeds the potential loss.</li>
+
+                <li><strong>The Silver Star Mines case study</strong> demonstrates how a real-world organization applies the combined approach to identify assets, threats, vulnerabilities, and build a prioritized risk register.</li>
+
+                <li><strong>The Risk Register</strong> is the central document for managing risks. It records all identified risks with their analysis and provides a prioritized list for treatment decisions.</li>
+
+                <li><strong>Multiple treatments</strong> can be applied to a single risk. Organizations often combine strategies for comprehensive risk management.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will explore <strong>Security Controls</strong> in depth — learning how to select, implement, and monitor the specific technical, administrative, and physical controls used to treat identified risks.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>Risk Treatment Alternatives Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Risk Treatment Decision Framework:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>

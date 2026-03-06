@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 1: Introduction to IT Security Management</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture1_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Introduction to IT Security Management</h1>
+        <p class="subtitle">Lecture 1: Fundamentals of Security Management and Risk Assessment</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#overview">1. Overview</a></li>
+            <li><a href="#it-security-mgmt">2. IT Security Management</a></li>
+            <li><a href="#iso-27000">3. ISO 27000 Security Standards</a></li>
+            <li><a href="#security-process">4. IT Security Management Process</a></li>
+            <li><a href="#pdca">5. Plan-Do-Check-Act Cycle</a></li>
+            <li><a href="#security-policy">6. Security Policy</a></li>
+            <li><a href="#management-support">7. Management Support</a></li>
+            <li><a href="#exercises">8. Student Exercises</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Define IT security management and explain its purpose</li>
+                <li>Identify the core security objectives (CIA Triad)</li>
+                <li>Explain the ISO 27000 standards and ISMS framework</li>
+                <li>Outline the 5-step IT security management process</li>
+                <li>Describe the Plan-Do-Check-Act (PDCA) cycle</li>
+                <li>Recognize the importance of security policies</li>
+                <li>Understand the role of management support in security</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="content-section">
+            <h2>1. Overview</h2>
+
+            <div class="definition">
+                <h3>Security Requirements</h3>
+                <p>Organizations need to protect their information assets from various threats. This requires understanding what assets need protection, what threats exist, and what countermeasures can be applied.</p>
+            </div>
+
+            <h3>Key Questions to Consider</h3>
+            <ul>
+                <li><strong>What assets need protection?</strong> - Data, systems, networks, people</li>
+                <li><strong>What are the threats?</strong> - Hackers, malware, natural disasters, insider threats</li>
+                <li><strong>What countermeasures exist?</strong> - Technical controls, policies, training</li>
+                <li><strong>How do we assess risk?</strong> - Identify vulnerabilities, estimate impact, prioritize</li>
+            </ul>
+
+            <div class="key-message">
+                <p><strong>Key Insight:</strong> Effective security management requires a systematic approach that considers people, processes, and technology working together.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: IT Security Management -->
+        <section id="it-security-mgmt" class="content-section">
+            <h2>2. IT Security Management</h2>
+
+            <div class="definition">
+                <h3>What is IT Security Management?</h3>
+                <p><strong>IT Security Management</strong> is the process of managing and protecting information assets through policies, procedures, and controls to ensure the confidentiality, integrity, and availability of information.</p>
+            </div>
+
+            <h3>The CIA Triad</h3>
+            <p>The three core objectives of information security:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">The Three Pillars of Security</h3>
+                </div>
+                <div class="cia-triad-container">
+                    <div class="cia-triangle">
+                        <div class="cia-pillar pillar-confidentiality">
+                            Confidentiality
+                        </div>
+                        <div class="cia-pillar pillar-integrity">
+                            Integrity
+                        </div>
+                        <div class="cia-pillar pillar-availability">
+                            Availability
+                        </div>
+                        <div class="cia-center">
+                            <strong>CIA</strong><br>
+                            <small>Triad</small>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/cia_risk_demo.html" class="demo-link">Try Interactive CIA Demo</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>Confidentiality</h4>
+                <p>Ensuring that information is accessible only to those authorized to access it.</p>
+                <ul>
+                    <li><strong>Encryption:</strong> AES-256, RSA, TLS/SSL for data protection</li>
+                    <li><strong>Access controls:</strong> Role-based access (RBAC), least privilege principle</li>
+                    <li><strong>Authentication:</strong> Multi-factor authentication (MFA), biometrics</li>
+                    <li><strong>Data classification:</strong> Public, Internal, Confidential, Restricted</li>
+                </ul>
+                <p><em>Risk Management Example:</em> Protecting risk assessment reports from unauthorized access to prevent exposure of organizational vulnerabilities.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Integrity</h4>
+                <p>Safeguarding the accuracy and completeness of information and processing methods.</p>
+                <ul>
+                    <li><strong>Hash functions:</strong> SHA-256, SHA-3 for data verification</li>
+                    <li><strong>Digital signatures:</strong> Non-repudiation and authenticity</li>
+                    <li><strong>Version control:</strong> Git, document management systems</li>
+                    <li><strong>Audit trails:</strong> Logging all data modifications</li>
+                </ul>
+                <p><em>Risk Management Example:</em> Ensuring audit logs and compliance reports cannot be falsified or tampered with.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Availability</h4>
+                <p>Ensuring that authorized users have access to information and associated assets when required.</p>
+                <ul>
+                    <li><strong>Redundancy:</strong> RAID, clustering, load balancing</li>
+                    <li><strong>Backup systems:</strong> 3-2-1 rule (3 copies, 2 media types, 1 offsite)</li>
+                    <li><strong>Disaster recovery:</strong> RTO and RPO planning</li>
+                    <li><strong>DDoS protection:</strong> CDN, rate limiting, traffic scrubbing</li>
+                </ul>
+                <p><em>Risk Management Example:</em> Keeping security monitoring systems operational during an active attack.</p>
+            </article>
+
+            <h3>IT Security Management Functions</h3>
+            <ul>
+                <li>Risk assessment and management</li>
+                <li>Security policy development</li>
+                <li>Security awareness training</li>
+                <li>Incident response</li>
+                <li>Compliance monitoring</li>
+                <li>Security architecture design</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: ISO 27000 Security Standards -->
+        <section id="iso-27000" class="content-section">
+            <h2>3. ISO 27000 Security Standards</h2>
+
+            <div class="definition">
+                <h3>What is ISO 27000?</h3>
+                <p>The <strong>ISO/IEC 27000 family</strong> of standards helps organizations keep information assets secure. It includes standards for Information Security Management Systems (ISMS).</p>
+            </div>
+
+            <h3>Key Standards in the ISO 27000 Family</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Standard</th>
+                        <th>Description</th>
+                        <th>Key Focus</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ISO 27001</strong></td>
+                        <td>Requirements for ISMS - the main certification standard</td>
+                        <td>Certification, requirements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27002</strong></td>
+                        <td>Code of practice for information security controls</td>
+                        <td>93 controls, best practices</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27005</strong></td>
+                        <td>Information security risk management</td>
+                        <td>Risk assessment methodology</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27017</strong></td>
+                        <td>Security controls for cloud services</td>
+                        <td>Cloud-specific controls</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27018</strong></td>
+                        <td>Protection of personal data in the cloud</td>
+                        <td>Privacy, PII protection</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27701</strong></td>
+                        <td>Privacy information management extension to ISO 27001</td>
+                        <td>GDPR alignment, privacy</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27035</strong></td>
+                        <td>Information security incident management</td>
+                        <td>Incident response</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-message">
+                <p><strong>ISO 27001:2022 Update:</strong> The latest version reorganizes controls into 4 themes (Organizational, People, Physical, Technological) with 93 total controls, including 11 new controls for emerging threats like threat intelligence and cloud security.</p>
+            </div>
+
+            <h3>Information Security Management System (ISMS)</h3>
+            <p>An ISMS is a systematic approach to managing sensitive company information so that it remains secure. It includes:</p>
+            <ul>
+                <li>People and their roles</li>
+                <li>Processes and procedures</li>
+                <li>Technology and systems</li>
+                <li>Policies and documentation</li>
+            </ul>
+
+            <div class="key-message">
+                <p><strong>Benefits of ISO 27001 Certification:</strong> Demonstrates commitment to security, builds customer trust, ensures legal compliance, and provides a framework for continuous improvement.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: IT Security Management Process -->
+        <section id="security-process" class="content-section">
+            <h2>4. IT Security Management Process</h2>
+
+            <p>The IT security management process consists of five key steps that form a continuous cycle. This framework aligns with the NIST Cybersecurity Framework used widely in industry:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">The 5-Step Security Process</h3>
+                </div>
+                <div class="process-steps-grid">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Identify</h4>
+                        <p>Assets, threats, vulnerabilities</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Protect</h4>
+                        <p>Implement security controls</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Detect</h4>
+                        <p>Monitor and analyze</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>Respond</h4>
+                        <p>Contain and take action</p>
+                    </div>
+                    <div class="process-step-card step-recover">
+                        <div class="step-number">5</div>
+                        <h4>Recover</h4>
+                        <p>Restore and improve</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/security_process_demo.html" class="demo-link">Try Interactive Process Demo</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>Step 1: Identify</h4>
+                <p>Develop organizational understanding to manage security risk to systems, assets, data, and capabilities.</p>
+                <ul>
+                    <li>Asset management and inventory</li>
+                    <li>Business environment analysis</li>
+                    <li>Governance and risk assessment</li>
+                    <li>Threat identification</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Step 2: Protect</h4>
+                <p>Implement appropriate safeguards to ensure delivery of critical services.</p>
+                <ul>
+                    <li>Access control mechanisms</li>
+                    <li>Security awareness training</li>
+                    <li>Data security measures</li>
+                    <li>Protective technology deployment</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Step 3: Detect</h4>
+                <p>Implement appropriate activities to identify the occurrence of a security event.</p>
+                <ul>
+                    <li>Continuous monitoring</li>
+                    <li>Anomaly detection</li>
+                    <li>Security event logging</li>
+                    <li>Alert analysis</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Step 4: Respond</h4>
+                <p>Take action regarding a detected security incident.</p>
+                <ul>
+                    <li>Response planning</li>
+                    <li>Communications</li>
+                    <li>Analysis and containment</li>
+                    <li>Mitigation activities</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Step 5: Recover</h4>
+                <p>Maintain plans for resilience and restore any capabilities impaired by a security incident.</p>
+                <ul>
+                    <li>Recovery planning</li>
+                    <li>System restoration</li>
+                    <li>Improvements based on lessons learned</li>
+                    <li>Communications with stakeholders</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Section 5: PDCA Cycle -->
+        <section id="pdca" class="content-section">
+            <h2>5. Plan-Do-Check-Act Cycle</h2>
+
+            <div class="definition">
+                <h3>The Deming Cycle (PDCA)</h3>
+                <p>The <strong>Plan-Do-Check-Act</strong> cycle is a four-step management method used for continuous improvement of processes and products. It is fundamental to ISO 27001 implementation and ensures security management is never a "set and forget" activity.</p>
+            </div>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">PDCA Continuous Improvement Cycle</h3>
+                </div>
+                <div class="pdca-cycle-container">
+                    <div class="pdca-grid">
+                        <div class="pdca-card pdca-plan">
+                            <h4>PLAN</h4>
+                            <p>Define objectives<br>Design controls</p>
+                        </div>
+                        <div class="pdca-card pdca-do">
+                            <h4>DO</h4>
+                            <p>Implement controls<br>Execute plans</p>
+                        </div>
+                        <div class="pdca-card pdca-check">
+                            <h4>CHECK</h4>
+                            <p>Monitor results<br>Audit performance</p>
+                        </div>
+                        <div class="pdca-card pdca-act">
+                            <h4>ACT</h4>
+                            <p>Improve processes<br>Correct issues</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/pdca_cycle_demo.html" class="demo-link">Try Interactive PDCA Demo</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>PLAN Phase</h4>
+                <p>Establish the objectives and processes necessary to deliver results in accordance with the expected output.</p>
+                <ul>
+                    <li>Define the ISMS scope</li>
+                    <li>Establish security policy</li>
+                    <li>Conduct risk assessment</li>
+                    <li>Select controls to address risks</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>DO Phase</h4>
+                <p>Implement the plan, execute the process, make the product.</p>
+                <ul>
+                    <li>Implement security controls</li>
+                    <li>Develop procedures</li>
+                    <li>Train personnel</li>
+                    <li>Manage operations</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>CHECK Phase</h4>
+                <p>Study the actual results and compare against expected results to determine any differences.</p>
+                <ul>
+                    <li>Monitor and measure processes</li>
+                    <li>Conduct internal audits</li>
+                    <li>Review ISMS effectiveness</li>
+                    <li>Report findings to management</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>ACT Phase</h4>
+                <p>Take corrective actions on significant differences between actual and planned results.</p>
+                <ul>
+                    <li>Implement corrective actions</li>
+                    <li>Address non-conformities</li>
+                    <li>Make improvements</li>
+                    <li>Update documentation</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Continuous Improvement:</strong> The PDCA cycle is not a one-time process. It should be repeated continuously to achieve ongoing improvement in security management.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Security Policy -->
+        <section id="security-policy" class="content-section">
+            <h2>6. Security Policy</h2>
+
+            <div class="definition">
+                <h3>What is a Security Policy?</h3>
+                <p>A <strong>security policy</strong> is a document that outlines how an organization protects its information assets and guides decision-making regarding security.</p>
+            </div>
+
+            <h3>Security Policy Topics</h3>
+            <div class="policy-topics-box">
+                <h4>Key Areas to Address</h4>
+                <ul class="policy-topics-list">
+                    <li>Scope and objectives</li>
+                    <li>Roles and responsibilities</li>
+                    <li>Risk management approach</li>
+                    <li>Asset classification</li>
+                    <li>Access control requirements</li>
+                    <li>Incident response procedures</li>
+                    <li>Compliance requirements</li>
+                    <li>Training and awareness</li>
+                    <li>Business continuity</li>
+                    <li>Review and update schedule</li>
+                </ul>
+            </div>
+
+            <h3>Example Security Policy Structure</h3>
+            <article class="security-concept">
+                <h4>Policy Document Components</h4>
+                <ol>
+                    <li><strong>Purpose:</strong> Why the policy exists</li>
+                    <li><strong>Scope:</strong> What/who the policy covers</li>
+                    <li><strong>Policy Statement:</strong> The actual rules and requirements</li>
+                    <li><strong>Responsibilities:</strong> Who is responsible for what</li>
+                    <li><strong>Compliance:</strong> How compliance is monitored</li>
+                    <li><strong>Exceptions:</strong> Process for handling exceptions</li>
+                    <li><strong>Review:</strong> When and how the policy is reviewed</li>
+                </ol>
+            </article>
+
+            <div class="warning-box">
+                <h4>Common Policy Mistakes</h4>
+                <ul>
+                    <li>Policies that are too vague or too detailed</li>
+                    <li>Policies that don't align with business objectives</li>
+                    <li>Policies that are never reviewed or updated</li>
+                    <li>Policies without enforcement mechanisms</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 7: Management Support -->
+        <section id="management-support" class="content-section">
+            <h2>7. Management Support</h2>
+
+            <div class="definition">
+                <h3>Why Management Support Matters</h3>
+                <p>Without senior management commitment, security initiatives often fail. Management provides the resources, authority, and organizational culture needed for effective security.</p>
+            </div>
+
+            <h3>Senior Management Responsibilities</h3>
+            <ul>
+                <li>Approve and endorse security policies</li>
+                <li>Allocate adequate resources (budget, personnel)</li>
+                <li>Define security roles and responsibilities</li>
+                <li>Review security reports and metrics</li>
+                <li>Ensure security aligns with business objectives</li>
+                <li>Promote a security-aware culture</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>The IT Security Officer Role</h4>
+                <p>The IT Security Officer (or Chief Information Security Officer - CISO) is responsible for:</p>
+                <ul>
+                    <li>Developing and maintaining security policies</li>
+                    <li>Managing security operations</li>
+                    <li>Coordinating security awareness programs</li>
+                    <li>Reporting to senior management</li>
+                    <li>Ensuring compliance with regulations</li>
+                    <li>Managing incident response</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Top-Down Approach:</strong> Security must be championed from the top. When executives visibly support security initiatives, the entire organization follows.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>8. Student Exercises</h2>
+
+            <p>Complete the following exercises to reinforce your understanding:</p>
+
+            <article class="security-concept">
+                <h4>Exercise 1: CIA Triad Application</h4>
+                <p>For each scenario below, identify which CIA principle is most at risk:</p>
+                <ol>
+                    <li>A company's customer database is accessed by unauthorized users</li>
+                    <li>Financial records are modified without authorization</li>
+                    <li>The company website goes down during a DDoS attack</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 2: Security Policy Development</h4>
+                <p>Draft an outline for a password policy that includes:</p>
+                <ul>
+                    <li>Purpose and scope</li>
+                    <li>Password requirements (length, complexity)</li>
+                    <li>Password change frequency</li>
+                    <li>Account lockout rules</li>
+                    <li>Responsibilities</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 3: PDCA Cycle Implementation</h4>
+                <p>Your organization wants to implement a new access control system. Describe the activities for each PDCA phase:</p>
+                <ul>
+                    <li><strong>Plan:</strong> What would you include in the planning phase?</li>
+                    <li><strong>Do:</strong> What implementation steps are needed?</li>
+                    <li><strong>Check:</strong> How would you verify the system works?</li>
+                    <li><strong>Act:</strong> What improvements might be needed?</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>IT Security Management</strong> is a systematic approach to protecting information assets through policies, procedures, and controls.</li>
+
+                <li><strong>The CIA Triad</strong> (Confidentiality, Integrity, Availability) forms the foundation of all security objectives.</li>
+
+                <li><strong>ISO 27000 standards</strong> provide a framework for implementing an Information Security Management System (ISMS).</li>
+
+                <li><strong>The 5-Step Security Process</strong> - Identify, Protect, Detect, Respond, Recover - provides a practical framework for security operations.</li>
+
+                <li><strong>The PDCA Cycle</strong> (Plan-Do-Check-Act) enables continuous improvement in security management.</li>
+
+                <li><strong>Security Policies</strong> document how an organization protects its assets and guides security decisions.</li>
+
+                <li><strong>Management Support</strong> is essential for security success - without it, security initiatives will fail.</li>
+
+                <li><strong>The IT Security Officer</strong> plays a critical role in coordinating security efforts across the organization.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will dive deeper into risk assessment methodologies and learn how to identify, analyze, and prioritize security risks.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>CIA Triad Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>5-Step Process Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>PDCA Cycle Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>

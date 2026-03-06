@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 3: Detailed Risk Assessment Process</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture3_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Detailed Risk Assessment Process</h1>
+        <p class="subtitle">Lecture 3: Identifying Assets, Threats, Vulnerabilities, and Analyzing Risks</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#asset-identification">1. Asset Identification</a></li>
+            <li><a href="#terminology">2. Key Terminology</a></li>
+            <li><a href="#threat-identification">3. Threat Identification</a></li>
+            <li><a href="#threat-sources">4. Threat Sources</a></li>
+            <li><a href="#vulnerability">5. Vulnerability Identification</a></li>
+            <li><a href="#analyze-risks">6. Analyzing Risks</a></li>
+            <li><a href="#likelihood">7. Determine Likelihood</a></li>
+            <li><a href="#consequence">8. Determine Consequence</a></li>
+            <li><a href="#resultant-risk">9. Determine Resultant Risk</a></li>
+            <li><a href="#risk-register">10. Risk Register</a></li>
+            <li><a href="#exercises">11. Student Exercises</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Identify and classify organizational assets</li>
+                <li>Understand key IT security terminology</li>
+                <li>Identify threats and threat sources affecting IT assets</li>
+                <li>Recognize and analyze vulnerabilities in IT systems</li>
+                <li>Analyze risks based on likelihood and consequence</li>
+                <li>Determine resultant risk levels</li>
+                <li>Document and evaluate risks using a risk register</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Asset Identification -->
+        <section id="asset-identification" class="content-section">
+            <h2>1. Asset Identification</h2>
+
+            <div class="definition">
+                <h3>What is an Asset?</h3>
+                <p>An <strong>asset</strong> is "anything which needs to be protected" — anything of value to the organization that helps it meet its objectives. Assets can be <strong>tangible</strong> (hardware, buildings) or <strong>intangible</strong> (data, reputation, intellectual property).</p>
+            </div>
+
+            <h3>Identifying Organizational Assets</h3>
+            <p>The first step in risk assessment is to identify what needs protection. In practice, focus on identifying <strong>significant assets</strong> — those most critical to the organization's operations and objectives.</p>
+
+            <article class="security-concept">
+                <h4>How to Identify Assets</h4>
+                <ul>
+                    <li><strong>Draw on expertise:</strong> Consult people in relevant areas of the organization to identify key assets</li>
+                    <li><strong>Interview personnel:</strong> Identify and interview staff who understand critical systems and data</li>
+                    <li><strong>Use checklists:</strong> Refer to checklists in various security standards (ISO 27001, NIST)</li>
+                    <li><strong>Inventory systems:</strong> Catalog hardware, software, data, and network components</li>
+                </ul>
+            </article>
+
+            <!-- Asset Types Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Types of Organizational Assets</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">🖥️</div>
+                        <h4>Hardware</h4>
+                        <p>Servers, routers, workstations, mobile devices</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">💾</div>
+                        <h4>Software & Data</h4>
+                        <p>Applications, databases, intellectual property</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👥</div>
+                        <h4>People & Skills</h4>
+                        <p>Staff expertise, institutional knowledge</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🏢</div>
+                        <h4>Facilities & Reputation</h4>
+                        <p>Buildings, brand image, customer trust</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Key Principle:</strong> Not all assets are equal. Focus your risk assessment efforts on the assets most critical to business operations and objectives. A systematic approach prevents overlooking important but less obvious assets.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Key Terminology -->
+        <section id="terminology" class="content-section">
+            <h2>2. Key Terminology</h2>
+
+            <p>Before proceeding with risk assessment, it is essential to understand the following key terms and how they relate to each other:</p>
+
+            <div class="definition">
+                <h3>What is an Asset?</h3>
+                <p><strong>Asset:</strong> Anything that has value to the organization. This includes physical items (servers, buildings), digital items (databases, source code), and intangible items (reputation, staff expertise).</p>
+            </div>
+
+            <div class="definition">
+                <h3>What is a Threat?</h3>
+                <p><strong>Threat:</strong> A potential cause of an unwanted incident which may result in harm to a system or organization. Threats can be natural (earthquakes, floods) or man-made (hackers, disgruntled employees).</p>
+            </div>
+
+            <div class="definition">
+                <h3>What is a Vulnerability?</h3>
+                <p><strong>Vulnerability:</strong> A weakness in an asset or group of assets which can be exploited by a threat. Examples include unpatched software, weak passwords, or lack of physical security.</p>
+            </div>
+
+            <div class="definition">
+                <h3>What is Risk?</h3>
+                <p><strong>Risk:</strong> The potential that a given threat will exploit vulnerabilities of an asset or group of assets to cause loss or damage to the assets. Risk exists where a threat and vulnerability overlap for a specific asset.</p>
+            </div>
+
+            <div class="key-message">
+                <p><strong>How They Connect:</strong> An <strong>asset</strong> has <strong>vulnerabilities</strong> that can be exploited by <strong>threats</strong>, creating <strong>risk</strong>. All three elements (asset + vulnerability + threat) must be present for a risk to exist.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Threat Identification -->
+        <section id="threat-identification" class="content-section">
+            <h2>3. Threat Identification</h2>
+
+            <div class="definition">
+                <h3>What is Threat Identification?</h3>
+                <p><strong>Threat identification</strong> is the process of determining what could cause harm to organizational assets. It answers the key questions: <em>Who or what could cause harm?</em> and <em>How could this occur?</em></p>
+            </div>
+
+            <h3>Key Principles of Threat Identification</h3>
+            <ul>
+                <li>Threats are anything that hinders or prevents an asset from providing appropriate levels of the key security services: <strong>confidentiality, integrity, availability, accountability, authenticity, and reliability</strong></li>
+                <li>Assets may have <strong>multiple threats</strong> — a single server could face threats from hackers, power failures, and physical theft</li>
+                <li>Threat identification depends on the <strong>risk assessor's experience</strong> and knowledge of the organization</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>Sources of Threat Information</h4>
+                <ul>
+                    <li><strong>Insurance statistics:</strong> Natural threat probabilities from industry data</li>
+                    <li><strong>Security standards:</strong> Lists of potential threats in standards like ISO 27005</li>
+                    <li><strong>IT security surveys:</strong> Industry reports on current threat landscape</li>
+                    <li><strong>Government advisories:</strong> Information from cybersecurity agencies (CERT, CISA)</li>
+                    <li><strong>Organizational context:</strong> Threats tailored to the specific environment</li>
+                    <li><strong>Known vulnerabilities:</strong> Threats related to existing IT system weaknesses</li>
+                </ul>
+            </article>
+
+            <div class="warning-box">
+                <h4>Common Mistake</h4>
+                <p>Do not focus only on technical threats. Consider physical threats (natural disasters, theft), human threats (social engineering, insider threats), and process threats (procedure failures, human error).</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Threat Sources -->
+        <section id="threat-sources" class="content-section">
+            <h2>4. Threat Sources</h2>
+
+            <h3>Classification of Threats</h3>
+            <p>Threats can be classified into two main categories:</p>
+
+            <!-- Threat Classification Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Threat Source Classification</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">🌊</div>
+                        <h4>Natural Threats</h4>
+                        <p>"Acts of God" — earthquakes, floods, storms, fires</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">⚠️</div>
+                        <h4>Man-Made Accidental</h4>
+                        <p>Human errors, equipment failures, misconfigurations</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🎯</div>
+                        <h4>Man-Made Deliberate</h4>
+                        <p>Hacking, sabotage, theft, malware attacks</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👤</div>
+                        <h4>Insider Threats</h4>
+                        <p>Disgruntled employees, negligent staff, contractors</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>Evaluating Human Attackers</h4>
+                <p>When assessing deliberate threats, consider the following factors about potential human attackers:</p>
+                <ul>
+                    <li><strong>Motivation:</strong> Why would they attack? (Financial gain, revenge, ideology, espionage)</li>
+                    <li><strong>Capability:</strong> What skills and tools do they possess?</li>
+                    <li><strong>Resources:</strong> What funding, time, and infrastructure do they have?</li>
+                    <li><strong>Probability of attack:</strong> How likely is it that they will target this organization?</li>
+                    <li><strong>Deterrence:</strong> What existing controls might discourage an attack?</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>Historical Context Matters:</strong> Always consider any previous history of attacks on the organization. Past incidents can indicate ongoing threat actors, persistent vulnerabilities, or organizational patterns that attract attackers.</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Vulnerability Identification -->
+        <section id="vulnerability" class="content-section">
+            <h2>5. Vulnerability Identification</h2>
+
+            <div class="definition">
+                <h3>What is Vulnerability Identification?</h3>
+                <p><strong>Vulnerability identification</strong> is the process of finding exploitable flaws or weaknesses in an organization's IT systems or processes. It determines the applicability and significance of threats to the organization.</p>
+            </div>
+
+            <h3>Key Principles</h3>
+            <ul>
+                <li>Identify exploitable flaws or weaknesses in the organization's IT systems or processes</li>
+                <li>Determine applicability and significance of each threat to the organization</li>
+                <li>A <strong>combination of threat and vulnerability</strong> is needed to create a risk to an asset</li>
+                <li>Use lists of potential vulnerabilities from security standards and databases</li>
+            </ul>
+
+            <!-- Vulnerability Process -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">From Vulnerability to Remediation</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(4, 1fr);">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Identify</h4>
+                        <p>Find vulnerabilities in systems and processes</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Analyze</h4>
+                        <p>Assess severity and exploitability</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Assess Risk</h4>
+                        <p>Match with threats to determine risk</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>Remediate</h4>
+                        <p>Apply controls to address weaknesses</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="example">
+                <h4>Example: Web Application Vulnerability</h4>
+                <p>A web application has an <strong>unpatched SQL injection vulnerability</strong> (vulnerability). External hackers actively scan for such flaws (threat). Combined, this creates a <strong>high risk</strong> to the customer database (asset). Without the threat, the vulnerability alone is just a weakness; without the vulnerability, the threat cannot be realized.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Analyzing Risks -->
+        <section id="analyze-risks" class="content-section">
+            <h2>6. Analyzing Risks</h2>
+
+            <div class="definition">
+                <h3>What is Risk Analysis?</h3>
+                <p><strong>Risk analysis</strong> involves determining the likelihood and consequence of identified threats to derive an overall risk rating. The goal is to order risks so they can be prioritized for treatment.</p>
+            </div>
+
+            <h3>The Risk Analysis Process</h3>
+            <ul>
+                <li>Specify the <strong>likelihood of occurrence</strong> of each identified threat to an asset, given existing controls (management, operational, technical processes and procedures)</li>
+                <li>Specify the <strong>consequence</strong> should the threat occur</li>
+                <li>Derive the overall <strong>risk rating</strong> for each threat</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>Risk Formula</h4>
+                <div style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 8px; margin: 1rem 0;">
+                    <strong style="font-size: 1.5em; color: var(--primary-color);">Risk = Probability threat occurs × Cost to organization</strong>
+                </div>
+                <p>In practice, exact values are very hard to determine. Therefore, we use <strong>qualitative</strong> (not quantitative) ratings for both likelihood and consequence. The aim is to order resulting risks to prioritize treatment.</p>
+            </article>
+
+            <div class="warning-box">
+                <h4>Important Consideration</h4>
+                <p>Existing controls affect the likelihood rating. When rating likelihood, consider what management, operational, and technical controls are already in place that reduce the organization's exposure to the risk.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Determine Likelihood -->
+        <section id="likelihood" class="content-section">
+            <h2>7. Determine Likelihood</h2>
+
+            <p>Likelihood is rated on a 5-level scale, from Rare to Almost Certain. Each level has an expanded definition to help assessors make consistent judgments:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Likelihood</th>
+                            <th>Expanded Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>Rare</strong></td>
+                            <td>May occur only in exceptional circumstances and may be deemed as "unlucky" or very unlikely.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>Unlikely</strong></td>
+                            <td>Could occur at some time but not expected given current controls, circumstances, and recent events.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>Possible</strong></td>
+                            <td>Might occur at some time, but just as likely as not. It may be difficult to control its occurrence due to external influences.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>Likely</strong></td>
+                            <td>Will probably occur in some circumstance and one should not be surprised if it occurred.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>Almost Certain</strong></td>
+                            <td>Is expected to occur in most circumstances and certainly sooner or later.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Tip:</strong> When determining likelihood, always consider existing controls. A threat that would be "Almost Certain" without controls might be rated "Possible" if strong controls are already in place.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Determine Consequence -->
+        <section id="consequence" class="content-section">
+            <h2>8. Determine Consequence</h2>
+
+            <p>Consequence is rated on a 6-level scale, from Insignificant to Doomsday. Each level describes the severity and duration of impact:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rating</th>
+                            <th>Consequence</th>
+                            <th>Expanded Definition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1</strong></td>
+                            <td><strong>Insignificant</strong></td>
+                            <td>Generally a result of a minor security breach in a single area. Impact is likely to last less than several days and requires only minor expenditure to rectify.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2</strong></td>
+                            <td><strong>Minor</strong></td>
+                            <td>Result of a security breach in one or two areas. Impact is likely to last less than a week, but can be dealt with at the segment or project level without management intervention. Can generally be rectified within project or team resources.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3</strong></td>
+                            <td><strong>Moderate</strong></td>
+                            <td>Limited systemic (and possibly ongoing) security breaches. Impact is likely to last up to 2 weeks and generally requires management intervention. Will have ongoing compliance costs to overcome.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4</strong></td>
+                            <td><strong>Major</strong></td>
+                            <td>Ongoing systemic security breach. Impact will likely last 4-8 weeks and require significant management intervention and resources to overcome, and compliance costs are expected to be substantial. Loss of business or organizational outcomes is possible, but not expected, especially if this is a once off.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5</strong></td>
+                            <td><strong>Catastrophic</strong></td>
+                            <td>Major systemic security breach. Impact will last for 3 months or more and senior management will be required to intervene for the duration. Compliance costs are expected to be very substantial. Substantial public or political debate about, and loss of confidence in, the organization is likely. Possible criminal or disciplinary action.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6</strong></td>
+                            <td><strong>Doomsday</strong></td>
+                            <td>Multiple instances of major systemic security breaches. Impact duration cannot be determined and senior management will be required to place the company under voluntary administration or other form of major restructuring. Criminal proceedings against senior management is expected, and substantial loss of business and failure to meet organizational objectives is unavoidable.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 9: Determine Resultant Risk -->
+        <section id="resultant-risk" class="content-section">
+            <h2>9. Determine Resultant Risk</h2>
+
+            <p>The resultant risk is determined by combining the likelihood rating with the consequence rating using the following matrix:</p>
+
+            <!-- Risk Matrix -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">5×6 Risk Assessment Matrix</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="text-align: center; font-weight: bold;">
+                        <thead>
+                            <tr>
+                                <th style="background: #e9ecef;">Likelihood \ Consequence</th>
+                                <th style="background: var(--primary-color); color: white;">Doomsday (6)</th>
+                                <th style="background: var(--primary-color); color: white;">Catastrophic (5)</th>
+                                <th style="background: var(--primary-color); color: white;">Major (4)</th>
+                                <th style="background: var(--primary-color); color: white;">Moderate (3)</th>
+                                <th style="background: var(--primary-color); color: white;">Minor (2)</th>
+                                <th style="background: var(--primary-color); color: white;">Insignificant (1)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>Almost Certain (5)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>Likely (4)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>Possible (3)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>Unlikely (2)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>Rare (1)</strong></td>
+                                <td style="background: #f1b0b7; color: #721c24;">E</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #f5c6cb; color: #721c24;">H</td>
+                                <td style="background: #ffeeba; color: #856404;">M</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                                <td style="background: #d4edda; color: #155724;">L</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="diagram-note">E = Extreme | H = High | M = Medium | L = Low</p>
+            </div>
+
+            <h3>Risk Level Descriptions</h3>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risk Level</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="background: #f1b0b7; color: #721c24;"><strong>Extreme (E)</strong></td>
+                            <td>Will require detailed research and management planning at an executive/director level. Ongoing planning and monitoring will be required with regular reviews. Substantial adjustment of controls to manage the risk are expected, with costs possibly exceeding original forecasts.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High (H)</strong></td>
+                            <td>Requires management attention, but management and planning can be left to senior project or team leaders. Ongoing planning and monitoring with regular reviews are likely, though adjustment of controls are likely to be met from within existing resources.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #ffeeba; color: #856404;"><strong>Medium (M)</strong></td>
+                            <td>Can be managed by existing specific monitoring and response procedures. Management by employees is suitable with appropriate monitoring and reviews.</td>
+                        </tr>
+                        <tr>
+                            <td style="background: #d4edda; color: #155724;"><strong>Low (L)</strong></td>
+                            <td>Can be managed through routine procedures.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Section 10: Risk Register -->
+        <section id="risk-register" class="content-section">
+            <h2>10. Risk Register</h2>
+
+            <div class="definition">
+                <h3>What is a Risk Register?</h3>
+                <p>A <strong>risk register</strong> is a formal document that records all identified risks, their analysis results, and treatment plans. It serves as the central tool for tracking and managing organizational risks.</p>
+            </div>
+
+            <h3>Sample Risk Register</h3>
+            <p>The following table shows a sample risk register with two example entries:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Asset</th>
+                            <th>Threat/Vulnerability</th>
+                            <th>Existing Controls</th>
+                            <th>Likelihood</th>
+                            <th>Consequence</th>
+                            <th>Level of Risk</th>
+                            <th>Risk Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Internet Router</td>
+                            <td>Outside Hacker attack</td>
+                            <td>Admin password only</td>
+                            <td>Possible</td>
+                            <td>Moderate</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>1</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Destruction of Data Center</td>
+                            <td>Accidental Fire or Flood</td>
+                            <td>None (no disaster recovery plan)</td>
+                            <td>Unlikely</td>
+                            <td>Major</td>
+                            <td style="background: #f5c6cb; color: #721c24;"><strong>High</strong></td>
+                            <td><strong>2</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>Why Prioritize?</strong> Risk priority determines the order in which risks are treated. Higher-priority risks receive attention and resources first. Priority considers both the risk level and the asset's importance to the organization.</p>
+            </div>
+        </section>
+
+        <!-- Section 11: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>11. Student Exercises</h2>
+
+            <p>Complete the following exercises to apply your understanding of the risk assessment process:</p>
+
+            <article class="security-concept">
+                <h4>Exercise 1: What is an asset in IT security?</h4>
+                <p>Define what an asset is in the context of IT security. Provide three examples of tangible assets and three examples of intangible assets for a university.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 2: What is the difference between a threat and a vulnerability?</h4>
+                <p>Explain the difference between a threat and a vulnerability using your own words. Then provide an example where a specific threat exploits a specific vulnerability to create a risk.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 3: How is risk calculated?</h4>
+                <p>Describe the risk formula and explain why qualitative ratings are preferred over quantitative values in practice. Using the likelihood and consequence tables from this lecture, calculate the risk level for the following scenario:</p>
+                <ul>
+                    <li>A company's email server has no spam filtering (vulnerability)</li>
+                    <li>Phishing attacks targeting employees (threat) — Likelihood: Likely (4)</li>
+                    <li>Potential data breach if credentials are stolen — Consequence: Major (4)</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 4: Why is risk assessment important for organizations?</h4>
+                <p>List at least four reasons why organizations should conduct regular risk assessments. Consider both the benefits of doing risk assessment and the consequences of not doing it.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 5: Build a Risk Register</h4>
+                <p><strong>Scenario:</strong> A small e-commerce company has the following assets: web server, customer database, payment gateway, and employee workstations.</p>
+                <p><strong>Task:</strong> Create a risk register with at least 4 entries. For each entry, identify the asset, threat/vulnerability, existing controls, likelihood, consequence, risk level (using the matrix), and risk priority.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>Exercise 6: Threat Source Analysis</h4>
+                <p><strong>Scenario:</strong> A government agency stores classified documents digitally. Recent intelligence suggests a foreign nation-state has been targeting similar agencies.</p>
+                <p><strong>Task:</strong> Analyze the threat sources using the five factors for evaluating human attackers (motivation, capability, resources, probability of attack, deterrence). What risk level would you assign?</p>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>Asset Identification</strong> is the foundation of risk assessment — you must know what needs protecting before you can assess risks.</li>
+
+                <li><strong>Key Terminology</strong> (Asset, Threat, Vulnerability, Risk) forms the vocabulary of risk assessment. Risk exists only when a threat can exploit a vulnerability in an asset.</li>
+
+                <li><strong>Threat Identification</strong> requires considering both natural and man-made sources, and evaluating human attackers based on motivation, capability, resources, probability, and deterrence.</li>
+
+                <li><strong>Vulnerability Identification</strong> finds exploitable weaknesses. A vulnerability without a corresponding threat does not create risk, and vice versa.</li>
+
+                <li><strong>Risk Analysis</strong> uses the formula: Risk = Probability × Cost. In practice, qualitative ratings (Rare to Almost Certain, Insignificant to Doomsday) are used because exact values are hard to determine.</li>
+
+                <li><strong>The Risk Matrix</strong> combines likelihood (5 levels) and consequence (6 levels) to produce four risk levels: Extreme, High, Medium, and Low.</li>
+
+                <li><strong>The Risk Register</strong> documents all findings and provides a prioritized list of risks for treatment.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will explore <strong>Risk Treatment</strong> — learning the different alternatives for handling identified risks, including acceptance, avoidance, transfer, and reduction strategies, illustrated through the Silver Star Mines case study.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>Asset Types Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Threat Source Classification:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Vulnerability Process Flow:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Risk Assessment Matrix:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>

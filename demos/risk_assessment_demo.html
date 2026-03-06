@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Assessment Demo | IT Security Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #c53030;
+            --success-color: #276749;
+            --warning-color: #c05621;
+            --light-gray: #f8f9fa;
+            --low-risk: #276749;
+            --medium-risk: #c05621;
+            --high-risk: #c53030;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Tab Navigation */
+        .tab-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--secondary-color);
+            background: white;
+            color: var(--secondary-color);
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .tab-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* ===== Feature 1: Risk Scoring Calculator ===== */
+        .risk-calculator {
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+        }
+
+        .calculator-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .calculator-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .formula-box {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 1rem 0;
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--primary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .risk-matrix-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2rem 0;
+        }
+
+        .matrix-labels {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .matrix-label-y {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            transform: rotate(180deg);
+            font-weight: 600;
+            color: var(--primary-color);
+            padding-right: 1rem;
+        }
+
+        .risk-matrix {
+            display: grid;
+            grid-template-columns: 40px repeat(5, 1fr);
+            gap: 4px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .matrix-header {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .matrix-row-header {
+            background: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            padding: 0.8rem;
+            text-align: center;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .matrix-cell {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 700;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .matrix-cell:hover {
+            transform: scale(1.1);
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .matrix-cell.selected {
+            border-color: var(--primary-color);
+            transform: scale(1.15);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .risk-low {
+            background: #d4edda;
+            color: var(--low-risk);
+        }
+
+        .risk-medium {
+            background: #fff3cd;
+            color: var(--medium-risk);
+        }
+
+        .risk-high {
+            background: #f8d7da;
+            color: var(--high-risk);
+        }
+
+        .matrix-label-x {
+            text-align: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            grid-column: 2 / -1;
+        }
+
+        .result-panel {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-panel h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .result-display {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .result-item {
+            padding: 1rem 2rem;
+            background: var(--light-gray);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .result-item .label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 0.3rem;
+        }
+
+        .result-item .value {
+            font-size: 2em;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .risk-level-badge {
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1.5em;
+            font-weight: 700;
+            color: white;
+        }
+
+        .risk-level-badge.low { background: var(--low-risk); }
+        .risk-level-badge.medium { background: var(--medium-risk); }
+        .risk-level-badge.high { background: var(--high-risk); }
+
+        .action-text {
+            margin-top: 1rem;
+            font-size: 1.1em;
+            color: #666;
+        }
+
+        /* ===== Feature 2: Approach Selector ===== */
+        .approach-selector {
+            padding: 1.5rem;
+        }
+
+        .approach-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .approach-card {
+            background: var(--light-gray);
+            border: 3px solid var(--light-gray);
+            border-radius: 12px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .approach-card:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .approach-card.selected {
+            border-color: var(--secondary-color);
+            background: #e3f2fd;
+        }
+
+        .approach-card .icon {
+            font-size: 2.5em;
+            margin-bottom: 0.5rem;
+        }
+
+        .approach-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .approach-card .tagline {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 1rem;
+        }
+
+        .approach-card .stats {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .stat-badge {
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .stat-badge.cost-low { background: #d4edda; color: var(--success-color); }
+        .stat-badge.cost-medium { background: #fff3cd; color: var(--warning-color); }
+        .stat-badge.cost-high { background: #f8d7da; color: var(--accent-color); }
+        .stat-badge.time-fast { background: #d1ecf1; color: #0c5460; }
+        .stat-badge.time-moderate { background: #fff3cd; color: var(--warning-color); }
+        .stat-badge.time-slow { background: #f8d7da; color: var(--accent-color); }
+
+        .approach-details {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            display: none;
+        }
+
+        .approach-details.visible {
+            display: block;
+        }
+
+        .approach-details h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .details-section h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .details-section ul {
+            margin-left: 1.5rem;
+            line-height: 1.6;
+        }
+
+        /* ===== Feature 3: Quick Quiz ===== */
+        .quiz-section {
+            padding: 1.5rem;
+        }
+
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .quiz-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-progress {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .progress-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            transition: all 0.3s ease;
+        }
+
+        .progress-dot.active {
+            background: var(--secondary-color);
+            transform: scale(1.3);
+        }
+
+        .progress-dot.completed {
+            background: var(--success-color);
+        }
+
+        .quiz-question {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quiz-question h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .quiz-option {
+            padding: 1rem 1.5rem;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--secondary-color);
+            background: #e3f2fd;
+        }
+
+        .quiz-option.selected {
+            border-color: var(--secondary-color);
+            background: #e3f2fd;
+        }
+
+        .quiz-result {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+            background: var(--light-gray);
+            border-radius: 12px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .quiz-result.visible {
+            display: block;
+        }
+
+        .quiz-result h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .recommended-approach {
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .recommended-approach h4 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .quiz-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .quiz-btn {
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quiz-btn.primary {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .quiz-btn.primary:hover {
+            background: #1e5a9e;
+        }
+
+        .quiz-btn.secondary {
+            background: white;
+            color: var(--secondary-color);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .quiz-btn.secondary:hover {
+            background: var(--light-gray);
+        }
+
+        .quiz-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Legend */
+        .legend {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .legend-color.low { background: #d4edda; }
+        .legend-color.medium { background: #fff3cd; }
+        .legend-color.high { background: #f8d7da; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .risk-matrix {
+                font-size: 0.8em;
+            }
+
+            .matrix-cell {
+                padding: 0.6rem;
+            }
+
+            .result-display {
+                flex-direction: column;
+            }
+
+            .approach-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-navigation {
+                flex-direction: column;
+            }
+
+            .tab-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../lectures/lecture2.html" class="back-link">&larr; Back to Lecture 2</a>
+
+        <header>
+            <h1>Risk Assessment Interactive Demo</h1>
+            <p class="subtitle">Explore risk scoring, assessment approaches, and find the best approach for your organization</p>
+        </header>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+            <button class="tab-btn active" onclick="showTab('calculator')">Risk Scoring Calculator</button>
+            <button class="tab-btn" onclick="showTab('approaches')">Approach Selector</button>
+            <button class="tab-btn" onclick="showTab('quiz')">Quick Quiz</button>
+        </div>
+
+        <!-- Tab 1: Risk Scoring Calculator -->
+        <div id="calculator" class="tab-content active">
+            <div class="risk-calculator">
+                <div class="calculator-header">
+                    <h2>5×5 Risk Scoring Matrix</h2>
+                    <p>Click on any cell to see the risk calculation</p>
+                    <div class="formula-box">Risk Score = Likelihood (L) × Impact (I)</div>
+                </div>
+
+                <div class="risk-matrix-container">
+                    <div style="display: flex; align-items: center;">
+                        <div class="matrix-label-y">Likelihood →</div>
+                        <div>
+                            <div class="risk-matrix">
+                                <div class="matrix-header"></div>
+                                <div class="matrix-header">1</div>
+                                <div class="matrix-header">2</div>
+                                <div class="matrix-header">3</div>
+                                <div class="matrix-header">4</div>
+                                <div class="matrix-header">5</div>
+
+                                <div class="matrix-row-header">5</div>
+                                <div class="matrix-cell risk-medium" data-l="5" data-i="1" onclick="selectCell(5,1)">5</div>
+                                <div class="matrix-cell risk-medium" data-l="5" data-i="2" onclick="selectCell(5,2)">10</div>
+                                <div class="matrix-cell risk-high" data-l="5" data-i="3" onclick="selectCell(5,3)">15</div>
+                                <div class="matrix-cell risk-high" data-l="5" data-i="4" onclick="selectCell(5,4)">20</div>
+                                <div class="matrix-cell risk-high" data-l="5" data-i="5" onclick="selectCell(5,5)">25</div>
+
+                                <div class="matrix-row-header">4</div>
+                                <div class="matrix-cell risk-low" data-l="4" data-i="1" onclick="selectCell(4,1)">4</div>
+                                <div class="matrix-cell risk-medium" data-l="4" data-i="2" onclick="selectCell(4,2)">8</div>
+                                <div class="matrix-cell risk-medium" data-l="4" data-i="3" onclick="selectCell(4,3)">12</div>
+                                <div class="matrix-cell risk-high" data-l="4" data-i="4" onclick="selectCell(4,4)">16</div>
+                                <div class="matrix-cell risk-high" data-l="4" data-i="5" onclick="selectCell(4,5)">20</div>
+
+                                <div class="matrix-row-header">3</div>
+                                <div class="matrix-cell risk-low" data-l="3" data-i="1" onclick="selectCell(3,1)">3</div>
+                                <div class="matrix-cell risk-medium" data-l="3" data-i="2" onclick="selectCell(3,2)">6</div>
+                                <div class="matrix-cell risk-medium" data-l="3" data-i="3" onclick="selectCell(3,3)">9</div>
+                                <div class="matrix-cell risk-medium" data-l="3" data-i="4" onclick="selectCell(3,4)">12</div>
+                                <div class="matrix-cell risk-high" data-l="3" data-i="5" onclick="selectCell(3,5)">15</div>
+
+                                <div class="matrix-row-header">2</div>
+                                <div class="matrix-cell risk-low" data-l="2" data-i="1" onclick="selectCell(2,1)">2</div>
+                                <div class="matrix-cell risk-low" data-l="2" data-i="2" onclick="selectCell(2,2)">4</div>
+                                <div class="matrix-cell risk-medium" data-l="2" data-i="3" onclick="selectCell(2,3)">6</div>
+                                <div class="matrix-cell risk-medium" data-l="2" data-i="4" onclick="selectCell(2,4)">8</div>
+                                <div class="matrix-cell risk-medium" data-l="2" data-i="5" onclick="selectCell(2,5)">10</div>
+
+                                <div class="matrix-row-header">1</div>
+                                <div class="matrix-cell risk-low" data-l="1" data-i="1" onclick="selectCell(1,1)">1</div>
+                                <div class="matrix-cell risk-low" data-l="1" data-i="2" onclick="selectCell(1,2)">2</div>
+                                <div class="matrix-cell risk-low" data-l="1" data-i="3" onclick="selectCell(1,3)">3</div>
+                                <div class="matrix-cell risk-low" data-l="1" data-i="4" onclick="selectCell(1,4)">4</div>
+                                <div class="matrix-cell risk-low" data-l="1" data-i="5" onclick="selectCell(1,5)">5</div>
+
+                                <div></div>
+                                <div class="matrix-label-x">Impact →</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="legend">
+                        <div class="legend-item">
+                            <div class="legend-color low"></div>
+                            <span>Low (1-5)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color medium"></div>
+                            <span>Medium (6-12)</span>
+                        </div>
+                        <div class="legend-item">
+                            <div class="legend-color high"></div>
+                            <span>High (15-25)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-panel" id="result-panel">
+                    <h3>Select a cell to see the risk calculation</h3>
+                    <div class="result-display" id="result-display" style="display: none;">
+                        <div class="result-item">
+                            <div class="label">Likelihood</div>
+                            <div class="value" id="likelihood-value">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="label">×</div>
+                            <div class="value" style="font-size: 1.5em;">×</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="label">Impact</div>
+                            <div class="value" id="impact-value">-</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="label">=</div>
+                            <div class="value" style="font-size: 1.5em;">=</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="label">Risk Score</div>
+                            <div class="value" id="score-value">-</div>
+                        </div>
+                        <div class="risk-level-badge" id="risk-level">-</div>
+                    </div>
+                    <p class="action-text" id="action-text"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Approach Selector -->
+        <div id="approaches" class="tab-content">
+            <div class="approach-selector">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <h2>Risk Assessment Approaches</h2>
+                    <p>Click on an approach to learn more about its features, advantages, and limitations</p>
+                </div>
+
+                <div class="approach-cards">
+                    <div class="approach-card" onclick="selectApproach('baseline')">
+                        <div class="icon">📋</div>
+                        <h3>Baseline Approach</h3>
+                        <p class="tagline">Standard controls from industry frameworks</p>
+                        <div class="stats">
+                            <span class="stat-badge cost-low">Low Cost</span>
+                            <span class="stat-badge time-fast">Fast</span>
+                        </div>
+                    </div>
+
+                    <div class="approach-card" onclick="selectApproach('informal')">
+                        <div class="icon">👤</div>
+                        <h3>Informal Approach</h3>
+                        <p class="tagline">Expert judgment and experience-based</p>
+                        <div class="stats">
+                            <span class="stat-badge cost-low">Low Cost</span>
+                            <span class="stat-badge time-fast">Fast</span>
+                        </div>
+                    </div>
+
+                    <div class="approach-card" onclick="selectApproach('formal')">
+                        <div class="icon">📊</div>
+                        <h3>Formal Approach</h3>
+                        <p class="tagline">Structured, documented risk analysis</p>
+                        <div class="stats">
+                            <span class="stat-badge cost-high">High Cost</span>
+                            <span class="stat-badge time-slow">Time-Intensive</span>
+                        </div>
+                    </div>
+
+                    <div class="approach-card" onclick="selectApproach('combined')">
+                        <div class="icon">🔄</div>
+                        <h3>Combined Approach</h3>
+                        <p class="tagline">Best of all approaches blended</p>
+                        <div class="stats">
+                            <span class="stat-badge cost-medium">Medium Cost</span>
+                            <span class="stat-badge time-moderate">Moderate Time</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="approach-details" id="approach-details">
+                    <!-- Details will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Quick Quiz -->
+        <div id="quiz" class="tab-content">
+            <div class="quiz-section">
+                <div class="quiz-header">
+                    <h2>Which Approach is Best for Your Organization?</h2>
+                    <p>Answer these questions to get a personalized recommendation</p>
+                </div>
+
+                <div class="quiz-progress">
+                    <div class="progress-dot active" id="dot-0"></div>
+                    <div class="progress-dot" id="dot-1"></div>
+                    <div class="progress-dot" id="dot-2"></div>
+                    <div class="progress-dot" id="dot-3"></div>
+                    <div class="progress-dot" id="dot-4"></div>
+                </div>
+
+                <div class="quiz-question" id="quiz-question">
+                    <!-- Question content will be populated by JavaScript -->
+                </div>
+
+                <div class="quiz-result" id="quiz-result">
+                    <!-- Result will be populated by JavaScript -->
+                </div>
+
+                <div class="quiz-nav">
+                    <button class="quiz-btn secondary" id="prev-btn" onclick="prevQuestion()" disabled>Previous</button>
+                    <button class="quiz-btn primary" id="next-btn" onclick="nextQuestion()">Next</button>
+                    <button class="quiz-btn secondary" id="restart-btn" onclick="restartQuiz()" style="display: none;">Restart Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== Tab Navigation =====
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(tabId).classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        // ===== Risk Calculator =====
+        function selectCell(likelihood, impact) {
+            document.querySelectorAll('.matrix-cell').forEach(cell => cell.classList.remove('selected'));
+
+            const cell = document.querySelector(`.matrix-cell[data-l="${likelihood}"][data-i="${impact}"]`);
+            cell.classList.add('selected');
+
+            const score = likelihood * impact;
+            let level, levelClass, action;
+
+            if (score <= 5) {
+                level = 'LOW';
+                levelClass = 'low';
+                action = 'Accept the risk or monitor. No immediate action required.';
+            } else if (score <= 12) {
+                level = 'MEDIUM';
+                levelClass = 'medium';
+                action = 'Implement controls when feasible. Plan for mitigation.';
+            } else {
+                level = 'HIGH';
+                levelClass = 'high';
+                action = 'Immediate action required! Prioritize risk treatment.';
+            }
+
+            document.getElementById('likelihood-value').textContent = likelihood;
+            document.getElementById('impact-value').textContent = impact;
+            document.getElementById('score-value').textContent = score;
+
+            const levelBadge = document.getElementById('risk-level');
+            levelBadge.textContent = level;
+            levelBadge.className = 'risk-level-badge ' + levelClass;
+
+            document.getElementById('action-text').textContent = action;
+            document.getElementById('result-display').style.display = 'flex';
+            document.querySelector('#result-panel h3').textContent = 'Risk Calculation Result';
+        }
+
+        // ===== Approach Selector =====
+        const approachData = {
+            baseline: {
+                name: 'Baseline Approach',
+                icon: '📋',
+                advantages: [
+                    'Easy to implement',
+                    'Low cost and fast deployment',
+                    'Good starting point for new organizations',
+                    'Ensures basic compliance',
+                    'Uses proven industry standards'
+                ],
+                limitations: [
+                    'Not tailored to specific needs',
+                    'May over-secure low-risk areas',
+                    'May under-secure high-risk areas',
+                    'One-size-fits-all approach',
+                    'Does not consider unique threats'
+                ],
+                bestFor: [
+                    'Small organizations',
+                    'Limited budgets',
+                    'Quick security implementation',
+                    'Organizations new to security',
+                    'Basic compliance requirements'
+                ]
+            },
+            informal: {
+                name: 'Informal Approach',
+                icon: '👤',
+                advantages: [
+                    'Fast to perform',
+                    'Flexible and adaptable',
+                    'Organization-specific insights',
+                    'Leverages deep knowledge',
+                    'Good for obvious risks'
+                ],
+                limitations: [
+                    'Highly subjective',
+                    'Results vary between assessors',
+                    'May miss unknown risks',
+                    'Difficult to justify to auditors',
+                    'No documentation trail'
+                ],
+                bestFor: [
+                    'Experienced security teams',
+                    'Rapid assessments needed',
+                    'Initial risk identification',
+                    'Supplementing other approaches',
+                    'Small, agile organizations'
+                ]
+            },
+            formal: {
+                name: 'Formal Approach',
+                icon: '📊',
+                advantages: [
+                    'Accurate and comprehensive',
+                    'Defensible decisions',
+                    'Full documentation',
+                    'Systematic risk identification',
+                    'Supports compliance audits'
+                ],
+                limitations: [
+                    'Time-consuming',
+                    'Expensive resources',
+                    'Requires trained experts',
+                    'Can be overwhelming',
+                    'Needs regular updates'
+                ],
+                bestFor: [
+                    'Regulated industries',
+                    'Large organizations',
+                    'High-value assets',
+                    'Compliance requirements',
+                    'Critical infrastructure'
+                ]
+            },
+            combined: {
+                name: 'Combined Approach',
+                icon: '🔄',
+                advantages: [
+                    'Balances cost and accuracy',
+                    'Efficient resource use',
+                    'Immediate + comprehensive protection',
+                    'Flexible and practical',
+                    'Best of all approaches'
+                ],
+                limitations: [
+                    'May initially miss some risks',
+                    'Requires coordination',
+                    'Still needs skilled resources',
+                    'Complex to manage',
+                    'Multiple methodologies to learn'
+                ],
+                bestFor: [
+                    'Most organizations',
+                    'Medium to large enterprises',
+                    'Mixed compliance requirements',
+                    'Organizations with varying asset values',
+                    'Practical, balanced approach needed'
+                ]
+            }
+        };
+
+        function selectApproach(approach) {
+            document.querySelectorAll('.approach-card').forEach(card => card.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+
+            const data = approachData[approach];
+            const details = document.getElementById('approach-details');
+
+            details.innerHTML = `
+                <h3>${data.icon} ${data.name}</h3>
+                <div class="details-grid">
+                    <div class="details-section">
+                        <h4>✅ Advantages</h4>
+                        <ul>${data.advantages.map(a => `<li>${a}</li>`).join('')}</ul>
+                    </div>
+                    <div class="details-section">
+                        <h4>⚠️ Limitations</h4>
+                        <ul>${data.limitations.map(l => `<li>${l}</li>`).join('')}</ul>
+                    </div>
+                    <div class="details-section">
+                        <h4>🎯 Best For</h4>
+                        <ul>${data.bestFor.map(b => `<li>${b}</li>`).join('')}</ul>
+                    </div>
+                </div>
+            `;
+
+            details.classList.add('visible');
+        }
+
+        // ===== Quiz =====
+        const quizQuestions = [
+            {
+                question: 'What is your organization\'s size?',
+                options: [
+                    { text: 'Small (< 50 employees)', score: { baseline: 2, informal: 2, formal: 0, combined: 1 } },
+                    { text: 'Medium (50-500 employees)', score: { baseline: 1, informal: 1, formal: 1, combined: 2 } },
+                    { text: 'Large (> 500 employees)', score: { baseline: 0, informal: 0, formal: 2, combined: 2 } }
+                ]
+            },
+            {
+                question: 'What is your security budget?',
+                options: [
+                    { text: 'Very limited', score: { baseline: 2, informal: 2, formal: 0, combined: 1 } },
+                    { text: 'Moderate', score: { baseline: 1, informal: 1, formal: 1, combined: 2 } },
+                    { text: 'Substantial', score: { baseline: 0, informal: 0, formal: 2, combined: 2 } }
+                ]
+            },
+            {
+                question: 'Do you have regulatory compliance requirements?',
+                options: [
+                    { text: 'None or minimal', score: { baseline: 1, informal: 2, formal: 0, combined: 1 } },
+                    { text: 'Some industry standards', score: { baseline: 2, informal: 1, formal: 1, combined: 2 } },
+                    { text: 'Strict regulations (PCI, HIPAA, etc.)', score: { baseline: 0, informal: 0, formal: 2, combined: 2 } }
+                ]
+            },
+            {
+                question: 'Do you have experienced security staff?',
+                options: [
+                    { text: 'No dedicated security staff', score: { baseline: 2, informal: 0, formal: 0, combined: 1 } },
+                    { text: 'Some IT staff with security knowledge', score: { baseline: 1, informal: 2, formal: 1, combined: 2 } },
+                    { text: 'Dedicated security team', score: { baseline: 0, informal: 2, formal: 2, combined: 2 } }
+                ]
+            },
+            {
+                question: 'How critical are your information assets?',
+                options: [
+                    { text: 'Mostly routine business data', score: { baseline: 2, informal: 1, formal: 0, combined: 1 } },
+                    { text: 'Some sensitive customer/business data', score: { baseline: 1, informal: 1, formal: 1, combined: 2 } },
+                    { text: 'Highly sensitive/classified data', score: { baseline: 0, informal: 0, formal: 2, combined: 2 } }
+                ]
+            }
+        ];
+
+        let currentQuestion = 0;
+        let answers = [];
+        let scores = { baseline: 0, informal: 0, formal: 0, combined: 0 };
+
+        function renderQuestion() {
+            const q = quizQuestions[currentQuestion];
+            const questionDiv = document.getElementById('quiz-question');
+
+            questionDiv.innerHTML = `
+                <h3>Question ${currentQuestion + 1} of ${quizQuestions.length}</h3>
+                <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1em;">${q.question}</p>
+                <div class="quiz-options">
+                    ${q.options.map((opt, i) => `
+                        <div class="quiz-option ${answers[currentQuestion] === i ? 'selected' : ''}"
+                             onclick="selectAnswer(${i})">${opt.text}</div>
+                    `).join('')}
+                </div>
+            `;
+
+            // Update progress dots
+            document.querySelectorAll('.progress-dot').forEach((dot, i) => {
+                dot.classList.remove('active', 'completed');
+                if (i < currentQuestion) dot.classList.add('completed');
+                if (i === currentQuestion) dot.classList.add('active');
+            });
+
+            // Update buttons
+            document.getElementById('prev-btn').disabled = currentQuestion === 0;
+            document.getElementById('next-btn').textContent = currentQuestion === quizQuestions.length - 1 ? 'See Results' : 'Next';
+        }
+
+        function selectAnswer(index) {
+            answers[currentQuestion] = index;
+            document.querySelectorAll('.quiz-option').forEach((opt, i) => {
+                opt.classList.toggle('selected', i === index);
+            });
+        }
+
+        function nextQuestion() {
+            if (answers[currentQuestion] === undefined) {
+                alert('Please select an answer before continuing.');
+                return;
+            }
+
+            // Add score from current answer
+            const q = quizQuestions[currentQuestion];
+            const selectedScore = q.options[answers[currentQuestion]].score;
+            for (let approach in selectedScore) {
+                scores[approach] += selectedScore[approach];
+            }
+
+            if (currentQuestion < quizQuestions.length - 1) {
+                currentQuestion++;
+                renderQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQuestion > 0) {
+                // Remove score from current answer if exists
+                if (answers[currentQuestion] !== undefined) {
+                    const q = quizQuestions[currentQuestion];
+                    const selectedScore = q.options[answers[currentQuestion]].score;
+                    for (let approach in selectedScore) {
+                        scores[approach] -= selectedScore[approach];
+                    }
+                }
+                currentQuestion--;
+                renderQuestion();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-question').style.display = 'none';
+            document.getElementById('prev-btn').style.display = 'none';
+            document.getElementById('next-btn').style.display = 'none';
+            document.getElementById('restart-btn').style.display = 'inline-block';
+
+            // Mark all dots as completed
+            document.querySelectorAll('.progress-dot').forEach(dot => {
+                dot.classList.remove('active');
+                dot.classList.add('completed');
+            });
+
+            // Find recommended approach
+            let maxScore = 0;
+            let recommended = 'combined';
+            for (let approach in scores) {
+                if (scores[approach] > maxScore) {
+                    maxScore = scores[approach];
+                    recommended = approach;
+                }
+            }
+
+            const data = approachData[recommended];
+            const resultDiv = document.getElementById('quiz-result');
+
+            resultDiv.innerHTML = `
+                <h3>🎯 Your Recommended Approach</h3>
+                <div class="recommended-approach">
+                    <h4>${data.icon} ${data.name}</h4>
+                    <p>Based on your answers, the <strong>${data.name}</strong> is the best fit for your organization.</p>
+                </div>
+                <div style="text-align: left; margin-top: 1.5rem;">
+                    <h4>Why this approach?</h4>
+                    <p>It's ideal for organizations that:</p>
+                    <ul style="margin: 0.5rem 0 0 1.5rem;">
+                        ${data.bestFor.slice(0, 3).map(b => `<li>${b}</li>`).join('')}
+                    </ul>
+                </div>
+                <div style="margin-top: 1.5rem; padding: 1rem; background: #e3f2fd; border-radius: 8px;">
+                    <strong>Tip:</strong> Consider the Combined Approach if you want to balance quick implementation with comprehensive analysis for critical assets.
+                </div>
+            `;
+
+            resultDiv.classList.add('visible');
+        }
+
+        function restartQuiz() {
+            currentQuestion = 0;
+            answers = [];
+            scores = { baseline: 0, informal: 0, formal: 0, combined: 0 };
+
+            document.getElementById('quiz-question').style.display = 'block';
+            document.getElementById('quiz-result').classList.remove('visible');
+            document.getElementById('prev-btn').style.display = 'inline-block';
+            document.getElementById('next-btn').style.display = 'inline-block';
+            document.getElementById('restart-btn').style.display = 'none';
+
+            renderQuestion();
+        }
+
+        // Initialize quiz
+        renderQuestion();
+    </script>
+</body>
+</html>

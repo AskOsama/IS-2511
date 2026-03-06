@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرة الثانية: تقييم المخاطر الأمنية</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture2.html" class="lang-button" title="Switch to English">English</a>
+    </div>
+
+    <header>
+        <h1>تقييم المخاطر الأمنية</h1>
+        <p class="subtitle">المحاضرة الثانية: مناهج تقييم المخاطر الأمنية</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>المحتويات</h2>
+        <ul>
+            <li><a href="#objectives">أهداف التعلم</a></li>
+            <li><a href="#overview">1. نظرة عامة</a></li>
+            <li><a href="#baseline">2. المنهج الأساسي (Baseline)</a></li>
+            <li><a href="#informal">3. المنهج غير الرسمي (Informal)</a></li>
+            <li><a href="#formal">4. المنهج الرسمي (التحليل التفصيلي للمخاطر)</a></li>
+            <li><a href="#combined">5. المنهج المدمج (Combined)</a></li>
+            <li><a href="#comparison">6. مقارنة المناهج</a></li>
+            <li><a href="#exercises">7. تمارين للطلاب</a></li>
+            <li><a href="#summary">الملخص</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>أهداف التعلم</h2>
+            <p>بنهاية هذه المحاضرة، ستكون قادراً على:</p>
+            <ul>
+                <li>فهم دور وأهمية تقييم المخاطر الأمنية</li>
+                <li>تحديد المفاهيم الرئيسية في تقييم المخاطر الأمنية</li>
+                <li>التمييز بين مناهج تقييم المخاطر (الأساسي، غير الرسمي، الرسمي، المدمج)</li>
+                <li>مقارنة مزايا وقيود كل منهج</li>
+                <li>فهم عملية التحليل التفصيلي للمخاطر وحساب درجات المخاطر</li>
+                <li>تطبيق مفاهيم تقييم المخاطر على سيناريوهات واقعية</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="content-section">
+            <h2>1. نظرة عامة</h2>
+
+            <div class="definition">
+                <h3>ما هو تقييم المخاطر الأمنية؟</h3>
+                <p><strong>تقييم المخاطر الأمنية</strong> هو عملية منهجية لتحديد وتحليل وتقييم المخاطر الأمنية على أصول المعلومات في المنظمة. يساعد المنظمات على اتخاذ قرارات مستنيرة حول كيفية حماية أصولها بفعالية.</p>
+            </div>
+
+            <h3>الأسئلة الرئيسية التي يجيب عنها تقييم المخاطر</h3>
+            <ul>
+                <li><strong>ما الأصول التي تحتاج حماية؟</strong> - تحديد أصول المعلومات الحيوية</li>
+                <li><strong>ما التهديدات الموجودة؟</strong> - فهم المصادر المحتملة للضرر</li>
+                <li><strong>ما نقاط الضعف الموجودة؟</strong> - تحديد الثغرات التي يمكن استغلالها</li>
+                <li><strong>ما هي المخاطر؟</strong> - الجمع بين الاحتمالية والتأثير</li>
+                <li><strong>ما الضوابط التي يجب تطبيقها؟</strong> - اختيار الإجراءات المضادة المناسبة</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>عواقب عدم إجراء تقييم المخاطر</h4>
+                <ul>
+                    <li>إهدار الموارد على حماية أصول منخفضة القيمة</li>
+                    <li>ترك الأصول الحيوية بدون حماية</li>
+                    <li>فشل الامتثال والعقوبات القانونية</li>
+                    <li>حوادث أمنية غير متوقعة ذات تأثير شديد</li>
+                    <li>فقدان ثقة العملاء وتضرر السمعة</li>
+                </ul>
+            </div>
+
+            <div class="key-message">
+                <p><strong>لماذا نختار منهجاً معيناً؟</strong> يجب على المنظمات اختيار منهج تقييم المخاطر بناءً على حجمها ومواردها ومتطلباتها التنظيمية ومستوى تحمل المخاطر. لا يوجد حل واحد يناسب الجميع.</p>
+            </div>
+
+            <!-- Risk Assessment Approaches Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">مناهج تقييم المخاطر الأربعة</h3>
+                </div>
+                <div class="four-areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">📋</div>
+                        <h4>المنهج الأساسي</h4>
+                        <p>استخدام ضوابط الصناعة القياسية وقوائم التحقق</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">👤</div>
+                        <h4>المنهج غير الرسمي</h4>
+                        <p>الاعتماد على حكم الخبراء والتجربة</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📊</div>
+                        <h4>المنهج الرسمي</h4>
+                        <p>تحليل مخاطر منظم وموثق</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🔄</div>
+                        <h4>المنهج المدمج</h4>
+                        <p>مزيج من جميع المناهج للحصول على أفضل النتائج</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/risk_assessment_demo.html" class="demo-link">جرب العرض التفاعلي لتقييم المخاطر</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 2: Baseline Approach -->
+        <section id="baseline" class="content-section">
+            <h2>2. المنهج الأساسي (Baseline Approach)</h2>
+
+            <div class="definition">
+                <h3>ما هو المنهج الأساسي؟</h3>
+                <p><strong>المنهج الأساسي</strong> يتضمن تطبيق مجموعة قياسية من الضوابط الأمنية بناءً على أفضل الممارسات في الصناعة، دون إجراء تحليل تفصيلي للمخاطر. يستخدم معايير وقوائم تحقق أمنية محددة مسبقاً.</p>
+            </div>
+
+            <h3>كيف يعمل</h3>
+            <p>تختار المنظمات معياراً أو إطاراً أمنياً معترفاً به وتطبق الضوابط الموصى بها:</p>
+            <ul>
+                <li><strong>ISO 27002:</strong> مدونة ممارسات تحتوي على 93 ضابطاً أمنياً</li>
+                <li><strong>إطار عمل NIST للأمن السيبراني:</strong> معيار حكومي أمريكي يحتوي على 5 وظائف</li>
+                <li><strong>ضوابط CIS:</strong> قائمة مرتبة من 18 ضابطاً أمنياً حيوياً</li>
+                <li><strong>معايير خاصة بالصناعة:</strong> PCI DSS (بطاقات الدفع)، HIPAA (الرعاية الصحية)</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>الضوابط الأساسية النموذجية</h4>
+                <ul>
+                    <li><strong>سياسات كلمات المرور:</strong> الحد الأدنى للطول، متطلبات التعقيد، انتهاء الصلاحية</li>
+                    <li><strong>المصادقة متعددة العوامل (MFA):</strong> شيء تعرفه + شيء تملكه</li>
+                    <li><strong>جدران الحماية:</strong> حماية محيط الشبكة</li>
+                    <li><strong>التحديث المنتظم:</strong> الحفاظ على تحديث الأنظمة</li>
+                    <li><strong>إجراءات النسخ الاحتياطي:</strong> نسخ احتياطية منتظمة للبيانات مع الاختبار</li>
+                    <li><strong>مكافحة الفيروسات/البرمجيات الخبيثة:</strong> حماية نقاط النهاية</li>
+                    <li><strong>ضوابط الوصول:</strong> إدارة الوصول المبنية على الأدوار</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>المزايا:</strong> سهل التطبيق، منخفض التكلفة، سريع النشر، يوفر نقطة بداية جيدة للمنظمات الجديدة على الأمان، ويضمن الامتثال لمعايير الصناعة.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>القيود</h4>
+                <ul>
+                    <li>غير مخصص لاحتياجات المنظمة المحددة</li>
+                    <li>قد يؤدي إلى الإفراط في تأمين المناطق منخفضة المخاطر (إهدار الموارد)</li>
+                    <li>قد يؤدي إلى نقص التأمين في المناطق عالية المخاطر (ترك ثغرات)</li>
+                    <li>لا يراعي التهديدات الفريدة أو سياق العمل</li>
+                    <li>نهج "حل واحد يناسب الجميع" قد لا يناسب جيداً</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>مثال: متجر تجزئة صغير</h4>
+                <p>يطبق متجر تجزئة صغير ضوابط PCI DSS الأساسية للتعامل مع بيانات بطاقات الائتمان. يقومون بتثبيت جدار حماية، وتشفير بيانات البطاقات، واستخدام كلمات مرور قوية. لكنهم قد لا يحتاجون نفس مستوى ضوابط الأمان المادي مثل مركز البيانات، وقد يكون لديهم مخاطر فريدة تتعلق بأجهزة نقاط البيع لا يعالجها المنهج الأساسي بالكامل.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Informal Approach -->
+        <section id="informal" class="content-section">
+            <h2>3. المنهج غير الرسمي (Informal Approach)</h2>
+
+            <div class="definition">
+                <h3>ما هو المنهج غير الرسمي؟</h3>
+                <p><strong>المنهج غير الرسمي</strong> يعتمد على معرفة وخبرة وحكم خبراء الأمان أو الموظفين ذوي الخبرة لتحديد وتقييم المخاطر دون اتباع منهجية رسمية.</p>
+            </div>
+
+            <h3>كيف يعمل</h3>
+            <p>تُتخذ القرارات الأمنية بناءً على:</p>
+            <ul>
+                <li><strong>حكم الخبراء:</strong> الاستفادة من سنوات الخبرة الأمنية</li>
+                <li><strong>المقابلات:</strong> التحدث مع الموظفين حول مخاوفهم وملاحظاتهم</li>
+                <li><strong>ورش العمل:</strong> مناقشات جماعية للعصف الذهني حول المخاطر</li>
+                <li><strong>الحدس:</strong> "الإحساس الداخلي" بما قد يحدث من خطأ</li>
+                <li><strong>الحوادث السابقة:</strong> التعلم من الأحداث الأمنية السابقة</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>الأنشطة النموذجية</h4>
+                <ul>
+                    <li>جولات تفقدية في المنشآت والأنظمة</li>
+                    <li>محادثات غير رسمية مع رؤساء الأقسام</li>
+                    <li>مراجعة الحوادث الأمنية الأخيرة</li>
+                    <li>تدقيقات أمنية سريعة مبنية على الخبرة</li>
+                    <li>جلسات عصف ذهني مع موظفي تقنية المعلومات</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>المزايا:</strong> سريع التنفيذ، مرن وقابل للتكيف، يمكن أن يكون خاصاً بالمنظمة، منخفض التكلفة، جيد لتحديد المخاطر الواضحة بسرعة، ويستفيد من المعرفة العميقة بالمنظمة.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>القيود</h4>
+                <ul>
+                    <li>شخصي للغاية - يعتمد على معرفة الخبير</li>
+                    <li>النتائج تختلف بين المقيّمين</li>
+                    <li>قد يفوت مخاطر خارج نطاق خبرة الخبير</li>
+                    <li>صعوبة تبرير القرارات للمدققين أو الإدارة</li>
+                    <li>لا يوجد توثيق أو مسار تدقيق</li>
+                    <li>تحيز الخبير قد يؤدي إلى نقاط عمياء</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>مثال: تقييم مدير تقنية المعلومات</h4>
+                <p>يتجول مدير تقنية معلومات ذو خبرة في المكتب ويلاحظ أن الوصول إلى غرفة الخوادم غير مقيد. بناءً على الخبرة السابقة في شركات أخرى، يوصي بتثبيت نظام وصول بالبطاقات. بينما يعالج هذا خطراً حقيقياً، قد يفوته مخاطر أخرى مثل التهديدات الداخلية أو الهندسة الاجتماعية لأنه لم يحلل جميع التهديدات المحتملة بشكل منهجي.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Formal Approach (Detailed Risk Analysis) -->
+        <section id="formal" class="content-section">
+            <h2>4. المنهج الرسمي (التحليل التفصيلي للمخاطر)</h2>
+
+            <div class="definition">
+                <h3>ما هو المنهج الرسمي؟</h3>
+                <p><strong>المنهج الرسمي</strong> (يُسمى أيضاً التحليل التفصيلي للمخاطر) هو عملية منظمة وموثقة تحدد وتحلل وتقيم جميع المخاطر الأمنية بشكل منهجي. يستخدم منهجية محددة لحساب درجات المخاطر.</p>
+            </div>
+
+            <h3>كيف يعمل</h3>
+            <p>يتبع المنهج الرسمي عملية منظمة:</p>
+            <ol>
+                <li><strong>تحديد الأصول:</strong> فهرسة جميع أصول المعلومات</li>
+                <li><strong>تصنيف الأصول:</strong> تحديد القيمة والأهمية</li>
+                <li><strong>تحديد التهديدات:</strong> قائمة بجميع التهديدات المحتملة</li>
+                <li><strong>تقييم نقاط الضعف:</strong> تحديد الثغرات</li>
+                <li><strong>تقييم الاحتمالية:</strong> تقدير احتمال حدوث التهديدات</li>
+                <li><strong>تقييم التأثير:</strong> تقدير العواقب إذا تحققت التهديدات</li>
+                <li><strong>حساب المخاطر:</strong> الجمع بين الاحتمالية والتأثير</li>
+                <li><strong>ترتيب أولويات المخاطر:</strong> تصنيف المخاطر للمعالجة</li>
+            </ol>
+
+            <article class="security-concept">
+                <h4>معادلة حساب درجة المخاطر</h4>
+                <p>تُحسب المخاطر بضرب الاحتمالية في التأثير:</p>
+                <div style="text-align: center; padding: 1rem; background: var(--light-gray); border-radius: 8px; margin: 1rem 0;">
+                    <strong style="font-size: 1.5em; color: var(--primary-color);">درجة المخاطر = الاحتمالية (L) × التأثير (I)</strong>
+                </div>
+                <p>كل من الاحتمالية والتأثير يُقيّم عادةً على مقياس من 1-5:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>التقييم</th>
+                            <th>وصف الاحتمالية</th>
+                            <th>وصف التأثير</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1 - منخفض جداً</strong></td>
+                            <td>نادر، غير محتمل الحدوث</td>
+                            <td>تأثير ضئيل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2 - منخفض</strong></td>
+                            <td>ممكن لكن غير متوقع</td>
+                            <td>تأثير طفيف، سهل الاستعادة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>3 - متوسط</strong></td>
+                            <td>قد يحدث أحياناً</td>
+                            <td>تأثير معتدل، بعض التعطيل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>4 - مرتفع</strong></td>
+                            <td>من المحتمل حدوثه</td>
+                            <td>تأثير كبير، تعطيل رئيسي</td>
+                        </tr>
+                        <tr>
+                            <td><strong>5 - مرتفع جداً</strong></td>
+                            <td>شبه مؤكد الحدوث</td>
+                            <td>كارثي، يهدد العمل</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <article class="security-concept">
+                <h4>نطاقات درجات المخاطر</h4>
+                <p>تُصنف درجات المخاطر الناتجة (1-25) إلى مستويات:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>نطاق الدرجة</th>
+                            <th>مستوى المخاطر</th>
+                            <th>الإجراء المطلوب</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>1-5</strong></td>
+                            <td style="background: #d4edda; color: #155724;">منخفض</td>
+                            <td>قبول أو مراقبة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>6-12</strong></td>
+                            <td style="background: #fff3cd; color: #856404;">متوسط</td>
+                            <td>تطبيق الضوابط عندما يكون ذلك ممكناً</td>
+                        </tr>
+                        <tr>
+                            <td><strong>15-25</strong></td>
+                            <td style="background: #f8d7da; color: #721c24;">مرتفع</td>
+                            <td>إجراء فوري مطلوب</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </article>
+
+            <!-- Risk Matrix Diagram -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">مصفوفة تقييم المخاطر 5×5</h3>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table style="text-align: center; font-weight: bold;">
+                        <thead>
+                            <tr>
+                                <th style="background: #e9ecef;">L \ I</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>5</strong></td>
+                                <td style="background: #ffeeba;">5</td>
+                                <td style="background: #fff3cd;">10</td>
+                                <td style="background: #f8d7da;">15</td>
+                                <td style="background: #f5c6cb;">20</td>
+                                <td style="background: #f1b0b7;">25</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>4</strong></td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #ffeeba;">8</td>
+                                <td style="background: #fff3cd;">12</td>
+                                <td style="background: #f8d7da;">16</td>
+                                <td style="background: #f5c6cb;">20</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>3</strong></td>
+                                <td style="background: #d4edda;">3</td>
+                                <td style="background: #d4edda;">6</td>
+                                <td style="background: #ffeeba;">9</td>
+                                <td style="background: #fff3cd;">12</td>
+                                <td style="background: #f8d7da;">15</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>2</strong></td>
+                                <td style="background: #d4edda;">2</td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #d4edda;">6</td>
+                                <td style="background: #ffeeba;">8</td>
+                                <td style="background: #fff3cd;">10</td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--primary-color); color: white;"><strong>1</strong></td>
+                                <td style="background: #d4edda;">1</td>
+                                <td style="background: #d4edda;">2</td>
+                                <td style="background: #d4edda;">3</td>
+                                <td style="background: #d4edda;">4</td>
+                                <td style="background: #d4edda;">5</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="diagram-note">أخضر = مخاطر منخفضة (1-5) | أصفر = مخاطر متوسطة (6-12) | أحمر = مخاطر مرتفعة (15-25)</p>
+            </div>
+
+            <div class="key-message">
+                <p><strong>المزايا:</strong> دقيق وشامل، يوفر قرارات قابلة للدفاع عنها، يُنشئ توثيقاً للامتثال، يحدد جميع المخاطر بشكل منهجي، ويدعم تخصيص الموارد المستنير.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>القيود</h4>
+                <ul>
+                    <li>يستغرق وقتاً طويلاً لإجرائه بشكل شامل</li>
+                    <li>مكلف - يتطلب موارد ماهرة</li>
+                    <li>يتطلب خبراء مدربين في تقييم المخاطر</li>
+                    <li>قد يكون مرهقاً للمنظمات الصغيرة</li>
+                    <li>قد ينتج شلل التحليل</li>
+                    <li>يحتاج تحديثات منتظمة مع تغير التهديدات</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Combined Approach -->
+        <section id="combined" class="content-section">
+            <h2>5. المنهج المدمج (Combined Approach)</h2>
+
+            <div class="definition">
+                <h3>ما هو المنهج المدمج؟</h3>
+                <p><strong>المنهج المدمج</strong> يجمع بين عناصر المنهج الأساسي وغير الرسمي والرسمي لإنشاء عملية تقييم مخاطر عملية وفعالة توازن بين الشمولية وقيود الموارد.</p>
+            </div>
+
+            <h3>كيف يعمل - العملية ذات 3 مراحل</h3>
+
+            <!-- Combined Approach Flowchart -->
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">تدفق المنهج المدمج</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>الأساسي</h4>
+                        <p>تطبيق الضوابط القياسية أولاً</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>غير الرسمي</h4>
+                        <p>مراجعة الخبراء للثغرات</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>الرسمي</h4>
+                        <p>تحليل عميق للمناطق عالية المخاطر</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="security-concept">
+                <h4>المرحلة 1: الأساسي (الأساس)</h4>
+                <p>البدء بتطبيق ضوابط الصناعة القياسية:</p>
+                <ul>
+                    <li>اختيار إطار أمني مناسب (ISO 27002، NIST، CIS)</li>
+                    <li>تطبيق جميع الضوابط الأساسية المناسبة</li>
+                    <li>يوفر هذا حماية فورية للتهديدات الشائعة</li>
+                    <li>يحقق "الحد الأدنى المقبول لمستوى الأمان"</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>المرحلة 2: غير الرسمي (تحليل الفجوات)</h4>
+                <p>استخدام حكم الخبراء لتحديد الفجوات والمخاطر الخاصة بالمنظمة:</p>
+                <ul>
+                    <li>إجراء مقابلات مع أصحاب المصلحة الرئيسيين</li>
+                    <li>مراجعة العمليات والأصول الفريدة للعمل</li>
+                    <li>تحديد المخاطر غير المغطاة بالمنهج الأساسي</li>
+                    <li>ترتيب أولويات المناطق التي تحتاج تحليلاً أعمق</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>المرحلة 3: الرسمي (التعمق)</h4>
+                <p>تطبيق تحليل المخاطر التفصيلي فقط على المناطق عالية القيمة أو عالية المخاطر:</p>
+                <ul>
+                    <li>إجراء تقييم مخاطر كامل للأصول الحيوية</li>
+                    <li>حساب درجات المخاطر للتهديدات ذات الأولوية</li>
+                    <li>توثيق النتائج لمتطلبات الامتثال</li>
+                    <li>تبرير الاستثمارات الأمنية الإضافية</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>لماذا يُوصى بالمنهج المدمج:</strong> يوازن بين التكلفة والسرعة والدقة. تحصل المنظمات على حماية فورية من الضوابط الأساسية، وتستفيد من معرفة الخبراء للمكاسب السريعة، وتستثمر موارد التحليل الرسمي فقط حيث تكون الأهمية الأكبر.</p>
+            </div>
+
+            <div class="warning-box">
+                <h4>القيود</h4>
+                <ul>
+                    <li>قد يفوت بعض المخاطر في البداية في المناطق غير المحددة للتحليل الرسمي</li>
+                    <li>يتطلب تنسيقاً بين أنشطة التقييم المختلفة</li>
+                    <li>لا يزال يحتاج موارد ماهرة للمراحل غير الرسمية والرسمية</li>
+                    <li>قد يكون معقداً في الإدارة للفرق الصغيرة جداً</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>مثال: مستشفى متوسط الحجم</h4>
+                <p>يستخدم مستشفى المنهج المدمج:</p>
+                <ol>
+                    <li><strong>الأساسي:</strong> تطبيق ضوابط HIPAA المطلوبة على جميع الأنظمة</li>
+                    <li><strong>غير الرسمي:</strong> يحدد مسؤول الأمان مخاطر فريدة في منصة الطب عن بُعد</li>
+                    <li><strong>الرسمي:</strong> إجراء تحليل مخاطر تفصيلي فقط لقاعدة بيانات سجلات المرضى ونظام الطب عن بُعد، اللذين يحتويان على البيانات الأكثر حساسية</li>
+                </ol>
+                <p>يحمي هذا النهج جميع المناطق مع تركيز التحليل التفصيلي على الأنظمة الأكثر أهمية.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Comparison of Approaches -->
+        <section id="comparison" class="content-section">
+            <h2>6. مقارنة المناهج</h2>
+
+            <p>يقارن الجدول التالي جميع مناهج تقييم المخاطر الأربعة عبر الخصائص الرئيسية:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الخاصية</th>
+                            <th>الأساسي</th>
+                            <th>غير الرسمي</th>
+                            <th>الرسمي</th>
+                            <th>المدمج</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>التكلفة</strong></td>
+                            <td>منخفضة</td>
+                            <td>منخفضة</td>
+                            <td>مرتفعة</td>
+                            <td>متوسطة</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الوقت المطلوب</strong></td>
+                            <td>سريع</td>
+                            <td>سريع</td>
+                            <td>بطيء</td>
+                            <td>معتدل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الخبرة المطلوبة</strong></td>
+                            <td>منخفضة</td>
+                            <td>عالية</td>
+                            <td>عالية</td>
+                            <td>متوسطة-عالية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الدقة</strong></td>
+                            <td>منخفضة-متوسطة</td>
+                            <td>متوسطة</td>
+                            <td>عالية</td>
+                            <td>عالية</td>
+                        </tr>
+                        <tr>
+                            <td><strong>مخصص للمنظمة</strong></td>
+                            <td>لا</td>
+                            <td>نعم</td>
+                            <td>نعم</td>
+                            <td>نعم</td>
+                        </tr>
+                        <tr>
+                            <td><strong>التوثيق</strong></td>
+                            <td>قائمة تحقق فقط</td>
+                            <td>الحد الأدنى</td>
+                            <td>شامل</td>
+                            <td>شامل</td>
+                        </tr>
+                        <tr>
+                            <td><strong>دعم الامتثال</strong></td>
+                            <td>جيد</td>
+                            <td>ضعيف</td>
+                            <td>ممتاز</td>
+                            <td>ممتاز</td>
+                        </tr>
+                        <tr>
+                            <td><strong>الأفضل لـ</strong></td>
+                            <td>المنظمات الصغيرة، البداية السريعة</td>
+                            <td>الفرق ذات الخبرة</td>
+                            <td>الصناعات المنظمة</td>
+                            <td>معظم المنظمات</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="key-message">
+                <p><strong>التوصية:</strong> لمعظم المنظمات، يوفر <strong>المنهج المدمج</strong> أفضل توازن بين الحماية والتكلفة والامتثال. ابدأ بالضوابط الأساسية، استخدم حكم الخبراء لتحديد المخاطر الفريدة، وطبق التحليل الرسمي حيث تكون الأهمية الأكبر.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>7. تمارين للطلاب</h2>
+
+            <p>أكمل التمارين التالية لتطبيق فهمك لمناهج تقييم المخاطر:</p>
+
+            <article class="security-concept">
+                <h4>التمرين 1: سيناريو العيادة الطبية</h4>
+                <p><strong>السيناريو:</strong> عيادة طبية صغيرة تضم 5 أطباء و10 موظفين تحتاج لحماية السجلات الصحية للمرضى. لديهم ميزانية تقنية معلومات محدودة ولا يوجد موظف أمان مخصص.</p>
+                <p><strong>المهام:</strong></p>
+                <ol>
+                    <li>أي منهج لتقييم المخاطر توصي به؟ لماذا؟</li>
+                    <li>ما المعيار الأساسي الذي يجب اتباعه؟</li>
+                    <li>حدد 3 مخاطر محددة يجب تقييمها</li>
+                    <li>لكل خطر، قدّر الاحتمالية (1-5) والتأثير (1-5)</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 2: منصة التجارة الإلكترونية</h4>
+                <p><strong>السيناريو:</strong> شركة بيع بالتجزئة عبر الإنترنت تعالج 10,000 معاملة بطاقات ائتمان يومياً. تعمل في دول متعددة ويجب أن تمتثل لـ PCI DSS.</p>
+                <p><strong>المهام:</strong></p>
+                <ol>
+                    <li>أي منهج هو الأنسب بالنظر لمتطلبات الامتثال؟</li>
+                    <li>ما الأصول التي يجب أن تحصل على تحليل مخاطر رسمي؟</li>
+                    <li>أنشئ سجل مخاطر بسيط يحتوي على 5 مخاطر رئيسية</li>
+                    <li>رتب أولويات المخاطر باستخدام معادلة L×I</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 3: البنك الوطني</h4>
+                <p><strong>السيناريو:</strong> بنك وطني يضم 500 فرع يطبق تطبيق خدمات مصرفية عبر الهاتف جديد. يواجه رقابة تنظيمية صارمة وتهديدات محتملة على مستوى الدولة.</p>
+                <p><strong>المهام:</strong></p>
+                <ol>
+                    <li>لماذا لن يكون المنهج الأساسي وحده كافياً؟</li>
+                    <li>صمم استراتيجية منهج مدمج لهذا البنك</li>
+                    <li>ما المناطق التي تتطلب تحليل مخاطر رسمي تفصيلي؟</li>
+                    <li>كيف تبرر تكلفة التحليل الرسمي للإدارة؟</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 4: قسم تقنية المعلومات بالجامعة</h4>
+                <p><strong>السيناريو:</strong> جامعة تدير سجلات الطلاب وبيانات البحث ومنصات التعلم الإلكتروني. لديهم موظفي تقنية معلومات ذوي خبرة لكن خبرة أمنية محدودة.</p>
+                <p><strong>المهام:</strong></p>
+                <ol>
+                    <li>حدد أصول المعلومات الأكثر أهمية</li>
+                    <li>ما التهديدات الفريدة للمؤسسات التعليمية؟</li>
+                    <li>صمم منهجاً مدمجاً من 3 مراحل لهذه الجامعة</li>
+                    <li>أنشئ مصفوفة مخاطر لأهم 5 مخاطر لديهم</li>
+                </ol>
+            </article>
+
+            <div class="example">
+                <h4>نموذج حل: العيادة الطبية (التمرين 1)</h4>
+                <p><strong>المنهج الموصى به:</strong> المدمج، مع التركيز على الأساسي</p>
+                <p><strong>المبرر:</strong> الميزانية الصغيرة وعدم وجود موظف أمان يعني أنهم يحتاجون حماية سريعة وفعالة من حيث التكلفة. يوفر HIPAA الأساسي الأساس.</p>
+                <p><strong>المخاطر الرئيسية:</strong></p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>الخطر</th>
+                            <th>الاحتمالية</th>
+                            <th>التأثير</th>
+                            <th>الدرجة</th>
+                            <th>المستوى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>فيروس الفدية على سجلات المرضى</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>20</td>
+                            <td style="color: #c53030;">مرتفع</td>
+                        </tr>
+                        <tr>
+                            <td>وصول غير مصرح للسجلات</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>12</td>
+                            <td style="color: #c05621;">متوسط</td>
+                        </tr>
+                        <tr>
+                            <td>حاسوب محمول مفقود/مسروق ببيانات</td>
+                            <td>3</td>
+                            <td>3</td>
+                            <td>9</td>
+                            <td style="color: #c05621;">متوسط</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>الملخص والنقاط الرئيسية</h2>
+
+            <h3>ما تعلمناه</h3>
+            <ol>
+                <li><strong>تقييم المخاطر الأمنية</strong> ضروري لحماية أصول المعلومات بفعالية وتخصيص موارد الأمان بحكمة.</li>
+
+                <li><strong>المنهج الأساسي</strong> يستخدم ضوابط قياسية من أطر مثل ISO 27002 و NIST و CIS Controls. سريع ورخيص لكن غير مخصص للاحتياجات المحددة.</li>
+
+                <li><strong>المنهج غير الرسمي</strong> يعتمد على حكم الخبراء والتجربة. مرن لكن شخصي وقد يفوت المخاطر.</li>
+
+                <li><strong>المنهج الرسمي</strong> (التحليل التفصيلي للمخاطر) يستخدم أساليب منهجية لحساب درجات المخاطر (L × I). دقيق لكن يستغرق وقتاً ومكلف.</li>
+
+                <li><strong>حساب درجات المخاطر</strong> يستخدم مصفوفة 5×5 حيث الدرجات 1-5 منخفضة، 6-12 متوسطة، و15-25 مخاطر مرتفعة.</li>
+
+                <li><strong>المنهج المدمج</strong> يُوصى به لمعظم المنظمات - ابدأ بالأساسي، أضف مراجعة الخبراء، وطبق التحليل الرسمي على المناطق الحيوية.</li>
+
+                <li><strong>اختيار المنهج</strong> يعتمد على حجم المنظمة ومواردها ومتطلباتها التنظيمية ومستوى تحمل المخاطر.</li>
+
+                <li><strong>لا يوجد منهج مثالي</strong> - لكل منهج مزايا وقيود يجب مراعاتها.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>التطلع إلى الأمام:</strong> في المحاضرة القادمة، سنستكشف الضوابط الأمنية بعمق - نتعلم كيفية اختيار وتنفيذ ومراقبة الضوابط المناسبة لمعالجة المخاطر المحددة.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>الاعتمادات والإسناد</h2>
+            <p class="credits-intro">جميع الرسوم البيانية في هذه الوثيقة هي أعمال تعليمية أصلية تم إنشاؤها خصيصاً لهذا المقرر.</p>
+            <ul class="credits-list">
+                <li><strong>رسم مناهج تقييم المخاطر:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>مصفوفة المخاطر:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>مخطط تدفق المنهج المدمج:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index_ar.html">&rarr; العودة إلى الصفحة الرئيسية</a>
+        </p>
+    </footer>
+</body>
+</html>

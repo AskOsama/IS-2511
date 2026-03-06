@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDCA Cycle Demo | IT Security Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #c53030;
+            --success-color: #276749;
+            --warning-color: #c05621;
+            --light-gray: #f8f9fa;
+            --plan-color: #2b6cb0;
+            --do-color: #276749;
+            --check-color: #c05621;
+            --act-color: #6b46c1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Context Toggle */
+        .context-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .toggle-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--secondary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            background: var(--light-gray);
+        }
+
+        .toggle-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Main Layout */
+        .demo-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* PDCA Cycle */
+        .cycle-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 450px;
+        }
+
+        .pdca-cycle {
+            position: relative;
+            width: 380px;
+            height: 380px;
+        }
+
+        .cycle-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            border: 8px solid transparent;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--plan-color) 0deg 90deg,
+                var(--do-color) 90deg 180deg,
+                var(--check-color) 180deg 270deg,
+                var(--act-color) 270deg 360deg
+            );
+            opacity: 0.2;
+        }
+
+        .pdca-phase {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .pdca-phase:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .pdca-phase.active {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .phase-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Position phases */
+        .phase-plan {
+            background: linear-gradient(135deg, var(--plan-color), #1a365d);
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .phase-plan.active { transform: translateX(-50%) scale(1.2); }
+
+        .phase-do {
+            background: linear-gradient(135deg, var(--do-color), #1a4731);
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        .phase-do.active { transform: translateY(-50%) scale(1.2); }
+
+        .phase-check {
+            background: linear-gradient(135deg, var(--check-color), #9c4221);
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .phase-check.active { transform: translateX(-50%) scale(1.2); }
+
+        .phase-act {
+            background: linear-gradient(135deg, var(--act-color), #553c9a);
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+        .phase-act.active { transform: translateY(-50%) scale(1.2); }
+
+        /* Center */
+        .cycle-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+
+        .cycle-center strong {
+            font-size: 1.1em;
+            color: var(--primary-color);
+        }
+
+        .cycle-center small {
+            font-size: 0.75em;
+            color: #666;
+        }
+
+        /* Rotation arrows */
+        .rotation-arrow {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(43, 108, 176, 0.5);
+            z-index: 2;
+        }
+
+        .arrow-top { top: 70px; right: 70px; transform: rotate(45deg); }
+        .arrow-right { bottom: 70px; right: 70px; transform: rotate(135deg); }
+        .arrow-bottom { bottom: 70px; left: 70px; transform: rotate(-135deg); }
+        .arrow-left { top: 70px; left: 70px; transform: rotate(-45deg); }
+
+        /* Animated rotation */
+        @keyframes rotate-highlight {
+            0% { opacity: 0.3; }
+            25% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 0.3; }
+        }
+
+        .cycle-section.animating .phase-plan { animation: rotate-highlight 4s infinite; animation-delay: 0s; }
+        .cycle-section.animating .phase-do { animation: rotate-highlight 4s infinite; animation-delay: 1s; }
+        .cycle-section.animating .phase-check { animation: rotate-highlight 4s infinite; animation-delay: 2s; }
+        .cycle-section.animating .phase-act { animation: rotate-highlight 4s infinite; animation-delay: 3s; }
+
+        /* Info Panel */
+        .info-section {
+            background: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            min-height: 450px;
+            overflow-y: auto;
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .info-icon {
+            font-size: 2.5em;
+        }
+
+        .info-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .info-content h4 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .info-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 380px;
+            color: #666;
+            text-align: center;
+        }
+
+        .info-placeholder .icon {
+            font-size: 4em;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Controls */
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .ctrl-btn {
+            padding: 0.6rem 1.2rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--secondary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .ctrl-btn:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .ctrl-btn.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        /* Timeline View */
+        .timeline-section {
+            background: linear-gradient(135deg, #f0f9ff, #e3f2fd);
+            border: 2px solid var(--secondary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .year-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .year-tab {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--secondary-color);
+            border-radius: 6px;
+            background: white;
+            color: var(--secondary-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .year-tab:hover {
+            background: var(--light-gray);
+        }
+
+        .year-tab.active {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .timeline-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .timeline-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .timeline-card.plan { border-color: var(--plan-color); }
+        .timeline-card.do { border-color: var(--do-color); }
+        .timeline-card.check { border-color: var(--check-color); }
+        .timeline-card.act { border-color: var(--act-color); }
+
+        .timeline-card h5 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9em;
+        }
+
+        .timeline-card.plan h5 { color: var(--plan-color); }
+        .timeline-card.do h5 { color: var(--do-color); }
+        .timeline-card.check h5 { color: var(--check-color); }
+        .timeline-card.act h5 { color: var(--act-color); }
+
+        .timeline-card ul {
+            margin-left: 1rem;
+            font-size: 0.8em;
+        }
+
+        .timeline-card li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* ISO 27001 Context */
+        .iso-context {
+            background: linear-gradient(135deg, #f0fff4, #c6f6d5);
+            border: 2px solid var(--success-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .iso-context h3 {
+            color: var(--success-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .iso-context p {
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .iso-context ul {
+            margin-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .iso-context li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .demo-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .pdca-cycle {
+                transform: scale(0.7);
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .timeline-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .context-toggle {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../lectures/lecture1.html#pdca" class="back-link">&larr; Back to Lecture 1</a>
+
+        <header>
+            <h1>Plan-Do-Check-Act (PDCA) Cycle</h1>
+            <p class="subtitle">The Deming Cycle for Continuous Improvement in Information Security</p>
+        </header>
+
+        <!-- Context Toggle -->
+        <div class="context-toggle">
+            <button class="toggle-btn active" onclick="setContext('general')">General PDCA</button>
+            <button class="toggle-btn" onclick="setContext('iso27001')">ISO 27001 ISMS</button>
+        </div>
+
+        <div class="demo-layout">
+            <!-- PDCA Cycle -->
+            <div class="cycle-section" id="cycle-section">
+                <div class="pdca-cycle">
+                    <div class="cycle-ring"></div>
+
+                    <!-- Rotation arrows -->
+                    <span class="rotation-arrow arrow-top">↷</span>
+                    <span class="rotation-arrow arrow-right">↷</span>
+                    <span class="rotation-arrow arrow-bottom">↷</span>
+                    <span class="rotation-arrow arrow-left">↷</span>
+
+                    <div class="pdca-phase phase-plan" onclick="showPhase('plan')">
+                        <span class="phase-icon">📋</span>
+                        PLAN
+                    </div>
+
+                    <div class="pdca-phase phase-do" onclick="showPhase('do')">
+                        <span class="phase-icon">⚙️</span>
+                        DO
+                    </div>
+
+                    <div class="pdca-phase phase-check" onclick="showPhase('check')">
+                        <span class="phase-icon">✅</span>
+                        CHECK
+                    </div>
+
+                    <div class="pdca-phase phase-act" onclick="showPhase('act')">
+                        <span class="phase-icon">🔄</span>
+                        ACT
+                    </div>
+
+                    <div class="cycle-center">
+                        <strong>Continuous</strong>
+                        <small>Improvement</small>
+                    </div>
+                </div>
+
+                <div class="controls">
+                    <button class="ctrl-btn" id="animateBtn" onclick="toggleAnimation()">▶️ Animate Cycle</button>
+                </div>
+            </div>
+
+            <!-- Info Panel -->
+            <div class="info-section" id="info-panel">
+                <div class="info-placeholder">
+                    <span class="icon">👆</span>
+                    <p><strong>Click on a phase</strong> to learn about each stage of the PDCA cycle</p>
+                    <p style="margin-top: 1rem; font-size: 0.9em;">Or click "Animate Cycle" to see the continuous improvement process</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline View -->
+        <div class="timeline-section">
+            <h3>📅 ISMS Implementation Timeline</h3>
+            <p style="text-align: center; margin-bottom: 1rem; color: #666;">See how PDCA activities unfold over the implementation period</p>
+
+            <div class="year-tabs">
+                <button class="year-tab active" onclick="showYear(1)">Year 1</button>
+                <button class="year-tab" onclick="showYear(2)">Year 2</button>
+                <button class="year-tab" onclick="showYear(3)">Year 3+</button>
+            </div>
+
+            <div class="timeline-grid" id="timeline-content">
+                <!-- Content populated by JavaScript -->
+            </div>
+        </div>
+
+        <!-- ISO 27001 Context -->
+        <div class="iso-context">
+            <h3>🏆 ISO 27001 & PDCA</h3>
+            <p>The PDCA cycle is fundamental to ISO 27001 certification. The standard requires organizations to:</p>
+            <ul>
+                <li><strong>Establish (Plan):</strong> Define the ISMS scope, policy, objectives, and processes</li>
+                <li><strong>Implement (Do):</strong> Put the ISMS policies, controls, and processes into operation</li>
+                <li><strong>Monitor (Check):</strong> Assess and measure performance against the ISMS policy</li>
+                <li><strong>Maintain (Act):</strong> Take corrective and preventive actions based on audits and reviews</li>
+            </ul>
+            <p style="margin-top: 1rem;"><strong>Key Point:</strong> ISO 27001:2022 emphasizes a risk-based approach where the PDCA cycle drives continuous improvement of the Information Security Management System.</p>
+        </div>
+    </div>
+
+    <script>
+        let currentContext = 'general';
+        let isAnimating = false;
+
+        const phaseData = {
+            general: {
+                plan: {
+                    icon: '📋',
+                    title: 'PLAN',
+                    color: '#2b6cb0',
+                    content: `
+                        <h4>📖 Purpose</h4>
+                        <p>Establish the objectives and processes necessary to deliver results in accordance with the expected output.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Define clear, measurable objectives</li>
+                            <li>Identify processes needed to achieve objectives</li>
+                            <li>Allocate necessary resources</li>
+                            <li>Develop detailed implementation plans</li>
+                            <li>Establish success criteria and metrics</li>
+                        </ul>
+
+                        <h4>📝 Outputs</h4>
+                        <ul>
+                            <li>Project plans and schedules</li>
+                            <li>Resource allocation plans</li>
+                            <li>Success metrics and KPIs</li>
+                            <li>Risk assessments</li>
+                        </ul>
+
+                        <h4>💡 Best Practices</h4>
+                        <ul>
+                            <li>Involve stakeholders in planning</li>
+                            <li>Set SMART objectives (Specific, Measurable, Achievable, Relevant, Time-bound)</li>
+                            <li>Document assumptions and constraints</li>
+                        </ul>
+                    `
+                },
+                do: {
+                    icon: '⚙️',
+                    title: 'DO',
+                    color: '#276749',
+                    content: `
+                        <h4>📖 Purpose</h4>
+                        <p>Implement the plan, execute the process, and make the product. Collect data for analysis in the next steps.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Execute the planned activities</li>
+                            <li>Implement new processes or changes</li>
+                            <li>Train personnel on new procedures</li>
+                            <li>Collect data and document results</li>
+                            <li>Manage day-to-day operations</li>
+                        </ul>
+
+                        <h4>📝 Outputs</h4>
+                        <ul>
+                            <li>Implemented processes and controls</li>
+                            <li>Trained workforce</li>
+                            <li>Operational documentation</li>
+                            <li>Performance data</li>
+                        </ul>
+
+                        <h4>💡 Best Practices</h4>
+                        <ul>
+                            <li>Start with small-scale pilot if possible</li>
+                            <li>Document all deviations from plan</li>
+                            <li>Maintain clear communication</li>
+                        </ul>
+                    `
+                },
+                check: {
+                    icon: '✅',
+                    title: 'CHECK',
+                    color: '#c05621',
+                    content: `
+                        <h4>📖 Purpose</h4>
+                        <p>Study the actual results and compare against expected results to identify any differences and learn what worked and what didn't.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Monitor and measure processes</li>
+                            <li>Compare results against objectives</li>
+                            <li>Conduct audits and reviews</li>
+                            <li>Analyze data for trends and patterns</li>
+                            <li>Identify gaps and areas for improvement</li>
+                        </ul>
+
+                        <h4>📝 Outputs</h4>
+                        <ul>
+                            <li>Performance reports</li>
+                            <li>Audit findings</li>
+                            <li>Gap analysis</li>
+                            <li>Lessons learned</li>
+                        </ul>
+
+                        <h4>💡 Best Practices</h4>
+                        <ul>
+                            <li>Use objective, measurable criteria</li>
+                            <li>Involve independent reviewers</li>
+                            <li>Document both successes and failures</li>
+                        </ul>
+                    `
+                },
+                act: {
+                    icon: '🔄',
+                    title: 'ACT',
+                    color: '#6b46c1',
+                    content: `
+                        <h4>📖 Purpose</h4>
+                        <p>Take actions to correct significant differences between actual and planned results. Standardize what works and improve what doesn't.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Implement corrective actions</li>
+                            <li>Address non-conformities</li>
+                            <li>Standardize successful improvements</li>
+                            <li>Update documentation and procedures</li>
+                            <li>Plan the next improvement cycle</li>
+                        </ul>
+
+                        <h4>📝 Outputs</h4>
+                        <ul>
+                            <li>Corrective action records</li>
+                            <li>Updated procedures</li>
+                            <li>Improved processes</li>
+                            <li>Input for next PLAN phase</li>
+                        </ul>
+
+                        <h4>💡 Best Practices</h4>
+                        <ul>
+                            <li>Focus on root causes, not symptoms</li>
+                            <li>Verify effectiveness of corrective actions</li>
+                            <li>Share learnings across the organization</li>
+                        </ul>
+                    `
+                }
+            },
+            iso27001: {
+                plan: {
+                    icon: '📋',
+                    title: 'PLAN - Establish ISMS',
+                    color: '#2b6cb0',
+                    content: `
+                        <h4>📖 ISO 27001 Clause 4-7</h4>
+                        <p>Establish the ISMS policy, objectives, processes, and procedures relevant to managing risk.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Define ISMS scope and boundaries</li>
+                            <li>Establish information security policy</li>
+                            <li>Conduct comprehensive risk assessment</li>
+                            <li>Select appropriate controls from Annex A</li>
+                            <li>Prepare Statement of Applicability (SoA)</li>
+                            <li>Develop risk treatment plan</li>
+                        </ul>
+
+                        <h4>📄 Required Documents</h4>
+                        <ul>
+                            <li>ISMS Scope document</li>
+                            <li>Information Security Policy</li>
+                            <li>Risk assessment methodology</li>
+                            <li>Risk treatment plan</li>
+                            <li>Statement of Applicability</li>
+                        </ul>
+                    `
+                },
+                do: {
+                    icon: '⚙️',
+                    title: 'DO - Implement ISMS',
+                    color: '#276749',
+                    content: `
+                        <h4>📖 ISO 27001 Clause 8</h4>
+                        <p>Implement and operate the ISMS policy, controls, processes, and procedures.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Implement risk treatment plan</li>
+                            <li>Deploy selected security controls</li>
+                            <li>Conduct security awareness training</li>
+                            <li>Manage ISMS operations</li>
+                            <li>Implement incident management processes</li>
+                            <li>Manage resources and responsibilities</li>
+                        </ul>
+
+                        <h4>📄 Required Records</h4>
+                        <ul>
+                            <li>Training records</li>
+                            <li>Competence evidence</li>
+                            <li>Operational procedures</li>
+                            <li>Control implementation evidence</li>
+                        </ul>
+                    `
+                },
+                check: {
+                    icon: '✅',
+                    title: 'CHECK - Monitor ISMS',
+                    color: '#c05621',
+                    content: `
+                        <h4>📖 ISO 27001 Clause 9</h4>
+                        <p>Assess and measure process performance against the ISMS policy, objectives, and practical experience.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Monitor, measure, and analyze processes</li>
+                            <li>Conduct internal audits</li>
+                            <li>Perform management reviews</li>
+                            <li>Review security incidents and events</li>
+                            <li>Assess control effectiveness</li>
+                            <li>Review risk assessment results</li>
+                        </ul>
+
+                        <h4>📄 Required Records</h4>
+                        <ul>
+                            <li>Monitoring and measurement results</li>
+                            <li>Internal audit reports</li>
+                            <li>Management review minutes</li>
+                            <li>Performance evaluation reports</li>
+                        </ul>
+                    `
+                },
+                act: {
+                    icon: '🔄',
+                    title: 'ACT - Maintain ISMS',
+                    color: '#6b46c1',
+                    content: `
+                        <h4>📖 ISO 27001 Clause 10</h4>
+                        <p>Take corrective and preventive actions based on the results of the internal ISMS audit and management review.</p>
+
+                        <h4>🎯 Key Activities</h4>
+                        <ul>
+                            <li>Address nonconformities</li>
+                            <li>Implement corrective actions</li>
+                            <li>Continually improve ISMS effectiveness</li>
+                            <li>Update risk assessments</li>
+                            <li>Revise policies and procedures</li>
+                            <li>Communicate improvements</li>
+                        </ul>
+
+                        <h4>📄 Required Records</h4>
+                        <ul>
+                            <li>Nonconformity records</li>
+                            <li>Corrective action records</li>
+                            <li>Improvement evidence</li>
+                            <li>Updated documentation</li>
+                        </ul>
+                    `
+                }
+            }
+        };
+
+        const timelineData = {
+            1: [
+                { phase: 'plan', title: '📋 Q1-Q2: Planning', items: ['Define ISMS scope', 'Conduct gap analysis', 'Risk assessment', 'Draft policies'] },
+                { phase: 'do', title: '⚙️ Q2-Q3: Implementation', items: ['Deploy controls', 'Staff training', 'Document procedures', 'Security awareness'] },
+                { phase: 'check', title: '✅ Q3-Q4: Initial Review', items: ['Internal audit', 'Control testing', 'Performance metrics', 'Management review'] },
+                { phase: 'act', title: '🔄 Q4: First Improvements', items: ['Address findings', 'Update policies', 'Refine processes', 'Plan Year 2'] }
+            ],
+            2: [
+                { phase: 'plan', title: '📋 Q1: Annual Planning', items: ['Review objectives', 'Update risk assessment', 'Resource planning', 'Certification prep'] },
+                { phase: 'do', title: '⚙️ Q1-Q3: Maturation', items: ['Enhance controls', 'Advanced training', 'Automation', 'Process optimization'] },
+                { phase: 'check', title: '✅ Q2-Q4: Certification', items: ['Stage 1 audit', 'Stage 2 audit', 'Surveillance planning', 'KPI tracking'] },
+                { phase: 'act', title: '🔄 Q4: Certification Actions', items: ['Audit findings', 'Certification achieved', 'Continuous improvement', 'Celebrate success!'] }
+            ],
+            3: [
+                { phase: 'plan', title: '📋 Ongoing: Strategic Planning', items: ['Annual risk review', 'Technology updates', 'Threat landscape', 'Business alignment'] },
+                { phase: 'do', title: '⚙️ Ongoing: Operations', items: ['Daily operations', 'Incident handling', 'Change management', 'Vendor management'] },
+                { phase: 'check', title: '✅ Ongoing: Assurance', items: ['Surveillance audits', 'Penetration testing', 'Compliance checks', 'Metrics review'] },
+                { phase: 'act', title: '🔄 Ongoing: Improvement', items: ['Recertification (3yr)', 'Process refinement', 'Control enhancement', 'Innovation'] }
+            ]
+        };
+
+        function showPhase(phase) {
+            const data = phaseData[currentContext][phase];
+            const panel = document.getElementById('info-panel');
+
+            panel.innerHTML = `
+                <div class="info-header">
+                    <span class="info-icon">${data.icon}</span>
+                    <span class="info-title" style="color: ${data.color}">${data.title}</span>
+                </div>
+                <div class="info-content">
+                    ${data.content}
+                </div>
+            `;
+
+            // Update phase styles
+            document.querySelectorAll('.pdca-phase').forEach(p => p.classList.remove('active'));
+            document.querySelector(`.phase-${phase}`).classList.add('active');
+        }
+
+        function setContext(context) {
+            currentContext = context;
+
+            // Update toggle buttons
+            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Reset info panel
+            document.getElementById('info-panel').innerHTML = `
+                <div class="info-placeholder">
+                    <span class="icon">👆</span>
+                    <p><strong>Click on a phase</strong> to learn about each stage of the PDCA cycle</p>
+                    <p style="margin-top: 1rem; font-size: 0.9em;">Now showing: ${context === 'iso27001' ? 'ISO 27001 ISMS Context' : 'General PDCA'}</p>
+                </div>
+            `;
+
+            // Clear active phase
+            document.querySelectorAll('.pdca-phase').forEach(p => p.classList.remove('active'));
+        }
+
+        function toggleAnimation() {
+            const section = document.getElementById('cycle-section');
+            const btn = document.getElementById('animateBtn');
+
+            if (isAnimating) {
+                section.classList.remove('animating');
+                btn.textContent = '▶️ Animate Cycle';
+                isAnimating = false;
+            } else {
+                section.classList.add('animating');
+                btn.textContent = '⏹️ Stop Animation';
+                isAnimating = true;
+            }
+        }
+
+        function showYear(year) {
+            // Update tabs
+            document.querySelectorAll('.year-tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Update content
+            const content = document.getElementById('timeline-content');
+            const data = timelineData[year];
+
+            content.innerHTML = data.map(item => `
+                <div class="timeline-card ${item.phase}">
+                    <h5>${item.title}</h5>
+                    <ul>
+                        ${item.items.map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                </div>
+            `).join('');
+        }
+
+        // Initialize
+        showYear(1);
+    </script>
+</body>
+</html>

@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Step Security Process Demo | IT Security Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --accent-color: #c53030;
+            --success-color: #276749;
+            --warning-color: #c05621;
+            --light-gray: #f8f9fa;
+            --identify-color: #2b6cb0;
+            --protect-color: #276749;
+            --detect-color: #c05621;
+            --respond-color: #c53030;
+            --recover-color: #6b46c1;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            background: linear-gradient(135deg, #1a365d 0%, #2b6cb0 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            color: var(--primary-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        h1 {
+            font-size: 2em;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Process Circle */
+        .process-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .process-circle {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            margin: 1rem auto;
+        }
+
+        .process-step {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+            font-size: 0.8em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 4px solid white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .process-step:hover {
+            transform: scale(1.15);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .process-step.active {
+            transform: scale(1.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.2rem;
+        }
+
+        /* Position steps in a circle */
+        .step-identify {
+            background: linear-gradient(135deg, var(--identify-color), #1a365d);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .step-identify.active { transform: translateX(-50%) scale(1.2); }
+
+        .step-protect {
+            background: linear-gradient(135deg, var(--protect-color), #1a4731);
+            top: 25%;
+            right: 0;
+        }
+
+        .step-detect {
+            background: linear-gradient(135deg, var(--detect-color), #9c4221);
+            bottom: 10%;
+            right: 10%;
+        }
+
+        .step-respond {
+            background: linear-gradient(135deg, var(--respond-color), #9b2c2c);
+            bottom: 10%;
+            left: 10%;
+        }
+
+        .step-recover {
+            background: linear-gradient(135deg, var(--recover-color), #553c9a);
+            top: 25%;
+            left: 0;
+        }
+
+        /* Center circle */
+        .process-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 5;
+        }
+
+        .process-center strong {
+            font-size: 1.2em;
+            color: var(--primary-color);
+        }
+
+        .process-center small {
+            color: #666;
+            font-size: 0.85em;
+        }
+
+        /* Connecting circle */
+        .connecting-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
+            border: 4px dashed rgba(43, 108, 176, 0.3);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        /* Arrow indicators */
+        .arrow-indicator {
+            position: absolute;
+            font-size: 1.5em;
+            color: rgba(43, 108, 176, 0.5);
+            z-index: 2;
+        }
+
+        .arrow-1 { top: 12%; right: 18%; transform: rotate(45deg); }
+        .arrow-2 { top: 55%; right: 5%; transform: rotate(90deg); }
+        .arrow-3 { bottom: 12%; right: 35%; transform: rotate(135deg); }
+        .arrow-4 { bottom: 12%; left: 35%; transform: rotate(-135deg); }
+        .arrow-5 { top: 55%; left: 5%; transform: rotate(-90deg); }
+
+        /* Info Panel */
+        .info-panel {
+            background: white;
+            border: 2px solid var(--secondary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            min-height: 200px;
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--light-gray);
+        }
+
+        .info-icon {
+            font-size: 2.5em;
+        }
+
+        .info-title {
+            font-size: 1.5em;
+            color: var(--primary-color);
+        }
+
+        .info-content h4 {
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .info-content ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .info-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            color: #666;
+            text-align: center;
+        }
+
+        .info-placeholder .icon {
+            font-size: 3em;
+            margin-bottom: 1rem;
+            opacity: 0.5;
+        }
+
+        /* Scenario Simulator */
+        .scenario-section {
+            background: linear-gradient(135deg, #fff5f5, #fed7d7);
+            border: 2px solid var(--accent-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .scenario-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .scenario-controls {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .scenario-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--accent-color);
+            border-radius: 8px;
+            background: white;
+            color: var(--accent-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .scenario-btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .scenario-btn.active {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .scenario-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 1rem 0;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #ddd;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        .timeline-progress {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            height: 4px;
+            background: var(--accent-color);
+            transform: translateY(-50%);
+            transition: width 0.5s ease;
+            z-index: 2;
+        }
+
+        .timeline-steps {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            z-index: 3;
+        }
+
+        .timeline-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: white;
+            padding: 0.5rem;
+        }
+
+        .timeline-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-step.completed .timeline-dot,
+        .timeline-step.active .timeline-dot {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .timeline-step.active .timeline-dot {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .timeline-label {
+            font-size: 0.75em;
+            font-weight: 600;
+            text-align: center;
+            color: #666;
+        }
+
+        .timeline-step.completed .timeline-label,
+        .timeline-step.active .timeline-label {
+            color: var(--accent-color);
+        }
+
+        /* Event Log */
+        .event-log {
+            background: #1a1a2e;
+            color: #0f0;
+            border-radius: 8px;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.85em;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-top: 1rem;
+        }
+
+        .event-log p {
+            margin-bottom: 0.5rem;
+            padding: 0.25rem 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .event-log .identify-msg { color: #4299e1; }
+        .event-log .protect-msg { color: #48bb78; }
+        .event-log .detect-msg { color: #ed8936; }
+        .event-log .respond-msg { color: #fc8181; }
+        .event-log .recover-msg { color: #b794f4; }
+        .event-log .system-msg { color: #a0aec0; }
+
+        /* Key Points */
+        .key-points {
+            background: linear-gradient(135deg, #f0f9ff, #e3f2fd);
+            border: 2px solid var(--secondary-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .key-points h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .key-points ul {
+            margin-left: 1.5rem;
+        }
+
+        .key-points li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .process-circle {
+                transform: scale(0.7);
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .scenario-controls {
+                flex-direction: column;
+            }
+
+            .timeline-label {
+                font-size: 0.65em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .process-circle {
+                transform: scale(0.5);
+            }
+
+            .timeline-dot {
+                width: 30px;
+                height: 30px;
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="../lectures/lecture1.html#security-process" class="back-link">&larr; Back to Lecture 1</a>
+
+        <header>
+            <h1>IT Security Management Process</h1>
+            <p class="subtitle">Interactive 5-Step Framework: Identify, Protect, Detect, Respond, Recover</p>
+        </header>
+
+        <!-- Process Circle -->
+        <div class="process-section">
+            <div class="process-circle">
+                <div class="connecting-circle"></div>
+
+                <!-- Arrow indicators -->
+                <span class="arrow-indicator arrow-1">→</span>
+                <span class="arrow-indicator arrow-2">→</span>
+                <span class="arrow-indicator arrow-3">→</span>
+                <span class="arrow-indicator arrow-4">→</span>
+                <span class="arrow-indicator arrow-5">→</span>
+
+                <div class="process-step step-identify" onclick="showStep('identify')">
+                    <span class="step-icon">🔍</span>
+                    Identify
+                </div>
+
+                <div class="process-step step-protect" onclick="showStep('protect')">
+                    <span class="step-icon">🛡️</span>
+                    Protect
+                </div>
+
+                <div class="process-step step-detect" onclick="showStep('detect')">
+                    <span class="step-icon">👁️</span>
+                    Detect
+                </div>
+
+                <div class="process-step step-respond" onclick="showStep('respond')">
+                    <span class="step-icon">🚨</span>
+                    Respond
+                </div>
+
+                <div class="process-step step-recover" onclick="showStep('recover')">
+                    <span class="step-icon">♻️</span>
+                    Recover
+                </div>
+
+                <div class="process-center">
+                    <strong>Continuous</strong>
+                    <small>Process</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="info-panel" id="info-panel">
+            <div class="info-placeholder">
+                <span class="icon">👆</span>
+                <p><strong>Click on a step</strong> to learn about each phase of the security process</p>
+                <p style="margin-top: 0.5rem; font-size: 0.9em;">Or run the scenario simulator below to see the process in action</p>
+            </div>
+        </div>
+
+        <!-- Scenario Simulator -->
+        <div class="scenario-section">
+            <h3>🎬 Incident Scenario Simulator</h3>
+            <p style="margin-bottom: 1rem;">Watch how a security incident flows through all 5 steps of the process:</p>
+
+            <div class="scenario-controls">
+                <button class="scenario-btn" id="startBtn" onclick="startScenario()">
+                    ▶️ Start: Data Breach Scenario
+                </button>
+                <button class="scenario-btn" id="resetBtn" onclick="resetScenario()" disabled>
+                    🔄 Reset
+                </button>
+            </div>
+
+            <!-- Timeline -->
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="timeline-progress" style="width: 0%"></div>
+                <div class="timeline-steps">
+                    <div class="timeline-step" id="tl-identify">
+                        <div class="timeline-dot">🔍</div>
+                        <span class="timeline-label">Identify</span>
+                    </div>
+                    <div class="timeline-step" id="tl-protect">
+                        <div class="timeline-dot">🛡️</div>
+                        <span class="timeline-label">Protect</span>
+                    </div>
+                    <div class="timeline-step" id="tl-detect">
+                        <div class="timeline-dot">👁️</div>
+                        <span class="timeline-label">Detect</span>
+                    </div>
+                    <div class="timeline-step" id="tl-respond">
+                        <div class="timeline-dot">🚨</div>
+                        <span class="timeline-label">Respond</span>
+                    </div>
+                    <div class="timeline-step" id="tl-recover">
+                        <div class="timeline-dot">♻️</div>
+                        <span class="timeline-label">Recover</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Event Log -->
+            <div class="event-log" id="event-log">
+                <p class="system-msg">[System] Ready to simulate a data breach incident...</p>
+            </div>
+        </div>
+
+        <!-- Key Points -->
+        <div class="key-points">
+            <h3>📌 Key Points</h3>
+            <ul>
+                <li><strong>Continuous Cycle:</strong> Security is not a one-time effort but an ongoing process that repeats continuously.</li>
+                <li><strong>Proactive & Reactive:</strong> Identify and Protect are proactive (before incidents), while Detect, Respond, and Recover are reactive (during/after incidents).</li>
+                <li><strong>NIST Framework:</strong> This 5-step process aligns with the NIST Cybersecurity Framework widely used in industry.</li>
+                <li><strong>Lessons Learned:</strong> Each incident provides feedback to improve the Identify and Protect phases.</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const stepData = {
+            identify: {
+                icon: '🔍',
+                title: 'Step 1: Identify',
+                color: '#2b6cb0',
+                content: `
+                    <h4>📖 Purpose</h4>
+                    <p>Develop organizational understanding to manage security risk to systems, assets, data, and capabilities.</p>
+
+                    <h4>🎯 Key Activities</h4>
+                    <ul>
+                        <li><strong>Asset Management:</strong> Inventory all hardware, software, and data assets</li>
+                        <li><strong>Business Environment:</strong> Understand organization's mission and critical functions</li>
+                        <li><strong>Governance:</strong> Establish security policies and risk management strategy</li>
+                        <li><strong>Risk Assessment:</strong> Identify threats, vulnerabilities, and potential impacts</li>
+                        <li><strong>Supply Chain:</strong> Assess risks from third-party relationships</li>
+                    </ul>
+
+                    <h4>🛠️ Tools & Techniques</h4>
+                    <ul>
+                        <li>Asset discovery and inventory tools</li>
+                        <li>Vulnerability scanners</li>
+                        <li>Risk assessment frameworks (NIST, ISO 27005)</li>
+                        <li>Business impact analysis (BIA)</li>
+                    </ul>
+
+                    <h4>📊 Outputs</h4>
+                    <ul>
+                        <li>Asset inventory and classification</li>
+                        <li>Risk register with prioritized risks</li>
+                        <li>Security policies and procedures</li>
+                    </ul>
+                `
+            },
+            protect: {
+                icon: '🛡️',
+                title: 'Step 2: Protect',
+                color: '#276749',
+                content: `
+                    <h4>📖 Purpose</h4>
+                    <p>Implement appropriate safeguards to ensure delivery of critical services and limit the impact of potential security events.</p>
+
+                    <h4>🎯 Key Activities</h4>
+                    <ul>
+                        <li><strong>Access Control:</strong> Implement authentication and authorization mechanisms</li>
+                        <li><strong>Awareness Training:</strong> Educate employees on security best practices</li>
+                        <li><strong>Data Security:</strong> Encrypt sensitive data at rest and in transit</li>
+                        <li><strong>Protective Technology:</strong> Deploy firewalls, IDS/IPS, endpoint protection</li>
+                        <li><strong>Maintenance:</strong> Regular patching and system updates</li>
+                    </ul>
+
+                    <h4>🛠️ Tools & Techniques</h4>
+                    <ul>
+                        <li>Identity and Access Management (IAM) systems</li>
+                        <li>Encryption solutions (AES, TLS)</li>
+                        <li>Security awareness training platforms</li>
+                        <li>Patch management systems</li>
+                    </ul>
+
+                    <h4>📊 Outputs</h4>
+                    <ul>
+                        <li>Implemented security controls</li>
+                        <li>Trained workforce</li>
+                        <li>Documented security procedures</li>
+                    </ul>
+                `
+            },
+            detect: {
+                icon: '👁️',
+                title: 'Step 3: Detect',
+                color: '#c05621',
+                content: `
+                    <h4>📖 Purpose</h4>
+                    <p>Implement activities to identify the occurrence of a security event in a timely manner.</p>
+
+                    <h4>🎯 Key Activities</h4>
+                    <ul>
+                        <li><strong>Continuous Monitoring:</strong> Real-time monitoring of systems and networks</li>
+                        <li><strong>Anomaly Detection:</strong> Identify unusual patterns indicating threats</li>
+                        <li><strong>Security Event Logging:</strong> Collect and correlate security logs</li>
+                        <li><strong>Detection Processes:</strong> Define and test detection procedures</li>
+                    </ul>
+
+                    <h4>🛠️ Tools & Techniques</h4>
+                    <ul>
+                        <li>Security Information and Event Management (SIEM)</li>
+                        <li>Intrusion Detection Systems (IDS)</li>
+                        <li>User and Entity Behavior Analytics (UEBA)</li>
+                        <li>Network traffic analysis tools</li>
+                    </ul>
+
+                    <h4>📊 Outputs</h4>
+                    <ul>
+                        <li>Security alerts and notifications</li>
+                        <li>Incident indicators</li>
+                        <li>Detection metrics and reports</li>
+                    </ul>
+                `
+            },
+            respond: {
+                icon: '🚨',
+                title: 'Step 4: Respond',
+                color: '#c53030',
+                content: `
+                    <h4>📖 Purpose</h4>
+                    <p>Take action regarding a detected security incident to contain its impact and prevent further damage.</p>
+
+                    <h4>🎯 Key Activities</h4>
+                    <ul>
+                        <li><strong>Response Planning:</strong> Execute incident response procedures</li>
+                        <li><strong>Communications:</strong> Notify stakeholders and coordinate response</li>
+                        <li><strong>Analysis:</strong> Investigate the incident to understand scope and impact</li>
+                        <li><strong>Mitigation:</strong> Contain the incident and prevent spread</li>
+                        <li><strong>Improvements:</strong> Update response plans based on lessons learned</li>
+                    </ul>
+
+                    <h4>🛠️ Tools & Techniques</h4>
+                    <ul>
+                        <li>Incident response playbooks</li>
+                        <li>Forensic analysis tools</li>
+                        <li>Communication platforms and templates</li>
+                        <li>Containment procedures</li>
+                    </ul>
+
+                    <h4>📊 Outputs</h4>
+                    <ul>
+                        <li>Incident response reports</li>
+                        <li>Containment actions</li>
+                        <li>Stakeholder communications</li>
+                    </ul>
+                `
+            },
+            recover: {
+                icon: '♻️',
+                title: 'Step 5: Recover',
+                color: '#6b46c1',
+                content: `
+                    <h4>📖 Purpose</h4>
+                    <p>Maintain plans for resilience and restore any capabilities or services impaired by a security incident.</p>
+
+                    <h4>🎯 Key Activities</h4>
+                    <ul>
+                        <li><strong>Recovery Planning:</strong> Execute recovery procedures to restore operations</li>
+                        <li><strong>Improvements:</strong> Update recovery strategies based on lessons learned</li>
+                        <li><strong>Communications:</strong> Coordinate with internal and external parties</li>
+                        <li><strong>Service Restoration:</strong> Bring systems back to normal operations</li>
+                    </ul>
+
+                    <h4>🛠️ Tools & Techniques</h4>
+                    <ul>
+                        <li>Business continuity plans</li>
+                        <li>Disaster recovery procedures</li>
+                        <li>Backup and restoration systems</li>
+                        <li>Post-incident review processes</li>
+                    </ul>
+
+                    <h4>📊 Outputs</h4>
+                    <ul>
+                        <li>Restored services and capabilities</li>
+                        <li>Post-incident report</li>
+                        <li>Updated security controls and procedures</li>
+                    </ul>
+                `
+            }
+        };
+
+        let isSimulating = false;
+        let currentStep = 0;
+
+        function showStep(step) {
+            const data = stepData[step];
+            const panel = document.getElementById('info-panel');
+
+            panel.innerHTML = `
+                <div class="info-header">
+                    <span class="info-icon">${data.icon}</span>
+                    <span class="info-title" style="color: ${data.color}">${data.title}</span>
+                </div>
+                <div class="info-content">
+                    ${data.content}
+                </div>
+            `;
+
+            // Update step styles
+            document.querySelectorAll('.process-step').forEach(s => s.classList.remove('active'));
+            document.querySelector(`.step-${step}`).classList.add('active');
+        }
+
+        function logEvent(text, type = 'system-msg') {
+            const log = document.getElementById('event-log');
+            const p = document.createElement('p');
+            p.className = type;
+            p.textContent = text;
+            log.appendChild(p);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        function updateTimeline(step, status) {
+            const steps = ['identify', 'protect', 'detect', 'respond', 'recover'];
+            const index = steps.indexOf(step);
+            const progress = ((index + 1) / steps.length) * 100;
+
+            document.getElementById('timeline-progress').style.width = progress + '%';
+
+            steps.forEach((s, i) => {
+                const el = document.getElementById('tl-' + s);
+                el.classList.remove('active', 'completed');
+                if (i < index) {
+                    el.classList.add('completed');
+                } else if (i === index) {
+                    el.classList.add(status);
+                }
+            });
+        }
+
+        async function startScenario() {
+            if (isSimulating) return;
+            isSimulating = true;
+
+            document.getElementById('startBtn').disabled = true;
+            document.getElementById('resetBtn').disabled = false;
+            document.getElementById('event-log').innerHTML = '';
+
+            logEvent('[SCENARIO START] A data breach has been reported...', 'system-msg');
+
+            // Step 1: Identify (pre-incident context)
+            await delay(1500);
+            updateTimeline('identify', 'active');
+            showStep('identify');
+            logEvent('[IDENTIFY] Reviewing asset inventory...', 'identify-msg');
+            await delay(1000);
+            logEvent('[IDENTIFY] Customer database identified as critical asset', 'identify-msg');
+            await delay(1000);
+            logEvent('[IDENTIFY] Risk assessment indicated SQL injection vulnerability', 'identify-msg');
+
+            // Step 2: Protect (what was in place)
+            await delay(1500);
+            updateTimeline('protect', 'active');
+            showStep('protect');
+            logEvent('[PROTECT] Checking existing protections...', 'protect-msg');
+            await delay(1000);
+            logEvent('[PROTECT] Web application firewall was active', 'protect-msg');
+            await delay(1000);
+            logEvent('[PROTECT] Database encryption enabled', 'protect-msg');
+            await delay(1000);
+            logEvent('[PROTECT] But input validation was insufficient!', 'protect-msg');
+
+            // Step 3: Detect
+            await delay(1500);
+            updateTimeline('detect', 'active');
+            showStep('detect');
+            logEvent('[DETECT] SIEM alert triggered!', 'detect-msg');
+            await delay(1000);
+            logEvent('[DETECT] Unusual database queries detected', 'detect-msg');
+            await delay(1000);
+            logEvent('[DETECT] Large data export from customer table', 'detect-msg');
+            await delay(1000);
+            logEvent('[DETECT] Incident confirmed - data breach in progress', 'detect-msg');
+
+            // Step 4: Respond
+            await delay(1500);
+            updateTimeline('respond', 'active');
+            showStep('respond');
+            logEvent('[RESPOND] Activating incident response team...', 'respond-msg');
+            await delay(1000);
+            logEvent('[RESPOND] Blocking suspicious IP addresses', 'respond-msg');
+            await delay(1000);
+            logEvent('[RESPOND] Isolating affected database server', 'respond-msg');
+            await delay(1000);
+            logEvent('[RESPOND] Notifying management and legal team', 'respond-msg');
+            await delay(1000);
+            logEvent('[RESPOND] Preserving evidence for forensics', 'respond-msg');
+
+            // Step 5: Recover
+            await delay(1500);
+            updateTimeline('recover', 'active');
+            showStep('recover');
+            logEvent('[RECOVER] Beginning recovery operations...', 'recover-msg');
+            await delay(1000);
+            logEvent('[RECOVER] Restoring database from backup', 'recover-msg');
+            await delay(1000);
+            logEvent('[RECOVER] Implementing additional input validation', 'recover-msg');
+            await delay(1000);
+            logEvent('[RECOVER] Conducting post-incident review', 'recover-msg');
+            await delay(1000);
+            logEvent('[RECOVER] Updating security policies', 'recover-msg');
+
+            await delay(1500);
+            logEvent('[SCENARIO COMPLETE] Incident handled. Lessons learned will improve future security posture.', 'system-msg');
+
+            isSimulating = false;
+            document.getElementById('startBtn').disabled = false;
+        }
+
+        function resetScenario() {
+            isSimulating = false;
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('resetBtn').disabled = true;
+            document.getElementById('timeline-progress').style.width = '0%';
+
+            document.querySelectorAll('.timeline-step').forEach(s => {
+                s.classList.remove('active', 'completed');
+            });
+
+            document.querySelectorAll('.process-step').forEach(s => {
+                s.classList.remove('active');
+            });
+
+            document.getElementById('event-log').innerHTML = '<p class="system-msg">[System] Ready to simulate a data breach incident...</p>';
+
+            document.getElementById('info-panel').innerHTML = `
+                <div class="info-placeholder">
+                    <span class="icon">👆</span>
+                    <p><strong>Click on a step</strong> to learn about each phase of the security process</p>
+                    <p style="margin-top: 0.5rem; font-size: 0.9em;">Or run the scenario simulator to see the process in action</p>
+                </div>
+            `;
+        }
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+    </script>
+</body>
+</html>

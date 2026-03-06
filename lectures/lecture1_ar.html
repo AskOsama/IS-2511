@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المحاضرة الأولى: مقدمة في إدارة أمن تقنية المعلومات</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture1.html" class="lang-button" title="Switch to English">English</a>
+    </div>
+
+    <header>
+        <h1>مقدمة في إدارة أمن تقنية المعلومات</h1>
+        <p class="subtitle">المحاضرة الأولى: أساسيات إدارة الأمن وتقييم المخاطر</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>المحتويات</h2>
+        <ul>
+            <li><a href="#objectives">أهداف التعلم</a></li>
+            <li><a href="#overview">1. نظرة عامة</a></li>
+            <li><a href="#it-security-mgmt">2. إدارة أمن تقنية المعلومات</a></li>
+            <li><a href="#iso-27000">3. معايير أمان ISO 27000</a></li>
+            <li><a href="#security-process">4. عملية إدارة أمن تقنية المعلومات</a></li>
+            <li><a href="#pdca">5. دورة التخطيط-التنفيذ-التحقق-التصرف</a></li>
+            <li><a href="#security-policy">6. سياسة الأمان</a></li>
+            <li><a href="#management-support">7. دعم الإدارة</a></li>
+            <li><a href="#exercises">8. تمارين للطلاب</a></li>
+            <li><a href="#summary">الملخص</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>أهداف التعلم</h2>
+            <p>بنهاية هذه المحاضرة، ستكون قادراً على:</p>
+            <ul>
+                <li>تعريف إدارة أمن تقنية المعلومات وشرح الغرض منها</li>
+                <li>تحديد الأهداف الأمنية الأساسية (ثالوث CIA)</li>
+                <li>شرح معايير ISO 27000 وإطار عمل ISMS</li>
+                <li>تحديد عملية إدارة أمن تقنية المعلومات المكونة من 5 خطوات</li>
+                <li>وصف دورة PDCA (التخطيط-التنفيذ-التحقق-التصرف)</li>
+                <li>إدراك أهمية سياسات الأمان</li>
+                <li>فهم دور دعم الإدارة في الأمان</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="content-section">
+            <h2>1. نظرة عامة</h2>
+
+            <div class="definition">
+                <h3>متطلبات الأمان</h3>
+                <p>تحتاج المنظمات إلى حماية أصولها المعلوماتية من التهديدات المختلفة. يتطلب هذا فهم ما هي الأصول التي تحتاج إلى حماية، وما هي التهديدات الموجودة، وما هي الإجراءات المضادة التي يمكن تطبيقها.</p>
+            </div>
+
+            <h3>أسئلة رئيسية يجب مراعاتها</h3>
+            <ul>
+                <li><strong>ما الأصول التي تحتاج إلى حماية؟</strong> - البيانات، الأنظمة، الشبكات، الأشخاص</li>
+                <li><strong>ما هي التهديدات؟</strong> - المخترقون، البرمجيات الخبيثة، الكوارث الطبيعية، التهديدات الداخلية</li>
+                <li><strong>ما الإجراءات المضادة الموجودة؟</strong> - الضوابط التقنية، السياسات، التدريب</li>
+                <li><strong>كيف نقيم المخاطر؟</strong> - تحديد نقاط الضعف، تقدير التأثير، تحديد الأولويات</li>
+            </ul>
+
+            <div class="key-message">
+                <p><strong>رؤية أساسية:</strong> تتطلب إدارة الأمان الفعالة نهجاً منظماً يراعي الأشخاص والعمليات والتكنولوجيا التي تعمل معاً.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: IT Security Management -->
+        <section id="it-security-mgmt" class="content-section">
+            <h2>2. إدارة أمن تقنية المعلومات</h2>
+
+            <div class="definition">
+                <h3>ما هي إدارة أمن تقنية المعلومات؟</h3>
+                <p><strong>إدارة أمن تقنية المعلومات</strong> هي عملية إدارة وحماية أصول المعلومات من خلال السياسات والإجراءات والضوابط لضمان سرية المعلومات وسلامتها وتوفرها.</p>
+            </div>
+
+            <h3>ثالوث CIA</h3>
+            <p>الأهداف الثلاثة الأساسية لأمن المعلومات:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">الركائز الثلاث للأمان</h3>
+                </div>
+                <div class="cia-triad-container">
+                    <div class="cia-triangle">
+                        <div class="cia-pillar pillar-confidentiality">
+                            السرية
+                        </div>
+                        <div class="cia-pillar pillar-integrity">
+                            السلامة
+                        </div>
+                        <div class="cia-pillar pillar-availability">
+                            التوفر
+                        </div>
+                        <div class="cia-center">
+                            <strong>CIA</strong><br>
+                            <small>الثالوث</small>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/cia_risk_demo.html" class="demo-link">جرب العرض التفاعلي لثالوث CIA</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>السرية (Confidentiality)</h4>
+                <p>ضمان أن المعلومات متاحة فقط للمصرح لهم بالوصول إليها.</p>
+                <ul>
+                    <li><strong>التشفير:</strong> AES-256، RSA، TLS/SSL لحماية البيانات</li>
+                    <li><strong>ضوابط الوصول:</strong> التحكم بالوصول المبني على الأدوار (RBAC)، مبدأ أقل الامتيازات</li>
+                    <li><strong>المصادقة:</strong> المصادقة متعددة العوامل (MFA)، القياسات الحيوية</li>
+                    <li><strong>تصنيف البيانات:</strong> عام، داخلي، سري، مقيد</li>
+                </ul>
+                <p><em>مثال من إدارة المخاطر:</em> حماية تقارير تقييم المخاطر من الوصول غير المصرح به لمنع كشف نقاط ضعف المنظمة.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>السلامة (Integrity)</h4>
+                <p>حماية دقة واكتمال المعلومات وطرق المعالجة.</p>
+                <ul>
+                    <li><strong>دوال التجزئة:</strong> SHA-256، SHA-3 للتحقق من البيانات</li>
+                    <li><strong>التوقيعات الرقمية:</strong> عدم الإنكار والمصداقية</li>
+                    <li><strong>التحكم في الإصدارات:</strong> Git، أنظمة إدارة المستندات</li>
+                    <li><strong>مسارات التدقيق:</strong> تسجيل جميع تعديلات البيانات</li>
+                </ul>
+                <p><em>مثال من إدارة المخاطر:</em> ضمان عدم تزوير أو التلاعب بسجلات التدقيق وتقارير الامتثال.</p>
+            </article>
+
+            <article class="security-concept">
+                <h4>التوفر (Availability)</h4>
+                <p>ضمان وصول المستخدمين المصرح لهم إلى المعلومات والأصول المرتبطة عند الحاجة.</p>
+                <ul>
+                    <li><strong>التكرار:</strong> RAID، التجميع، موازنة الحمل</li>
+                    <li><strong>أنظمة النسخ الاحتياطي:</strong> قاعدة 3-2-1 (3 نسخ، نوعان من الوسائط، نسخة خارج الموقع)</li>
+                    <li><strong>التعافي من الكوارث:</strong> تخطيط RTO و RPO</li>
+                    <li><strong>الحماية من DDoS:</strong> CDN، تحديد المعدل، تصفية حركة المرور</li>
+                </ul>
+                <p><em>مثال من إدارة المخاطر:</em> الحفاظ على تشغيل أنظمة المراقبة الأمنية أثناء هجوم نشط.</p>
+            </article>
+
+            <h3>وظائف إدارة أمن تقنية المعلومات</h3>
+            <ul>
+                <li>تقييم وإدارة المخاطر</li>
+                <li>تطوير سياسات الأمان</li>
+                <li>التدريب على الوعي الأمني</li>
+                <li>الاستجابة للحوادث</li>
+                <li>مراقبة الامتثال</li>
+                <li>تصميم بنية الأمان</li>
+            </ul>
+        </section>
+
+        <!-- Section 3: ISO 27000 Security Standards -->
+        <section id="iso-27000" class="content-section">
+            <h2>3. معايير أمان ISO 27000</h2>
+
+            <div class="definition">
+                <h3>ما هو ISO 27000؟</h3>
+                <p>تساعد عائلة معايير <strong>ISO/IEC 27000</strong> المنظمات على الحفاظ على أمان أصول المعلومات. تتضمن معايير لأنظمة إدارة أمن المعلومات (ISMS).</p>
+            </div>
+
+            <h3>المعايير الرئيسية في عائلة ISO 27000</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>المعيار</th>
+                        <th>الوصف</th>
+                        <th>التركيز الرئيسي</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ISO 27001</strong></td>
+                        <td>متطلبات ISMS - معيار الشهادة الرئيسي</td>
+                        <td>الشهادة، المتطلبات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27002</strong></td>
+                        <td>مدونة الممارسات لضوابط أمن المعلومات</td>
+                        <td>93 ضابط، أفضل الممارسات</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27005</strong></td>
+                        <td>إدارة مخاطر أمن المعلومات</td>
+                        <td>منهجية تقييم المخاطر</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27017</strong></td>
+                        <td>ضوابط الأمان للخدمات السحابية</td>
+                        <td>ضوابط خاصة بالسحابة</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27018</strong></td>
+                        <td>حماية البيانات الشخصية في السحابة</td>
+                        <td>الخصوصية، حماية PII</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27701</strong></td>
+                        <td>امتداد إدارة معلومات الخصوصية لـ ISO 27001</td>
+                        <td>التوافق مع GDPR، الخصوصية</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ISO 27035</strong></td>
+                        <td>إدارة حوادث أمن المعلومات</td>
+                        <td>الاستجابة للحوادث</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="key-message">
+                <p><strong>تحديث ISO 27001:2022:</strong> الإصدار الأخير يعيد تنظيم الضوابط إلى 4 محاور (تنظيمية، بشرية، مادية، تقنية) مع 93 ضابطاً إجمالياً، بما في ذلك 11 ضابطاً جديداً للتهديدات الناشئة مثل استخبارات التهديدات وأمن السحابة.</p>
+            </div>
+
+            <h3>نظام إدارة أمن المعلومات (ISMS)</h3>
+            <p>نظام إدارة أمن المعلومات هو نهج منظم لإدارة معلومات الشركة الحساسة بحيث تظل آمنة. يتضمن:</p>
+            <ul>
+                <li>الأشخاص وأدوارهم</li>
+                <li>العمليات والإجراءات</li>
+                <li>التكنولوجيا والأنظمة</li>
+                <li>السياسات والوثائق</li>
+            </ul>
+
+            <div class="key-message">
+                <p><strong>فوائد شهادة ISO 27001:</strong> تُظهر الالتزام بالأمان، وتبني ثقة العملاء، وتضمن الامتثال القانوني، وتوفر إطاراً للتحسين المستمر.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: IT Security Management Process -->
+        <section id="security-process" class="content-section">
+            <h2>4. عملية إدارة أمن تقنية المعلومات</h2>
+
+            <p>تتكون عملية إدارة أمن تقنية المعلومات من خمس خطوات رئيسية تشكل دورة مستمرة. يتوافق هذا الإطار مع إطار عمل NIST للأمن السيبراني المستخدم على نطاق واسع في الصناعة:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">عملية الأمان المكونة من 5 خطوات</h3>
+                </div>
+                <div class="process-steps-grid">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>التحديد</h4>
+                        <p>الأصول، التهديدات، نقاط الضعف</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>الحماية</h4>
+                        <p>تطبيق ضوابط الأمان</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>الكشف</h4>
+                        <p>المراقبة والتحليل</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>الاستجابة</h4>
+                        <p>الاحتواء واتخاذ الإجراءات</p>
+                    </div>
+                    <div class="process-step-card step-recover">
+                        <div class="step-number">5</div>
+                        <h4>التعافي</h4>
+                        <p>الاستعادة والتحسين</p>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/security_process_demo.html" class="demo-link">جرب العرض التفاعلي للعملية</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>الخطوة 1: التحديد (Identify)</h4>
+                <p>تطوير الفهم التنظيمي لإدارة مخاطر الأمان للأنظمة والأصول والبيانات والقدرات.</p>
+                <ul>
+                    <li>إدارة الأصول والجرد</li>
+                    <li>تحليل بيئة العمل</li>
+                    <li>الحوكمة وتقييم المخاطر</li>
+                    <li>تحديد التهديدات</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>الخطوة 2: الحماية (Protect)</h4>
+                <p>تنفيذ الضمانات المناسبة لضمان تقديم الخدمات الحيوية.</p>
+                <ul>
+                    <li>آليات التحكم في الوصول</li>
+                    <li>التدريب على الوعي الأمني</li>
+                    <li>تدابير أمان البيانات</li>
+                    <li>نشر التكنولوجيا الوقائية</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>الخطوة 3: الكشف (Detect)</h4>
+                <p>تنفيذ الأنشطة المناسبة لتحديد حدوث حدث أمني.</p>
+                <ul>
+                    <li>المراقبة المستمرة</li>
+                    <li>الكشف عن الشذوذ</li>
+                    <li>تسجيل الأحداث الأمنية</li>
+                    <li>تحليل التنبيهات</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>الخطوة 4: الاستجابة (Respond)</h4>
+                <p>اتخاذ إجراء بشأن حادث أمني مكتشف.</p>
+                <ul>
+                    <li>تخطيط الاستجابة</li>
+                    <li>الاتصالات</li>
+                    <li>التحليل والاحتواء</li>
+                    <li>أنشطة التخفيف</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>الخطوة 5: التعافي (Recover)</h4>
+                <p>الحفاظ على خطط المرونة واستعادة أي قدرات تأثرت بحادث أمني.</p>
+                <ul>
+                    <li>تخطيط التعافي</li>
+                    <li>استعادة النظام</li>
+                    <li>التحسينات بناءً على الدروس المستفادة</li>
+                    <li>الاتصالات مع أصحاب المصلحة</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Section 5: PDCA Cycle -->
+        <section id="pdca" class="content-section">
+            <h2>5. دورة التخطيط-التنفيذ-التحقق-التصرف (PDCA)</h2>
+
+            <div class="definition">
+                <h3>دورة ديمنج (PDCA)</h3>
+                <p>دورة <strong>التخطيط-التنفيذ-التحقق-التصرف</strong> هي طريقة إدارية من أربع خطوات تُستخدم للتحسين المستمر للعمليات والمنتجات. وهي أساسية لتنفيذ ISO 27001 وتضمن أن إدارة الأمان ليست نشاطاً يُنفذ مرة واحدة ويُنسى.</p>
+            </div>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">دورة التحسين المستمر PDCA</h3>
+                </div>
+                <div class="pdca-cycle-container">
+                    <div class="pdca-grid">
+                        <div class="pdca-card pdca-plan">
+                            <h4>خطط (PLAN)</h4>
+                            <p>حدد الأهداف<br>صمم الضوابط</p>
+                        </div>
+                        <div class="pdca-card pdca-do">
+                            <h4>نفذ (DO)</h4>
+                            <p>طبق الضوابط<br>نفذ الخطط</p>
+                        </div>
+                        <div class="pdca-card pdca-check">
+                            <h4>تحقق (CHECK)</h4>
+                            <p>راقب النتائج<br>دقق الأداء</p>
+                        </div>
+                        <div class="pdca-card pdca-act">
+                            <h4>تصرف (ACT)</h4>
+                            <p>حسّن العمليات<br>صحح المشكلات</p>
+                        </div>
+                    </div>
+                </div>
+                <p style="text-align: center; margin-top: 1rem;">
+                    <a href="../demos/pdca_cycle_demo.html" class="demo-link">جرب العرض التفاعلي لدورة PDCA</a>
+                </p>
+            </div>
+
+            <article class="security-concept">
+                <h4>مرحلة التخطيط (PLAN)</h4>
+                <p>إنشاء الأهداف والعمليات اللازمة لتقديم النتائج وفقاً للمخرجات المتوقعة.</p>
+                <ul>
+                    <li>تحديد نطاق ISMS</li>
+                    <li>إنشاء سياسة الأمان</li>
+                    <li>إجراء تقييم المخاطر</li>
+                    <li>اختيار الضوابط لمعالجة المخاطر</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>مرحلة التنفيذ (DO)</h4>
+                <p>تنفيذ الخطة، تشغيل العملية، صنع المنتج.</p>
+                <ul>
+                    <li>تنفيذ ضوابط الأمان</li>
+                    <li>تطوير الإجراءات</li>
+                    <li>تدريب الموظفين</li>
+                    <li>إدارة العمليات</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>مرحلة التحقق (CHECK)</h4>
+                <p>دراسة النتائج الفعلية ومقارنتها بالنتائج المتوقعة لتحديد أي اختلافات.</p>
+                <ul>
+                    <li>مراقبة وقياس العمليات</li>
+                    <li>إجراء عمليات التدقيق الداخلي</li>
+                    <li>مراجعة فعالية ISMS</li>
+                    <li>الإبلاغ عن النتائج للإدارة</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>مرحلة التصرف (ACT)</h4>
+                <p>اتخاذ إجراءات تصحيحية بشأن الاختلافات الكبيرة بين النتائج الفعلية والمخطط لها.</p>
+                <ul>
+                    <li>تنفيذ الإجراءات التصحيحية</li>
+                    <li>معالجة عدم المطابقة</li>
+                    <li>إجراء التحسينات</li>
+                    <li>تحديث الوثائق</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>التحسين المستمر:</strong> دورة PDCA ليست عملية لمرة واحدة. يجب تكرارها باستمرار لتحقيق التحسين المستمر في إدارة الأمان.</p>
+            </div>
+        </section>
+
+        <!-- Section 6: Security Policy -->
+        <section id="security-policy" class="content-section">
+            <h2>6. سياسة الأمان</h2>
+
+            <div class="definition">
+                <h3>ما هي سياسة الأمان؟</h3>
+                <p><strong>سياسة الأمان</strong> هي وثيقة تحدد كيفية حماية المنظمة لأصولها المعلوماتية وتوجه اتخاذ القرارات المتعلقة بالأمان.</p>
+            </div>
+
+            <h3>موضوعات سياسة الأمان</h3>
+            <div class="policy-topics-box">
+                <h4>المجالات الرئيسية التي يجب معالجتها</h4>
+                <ul class="policy-topics-list">
+                    <li>النطاق والأهداف</li>
+                    <li>الأدوار والمسؤوليات</li>
+                    <li>نهج إدارة المخاطر</li>
+                    <li>تصنيف الأصول</li>
+                    <li>متطلبات التحكم في الوصول</li>
+                    <li>إجراءات الاستجابة للحوادث</li>
+                    <li>متطلبات الامتثال</li>
+                    <li>التدريب والتوعية</li>
+                    <li>استمرارية الأعمال</li>
+                    <li>جدول المراجعة والتحديث</li>
+                </ul>
+            </div>
+
+            <h3>مثال على هيكل سياسة الأمان</h3>
+            <article class="security-concept">
+                <h4>مكونات وثيقة السياسة</h4>
+                <ol>
+                    <li><strong>الغرض:</strong> لماذا توجد السياسة</li>
+                    <li><strong>النطاق:</strong> ما/من تغطيه السياسة</li>
+                    <li><strong>بيان السياسة:</strong> القواعد والمتطلبات الفعلية</li>
+                    <li><strong>المسؤوليات:</strong> من المسؤول عن ماذا</li>
+                    <li><strong>الامتثال:</strong> كيف تتم مراقبة الامتثال</li>
+                    <li><strong>الاستثناءات:</strong> عملية التعامل مع الاستثناءات</li>
+                    <li><strong>المراجعة:</strong> متى وكيف تتم مراجعة السياسة</li>
+                </ol>
+            </article>
+
+            <div class="warning-box">
+                <h4>أخطاء السياسات الشائعة</h4>
+                <ul>
+                    <li>سياسات غامضة جداً أو مفصلة جداً</li>
+                    <li>سياسات لا تتوافق مع أهداف العمل</li>
+                    <li>سياسات لا تتم مراجعتها أو تحديثها أبداً</li>
+                    <li>سياسات بدون آليات تنفيذ</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 7: Management Support -->
+        <section id="management-support" class="content-section">
+            <h2>7. دعم الإدارة</h2>
+
+            <div class="definition">
+                <h3>لماذا يهم دعم الإدارة</h3>
+                <p>بدون التزام الإدارة العليا، غالباً ما تفشل مبادرات الأمان. توفر الإدارة الموارد والسلطة والثقافة التنظيمية اللازمة للأمان الفعال.</p>
+            </div>
+
+            <h3>مسؤوليات الإدارة العليا</h3>
+            <ul>
+                <li>الموافقة على سياسات الأمان وتأييدها</li>
+                <li>تخصيص موارد كافية (الميزانية، الموظفين)</li>
+                <li>تحديد أدوار ومسؤوليات الأمان</li>
+                <li>مراجعة تقارير ومقاييس الأمان</li>
+                <li>ضمان توافق الأمان مع أهداف العمل</li>
+                <li>تعزيز ثقافة الوعي الأمني</li>
+            </ul>
+
+            <article class="security-concept">
+                <h4>دور مسؤول أمن تقنية المعلومات</h4>
+                <p>مسؤول أمن تقنية المعلومات (أو كبير مسؤولي أمن المعلومات - CISO) مسؤول عن:</p>
+                <ul>
+                    <li>تطوير وصيانة سياسات الأمان</li>
+                    <li>إدارة عمليات الأمان</li>
+                    <li>تنسيق برامج التوعية الأمنية</li>
+                    <li>تقديم التقارير للإدارة العليا</li>
+                    <li>ضمان الامتثال للوائح</li>
+                    <li>إدارة الاستجابة للحوادث</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <p><strong>النهج من الأعلى إلى الأسفل:</strong> يجب أن يقود الأمان من القمة. عندما يدعم المدراء التنفيذيون مبادرات الأمان بشكل واضح، تتبعهم المنظمة بأكملها.</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Student Exercises -->
+        <section id="exercises" class="content-section">
+            <h2>8. تمارين للطلاب</h2>
+
+            <p>أكمل التمارين التالية لتعزيز فهمك:</p>
+
+            <article class="security-concept">
+                <h4>التمرين 1: تطبيق ثالوث CIA</h4>
+                <p>لكل سيناريو أدناه، حدد أي مبدأ من مبادئ CIA معرض للخطر بشكل أكبر:</p>
+                <ol>
+                    <li>تم الوصول إلى قاعدة بيانات عملاء الشركة من قبل مستخدمين غير مصرح لهم</li>
+                    <li>تم تعديل السجلات المالية دون إذن</li>
+                    <li>توقف موقع الشركة عن العمل خلال هجوم DDoS</li>
+                </ol>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 2: تطوير سياسة الأمان</h4>
+                <p>قم بصياغة مخطط لسياسة كلمات المرور يتضمن:</p>
+                <ul>
+                    <li>الغرض والنطاق</li>
+                    <li>متطلبات كلمة المرور (الطول، التعقيد)</li>
+                    <li>تكرار تغيير كلمة المرور</li>
+                    <li>قواعد قفل الحساب</li>
+                    <li>المسؤوليات</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>التمرين 3: تنفيذ دورة PDCA</h4>
+                <p>تريد منظمتك تنفيذ نظام جديد للتحكم في الوصول. صف الأنشطة لكل مرحلة من مراحل PDCA:</p>
+                <ul>
+                    <li><strong>التخطيط:</strong> ماذا ستضمن في مرحلة التخطيط؟</li>
+                    <li><strong>التنفيذ:</strong> ما خطوات التنفيذ المطلوبة؟</li>
+                    <li><strong>التحقق:</strong> كيف ستتحقق من عمل النظام؟</li>
+                    <li><strong>التصرف:</strong> ما التحسينات التي قد تكون مطلوبة؟</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>الملخص والنقاط الرئيسية</h2>
+
+            <h3>ما تعلمناه</h3>
+            <ol>
+                <li><strong>إدارة أمن تقنية المعلومات</strong> هي نهج منظم لحماية أصول المعلومات من خلال السياسات والإجراءات والضوابط.</li>
+
+                <li><strong>ثالوث CIA</strong> (السرية، السلامة، التوفر) يشكل أساس جميع الأهداف الأمنية.</li>
+
+                <li><strong>معايير ISO 27000</strong> توفر إطاراً لتنفيذ نظام إدارة أمن المعلومات (ISMS).</li>
+
+                <li><strong>عملية الأمان المكونة من 5 خطوات</strong> - التحديد، الحماية، الكشف، الاستجابة، التعافي - توفر إطاراً عملياً لعمليات الأمان.</li>
+
+                <li><strong>دورة PDCA</strong> (التخطيط-التنفيذ-التحقق-التصرف) تمكّن التحسين المستمر في إدارة الأمان.</li>
+
+                <li><strong>سياسات الأمان</strong> توثق كيفية حماية المنظمة لأصولها وتوجه قرارات الأمان.</li>
+
+                <li><strong>دعم الإدارة</strong> ضروري لنجاح الأمان - بدونه، ستفشل مبادرات الأمان.</li>
+
+                <li><strong>مسؤول أمن تقنية المعلومات</strong> يلعب دوراً حاسماً في تنسيق جهود الأمان عبر المنظمة.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>التطلع إلى الأمام:</strong> في المحاضرة القادمة، سنتعمق أكثر في منهجيات تقييم المخاطر ونتعلم كيفية تحديد وتحليل وترتيب أولويات مخاطر الأمان.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>الاعتمادات والإسناد</h2>
+            <p class="credits-intro">جميع الرسوم البيانية في هذه الوثيقة هي أعمال تعليمية أصلية تم إنشاؤها خصيصاً لهذا المقرر.</p>
+            <ul class="credits-list">
+                <li><strong>رسم ثالوث CIA:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>رسم العملية المكونة من 5 خطوات:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+                <li><strong>رسم دورة PDCA:</strong> رسم بياني تعليمي أصلي. مرخص بموجب CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index_ar.html">&rarr; العودة إلى الصفحة الرئيسية</a>
+        </p>
+    </footer>
+</body>
+</html>
