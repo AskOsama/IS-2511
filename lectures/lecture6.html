@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 6: Risk Treatment Process and IT Risks</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture6_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Risk Treatment Process and IT Risks</h1>
+        <p class="subtitle">Lecture 6: The Importance of Risk Treatment, Five Steps, and Common IT Risks</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#definition">1. Risk Treatment Revisited</a></li>
+            <li><a href="#importance">2. Importance of Risk Treatment</a></li>
+            <li><a href="#five-steps">3. Five Steps of Risk Treatment</a></li>
+            <li><a href="#brainstorming">4. Step 1: Brainstorming</a></li>
+            <li><a href="#planning">5. Step 2: Planning and Implementation</a></li>
+            <li><a href="#examining">6. Step 3: Examining Effectiveness</a></li>
+            <li><a href="#deciding">7. Step 4: Deciding on Residual Risk</a></li>
+            <li><a href="#additional">8. Step 5: Additional Treatment</a></li>
+            <li><a href="#iso-plan">9. Risk Treatment Plan and ISO 27001</a></li>
+            <li><a href="#it-risks">10. Types of IT Risks</a></li>
+            <li><a href="#exercises">Student Activities</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Understand the concept of Risk Treatment</li>
+                <li>Understand the importance of risk treatment</li>
+                <li>Apply the five steps of risk treatment</li>
+                <li>Create a risk treatment plan</li>
+                <li>Understand what a risk treatment plan is and why organizations need one</li>
+                <li>Identify common types of IT risks your business might face</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Definition -->
+        <section id="definition" class="content-section">
+            <h2>1. Risk Treatment Revisited</h2>
+
+            <div class="definition">
+                <h3>What is Risk Treatment?</h3>
+                <p><strong>Risk treatment</strong> is a collective term for all the tactics, options, and strategies chosen to respond to a specific risk, to achieve the desired outcome concerning the threat.</p>
+            </div>
+
+            <div class="key-message">
+                <h4>Important Understanding</h4>
+                <p>Risk treatment is <strong>not a concept functioning on its own</strong>. On the contrary, it should always be examined, understood, and implemented as part of a bigger whole, i.e., <strong>risk management</strong>.</p>
+            </div>
+        </section>
+
+        <!-- Section 2: Importance -->
+        <section id="importance" class="content-section">
+            <h2>2. Importance of Risk Treatment</h2>
+
+            <article class="security-concept">
+                <h4>Goals of Risk Treatment</h4>
+                <p>The goal of risk treatment is to:</p>
+                <ul>
+                    <li><strong>Remove</strong> risk entirely where possible</li>
+                    <li><strong>Reduce</strong> the impact or likelihood of risk</li>
+                    <li><strong>Redirect</strong> residual risk to other parties</li>
+                    <li><strong>Develop risk treatment plans</strong> as part of protecting the business</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <h4>Why It Matters</h4>
+                <p>Developing risk treatment plans is an integral part of protecting the business by making sure that risk does not take into action instead of dealing with it. Effective risk treatment relies on identifying the different types of risk against that particular business entity.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Five Steps -->
+        <section id="five-steps" class="content-section">
+            <h2>3. Five Steps of Risk Treatment</h2>
+
+            <p>In the risk treatment process, it is recommended to follow five main steps to ensure the correct logistics and effectiveness of the strategy:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Five Steps of Risk Treatment Process</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Brainstorming</h4>
+                        <p>Select the right risk treatment option</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Planning</h4>
+                        <p>Plan and use the options chosen</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Examining</h4>
+                        <p>Examine the effectiveness of chosen tactics</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>Deciding</h4>
+                        <p>Decide if residual risk is acceptable</p>
+                    </div>
+                    <div class="process-step-card step-recover">
+                        <div class="step-number">5</div>
+                        <h4>Additional Treatment</h4>
+                        <p>Implement new activities if risk is not acceptable</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Brainstorming -->
+        <section id="brainstorming" class="content-section">
+            <h2>4. Step 1: Brainstorming and Selecting the Right Option</h2>
+
+            <div class="example">
+                <h4>Example: Cloud Migration Risk</h4>
+                <p><strong>Risk identified:</strong> Sensitive customer data could be exposed during cloud migration.</p>
+
+                <h4>Brainstormed Options:</h4>
+                <ul>
+                    <li>Avoid the risk by not moving sensitive data to the cloud</li>
+                    <li>Reduce the risk by encrypting data and using secure access controls</li>
+                    <li>Share the risk by using cyber-insurance</li>
+                    <li>Accept the risk if impact is low</li>
+                </ul>
+
+                <h4>Chosen Option:</h4>
+                <p><strong>Reduce the risk</strong> (encryption, strong access controls, secure cloud provider)</p>
+            </div>
+        </section>
+
+        <!-- Section 5: Planning -->
+        <section id="planning" class="content-section">
+            <h2>5. Step 2: Planning and Use of Options Chosen</h2>
+
+            <article class="security-concept">
+                <h4>Create a Concrete Plan</h4>
+                <p>A concrete plan is created with specific actions:</p>
+                <ul>
+                    <li>Select a certified cloud provider</li>
+                    <li>Encrypt data before migration</li>
+                    <li>Implement multi-factor authentication</li>
+                    <li>Train employees on cloud security</li>
+                    <li>Assign responsibilities and timelines</li>
+                </ul>
+                <p>The controls are then implemented according to the plan.</p>
+            </article>
+        </section>
+
+        <!-- Section 6: Examining -->
+        <section id="examining" class="content-section">
+            <h2>6. Step 3: Examining the Effectiveness of Chosen Tactics</h2>
+
+            <article class="security-concept">
+                <h4>Verify Controls Are Working</h4>
+                <p>The organization checks if controls are working by:</p>
+                <ul>
+                    <li>Performing penetration testing</li>
+                    <li>Running vulnerability scans</li>
+                    <li>Reviewing access logs</li>
+                    <li>Conducting a security audit</li>
+                </ul>
+            </article>
+
+            <div class="example">
+                <h4>Example Result</h4>
+                <p>Some misconfigured storage detected and fixed during the security audit.</p>
+            </div>
+        </section>
+
+        <!-- Section 7: Deciding -->
+        <section id="deciding" class="content-section">
+            <h2>7. Step 4: Deciding Whether Residual Risk Is Acceptable</h2>
+
+            <article class="security-concept">
+                <h4>Evaluate Remaining Risk</h4>
+                <p>After controls are implemented:</p>
+                <ul>
+                    <li><strong>Likelihood of breach:</strong> Low</li>
+                    <li><strong>Impact:</strong> Medium</li>
+                    <li>Management compares this with the company's risk appetite</li>
+                </ul>
+            </article>
+
+            <div class="warning-box">
+                <h4>Decision Point</h4>
+                <p>If the residual risk is still higher than the organization's risk appetite, additional treatment activities must be implemented (proceed to Step 5).</p>
+            </div>
+        </section>
+
+        <!-- Section 8: Additional Treatment -->
+        <section id="additional" class="content-section">
+            <h2>8. Step 5: Implementing New Treatment Activities</h2>
+
+            <article class="security-concept">
+                <h4>When Residual Risk Is Not Acceptable</h4>
+                <p>Additional actions are taken to further reduce the risk:</p>
+                <ul>
+                    <li>Add real-time monitoring</li>
+                    <li>Apply stricter access policies</li>
+                    <li>Schedule monthly security reviews</li>
+                    <li>Improve incident response plan</li>
+                </ul>
+            </article>
+
+            <div class="key-message">
+                <h4>Outcome</h4>
+                <p>After implementing additional controls, the residual risk becomes acceptable and is <strong>formally approved</strong> by management.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: ISO 27001 Plan -->
+        <section id="iso-plan" class="content-section">
+            <h2>9. Risk Treatment Plan and ISO 27001</h2>
+
+            <article class="security-concept">
+                <h4>ISO 27001 Certification</h4>
+                <p>Risk treatment plans are an important part of any business's IT security strategy, and are especially critical for those seeking ISO 27001 certification.</p>
+            </article>
+
+            <div class="definition">
+                <h3>What is a Risk Treatment Plan?</h3>
+                <p>A <strong>risk treatment plan</strong> is a formal document that outlines the steps that will be taken to mitigate the risks associated with ISO 27001 certification. The risk treatment plan should be tailored to your organization's specific needs.</p>
+            </div>
+
+            <div class="key-message">
+                <h4>Why You Need One</h4>
+                <ul>
+                    <li>It provides a <strong>roadmap</strong> for achieving compliance and certification</li>
+                    <li>It is a <strong>required part</strong> of the ISO 27001 certification process</li>
+                    <li>Organizations must outline the planned steps to mitigate IT security risks</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 10: IT Risks -->
+        <section id="it-risks" class="content-section">
+            <h2>10. Types of IT Risks Your Business Might Face</h2>
+
+            <p>There are many risks that must be considered when seeking ISO 27001 certification. Some of the more common risks include:</p>
+
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Risk Type</th>
+                            <th>Description</th>
+                            <th>Mitigation Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Data Breaches</strong></td>
+                            <td>Devastating impact on reputation and finances</td>
+                            <td>Data encryption and access control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Malware</strong></td>
+                            <td>Software causing extensive system damage</td>
+                            <td>Antivirus software and firewalls</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Phishing</strong></td>
+                            <td>Online scam tricking users into disclosing sensitive information</td>
+                            <td>Security awareness training for employees</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Social Engineering</strong></td>
+                            <td>Attacks relying on human interaction to obtain sensitive information</td>
+                            <td>Security awareness training for employees</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Denial of Service</strong></td>
+                            <td>Attacks rendering websites or services unavailable</td>
+                            <td>Intrusion detection and prevention systems</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Data Loss</strong></td>
+                            <td>Due to hardware failure, human error, or malicious attacks</td>
+                            <td>Strong backup and recovery measures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>System Downtime</strong></td>
+                            <td>Significant impact on business operations</td>
+                            <td>Contingency and recovery measures</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Application Vulnerabilities</strong></td>
+                            <td>Exploited by attackers to gain access to sensitive data</td>
+                            <td>Application whitelisting and sandboxing</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Insider Threats</strong></td>
+                            <td>Internal users accessing sensitive information and systems</td>
+                            <td>Least privilege principles and access control</td>
+                        </tr>
+                        <tr>
+                            <td><strong>External Threats</strong></td>
+                            <td>From competitors, criminals, or nation-states</td>
+                            <td>Perimeter security and intrusion detection</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Student Activities -->
+        <section id="exercises" class="content-section">
+            <h2>Student Activities</h2>
+
+            <div class="review-questions">
+                <h3>Answer the Following Questions</h3>
+                <ol>
+                    <li>List the five steps for creating risk treatment.</li>
+                    <li>What is the goal of risk treatment?</li>
+                    <li>Why is a risk treatment plan important?</li>
+                    <li>List three IT risks your business might face.</li>
+                    <li>How do you mitigate the risk of denial of service?</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>Risk Treatment</strong> is a collective term for all tactics, options, and strategies chosen to respond to a specific risk. It is always part of the larger risk management process.</li>
+
+                <li><strong>The importance of risk treatment</strong> lies in removing, reducing, or redirecting residual risk to protect the business proactively.</li>
+
+                <li><strong>The five-step process</strong> includes: brainstorming, planning, examining effectiveness, deciding on residual risk acceptability, and implementing additional treatment if needed.</li>
+
+                <li><strong>A concrete example</strong> (cloud migration) demonstrates how the five steps are applied in practice, from identifying the risk through to formal approval of residual risk.</li>
+
+                <li><strong>Risk treatment plans</strong> are essential for ISO 27001 certification and provide a roadmap for mitigating IT security risks.</li>
+
+                <li><strong>Common IT risks</strong> include data breaches, malware, phishing, social engineering, denial of service, data loss, system downtime, application vulnerabilities, insider threats, and external threats.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will explore <strong>Risk Management</strong> as a comprehensive process, examining the five steps of risk management that encompass identification, analysis, evaluation, treatment, and monitoring of risks.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>Five Steps Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>

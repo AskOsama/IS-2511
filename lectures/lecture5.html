@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 5: Risk Treatment Methods</title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Language Switcher -->
+    <div class="language-switcher">
+        <a href="lecture5_ar.html" class="lang-button" title="Switch to Arabic">العربية</a>
+    </div>
+
+    <header>
+        <h1>Risk Treatment Methods</h1>
+        <p class="subtitle">Lecture 5: Basic IT-Security Risk Treatment Methods</p>
+    </header>
+
+    <nav class="table-of-contents no-print">
+        <h2>Contents</h2>
+        <ul>
+            <li><a href="#objectives">Learning Objectives</a></li>
+            <li><a href="#overview">1. Risk Treatment Overview</a></li>
+            <li><a href="#accept">2. Accept the Risk</a></li>
+            <li><a href="#avoid">3. Avoid the Risk</a></li>
+            <li><a href="#share">4. Share the Risk (Transfer)</a></li>
+            <li><a href="#reduce">5. Reduce the Risk (Mitigation)</a></li>
+            <li><a href="#treatment-steps">6. Two Steps to Reduce Risk</a></li>
+            <li><a href="#action-plan">7. Development of Action Plan</a></li>
+            <li><a href="#creating-plan">8. Creating a Risk Treatment Plan</a></li>
+            <li><a href="#residual">9. Identification of Residual Risks</a></li>
+            <li><a href="#effective-strategy">10. Most Effective Strategy</a></li>
+            <li><a href="#exercises">Student Activities</a></li>
+            <li><a href="#summary">Summary</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Learning Objectives -->
+        <section id="objectives" class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <p>By the end of this lecture, you will be able to:</p>
+            <ul>
+                <li>Define risk treatment and explain its importance</li>
+                <li>Identify and describe the four main risk treatment options (ISO 27001)</li>
+                <li>Understand the five main steps of the risk treatment process</li>
+                <li>Understand how to create a risk treatment plan</li>
+                <li>Explain what a risk treatment plan is and why organizations need one</li>
+                <li>Identify common types of IT security risks</li>
+                <li>Relate appropriate security controls to different types of risks</li>
+            </ul>
+        </section>
+
+        <!-- Section 1: Overview -->
+        <section id="overview" class="content-section">
+            <h2>1. Risk Treatment Overview</h2>
+
+            <div class="definition">
+                <h3>What is Risk Treatment?</h3>
+                <p><strong>Risk treatment</strong> is the process of selecting and applying measures to manage information security risks after they have been identified and assessed. In ISO 27001, the goal is to reduce risks to an acceptable level and decide how each risk will be handled.</p>
+            </div>
+
+            <h3>Four Risk Treatment Options (ISO 27001)</h3>
+            <p>There are four risk treatment options available in an ISO 27001 risk treatment plan:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">ISO 27001 Risk Treatment Options</h3>
+                </div>
+                <div class="four-areas-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="area-card">
+                        <div class="area-icon">✅</div>
+                        <h4>Accept</h4>
+                        <p>Accept the risk when treatment cost exceeds the benefit</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🚫</div>
+                        <h4>Avoid</h4>
+                        <p>Eliminate the activity that creates the risk</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🔄</div>
+                        <h4>Share</h4>
+                        <p>Transfer part of the risk to a third party</p>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📉</div>
+                        <h4>Reduce</h4>
+                        <p>Implement controls to lower likelihood and/or impact</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Accept -->
+        <section id="accept" class="content-section">
+            <h2>2. Accept the Risk (Risk Acceptance)</h2>
+
+            <article class="security-concept">
+                <h4>What is Risk Acceptance?</h4>
+                <p>Accepting the risk means an organization decides to take no further action to reduce a specific risk and is willing to live with its potential impact.</p>
+            </article>
+
+            <p>This option is usually chosen when:</p>
+            <ul>
+                <li>The cost of controls is higher than the potential damage</li>
+                <li>The impact and likelihood are low</li>
+                <li>The risk is unavoidable or minimal</li>
+                <li>Management agrees the risk is within the organization's risk appetite</li>
+            </ul>
+
+            <div class="key-message">
+                <h4>Key Points</h4>
+                <ul>
+                    <li>No new security controls are implemented</li>
+                    <li>The risk is formally approved by management</li>
+                    <li>The risk must be documented and monitored regularly</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: Risk Acceptance</h4>
+                <p>A company may accept the risk of a short website outage because the cost of building a fully redundant global system is too high compared to the small business impact.</p>
+            </div>
+        </section>
+
+        <!-- Section 3: Avoid -->
+        <section id="avoid" class="content-section">
+            <h2>3. Avoid the Risk (Risk Avoidance)</h2>
+
+            <article class="security-concept">
+                <h4>What is Risk Avoidance?</h4>
+                <p>Avoiding the risk means an organization decides to eliminate the activity, system, or process that creates the risk, so the risk no longer exists.</p>
+            </article>
+
+            <p>This option is chosen when:</p>
+            <ul>
+                <li>The risk is too high or unacceptable</li>
+                <li>The risk cannot be reduced to an acceptable level</li>
+                <li>The potential impact is severe (e.g., legal, safety, or major financial damage)</li>
+            </ul>
+
+            <div class="key-message">
+                <h4>Key Points</h4>
+                <ul>
+                    <li>The risky activity is stopped, removed, or not started</li>
+                    <li>The risk is completely eliminated, not just reduced</li>
+                    <li>It often involves changing business processes, technology, or strategy</li>
+                    <li>Management approval is required because it may affect operations or opportunities</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: Risk Avoidance</h4>
+                <p>A company may avoid the risk of data leakage from personal USB drives by completely banning USB storage devices on company computers.</p>
+            </div>
+        </section>
+
+        <!-- Section 4: Share -->
+        <section id="share" class="content-section">
+            <h2>4. Share the Risk (Risk Transfer)</h2>
+
+            <article class="security-concept">
+                <h4>What is Risk Sharing?</h4>
+                <p>Sharing the risk means an organization passes part of the risk to another party, while usually still keeping some responsibility. The risk is not removed, but its financial or operational impact is reduced by involving a third party.</p>
+            </article>
+
+            <p>This option is chosen when:</p>
+            <ul>
+                <li>The organization cannot fully control or reduce the risk on its own</li>
+                <li>Another party is better equipped to manage the risk</li>
+                <li>It is more cost-effective to transfer part of the risk</li>
+            </ul>
+
+            <div class="key-message">
+                <h4>Key Points</h4>
+                <ul>
+                    <li>Part of the risk is transferred, not eliminated</li>
+                    <li>Common methods: insurance, outsourcing, cloud services, contracts, partnerships</li>
+                    <li>Legal agreements define responsibilities and liabilities</li>
+                    <li>The organization must still monitor the risk and the provider</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Examples: Risk Sharing</h4>
+                <ul>
+                    <li>Buying cyber insurance to cover financial losses from data breaches</li>
+                    <li>Outsourcing data storage to a secure cloud provider</li>
+                    <li>Using a third-party security company to manage monitoring</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 5: Reduce -->
+        <section id="reduce" class="content-section">
+            <h2>5. Reduce the Risk (Risk Reduction / Mitigation)</h2>
+
+            <article class="security-concept">
+                <h4>What is Risk Reduction?</h4>
+                <p>Reducing the risk means an organization takes actions and implements controls to lower the likelihood and/or the impact of a risk. This is the <strong>most commonly used</strong> risk treatment option in information security.</p>
+            </article>
+
+            <p>This option is chosen when:</p>
+            <ul>
+                <li>The risk is significant but manageable</li>
+                <li>It is possible to apply technical, administrative, or physical controls</li>
+                <li>The organization wants to continue the activity, but in a safer way</li>
+            </ul>
+
+            <div class="key-message">
+                <h4>Key Points</h4>
+                <ul>
+                    <li>The risk is not removed, but minimized</li>
+                    <li>Focuses on reducing: <strong>Likelihood</strong> (preventive controls) and <strong>Impact</strong> (corrective and recovery controls)</li>
+                    <li>Requires continuous monitoring and improvement</li>
+                </ul>
+            </div>
+
+            <h3>Types of Controls Used</h3>
+            <div class="concept-cards">
+                <div class="concept-card">
+                    <div class="icon">🛡️</div>
+                    <h4>Preventive Controls (Before an Incident)</h4>
+                    <ul>
+                        <li>Security awareness training</li>
+                        <li>Access controls and authentication</li>
+                        <li>Firewalls, antivirus, IDS/IPS</li>
+                    </ul>
+                </div>
+                <div class="concept-card">
+                    <div class="icon">🔧</div>
+                    <h4>Corrective / Recovery Controls (After an Incident)</h4>
+                    <ul>
+                        <li>Data backups</li>
+                        <li>Incident response procedures</li>
+                        <li>Disaster recovery and business continuity plans</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Two Steps to Reduce Risk -->
+        <section id="treatment-steps" class="content-section">
+            <h2>6. Two Steps to Reduce Risk</h2>
+
+            <p>There are two steps to reduce risk as part of the risk treatment plan:</p>
+
+            <article class="security-concept">
+                <h4>Step 1: Preventive Methods</h4>
+                <ul>
+                    <li>Human resources and staff training</li>
+                    <li>Legislation compliance</li>
+                    <li>Quality control measures</li>
+                    <li>Auditing</li>
+                    <li>Regular maintenance</li>
+                    <li>Security systems installation</li>
+                </ul>
+            </article>
+
+            <article class="security-concept">
+                <h4>Step 2: Risk Reduction Procedures</h4>
+                <ul>
+                    <li>Data backups</li>
+                    <li>Emergency procedures</li>
+                    <li>Minimize exposure to highest-rated risks</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- Section 7: Action Plan -->
+        <section id="action-plan" class="content-section">
+            <h2>7. Development of Action Plan</h2>
+
+            <div class="definition">
+                <h3>What is a Treatment Plan?</h3>
+                <p>A <strong>treatment plan</strong> (or risk treatment plan) is a formal document that explains how an organization will implement its chosen risk treatment options (accept, avoid, share, reduce). It turns risk decisions into practical actions.</p>
+            </div>
+
+            <h3>Purpose of a Treatment Plan</h3>
+            <p>A treatment plan is used to:</p>
+            <ul>
+                <li>Describe what actions will be taken to treat each risk</li>
+                <li>Assign who is responsible</li>
+                <li>Define deadlines and priorities</li>
+                <li>Identify resources (budget, people, tools)</li>
+                <li>Explain how effectiveness will be measured and monitored</li>
+            </ul>
+
+            <h3>What a Treatment Plan Contains</h3>
+            <p>A good risk treatment plan typically includes:</p>
+            <div style="overflow-x: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Component</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Identified risks</td>
+                            <td>The risks that were found during assessment</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Chosen treatment option</td>
+                            <td>Accept, avoid, share, or reduce</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Security controls / actions</td>
+                            <td>Specific controls to be implemented</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Responsible persons or teams</td>
+                            <td>Who will carry out the actions</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Timeframes and milestones</td>
+                            <td>When actions must be completed</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Required resources</td>
+                            <td>Budget, tools, and people needed</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Performance measures</td>
+                            <td>How effectiveness will be monitored</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="example">
+                <h4>Example: Treatment Plan for Data Loss</h4>
+                <p>If the risk is data loss, the treatment plan may include:</p>
+                <ul>
+                    <li><strong>Action:</strong> Implement automated backups</li>
+                    <li><strong>Responsible:</strong> IT Manager</li>
+                    <li><strong>Deadline:</strong> 30 days</li>
+                    <li><strong>Resources:</strong> Backup software + storage</li>
+                    <li><strong>Monitoring:</strong> Monthly recovery tests</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Section 8: Creating Plan -->
+        <section id="creating-plan" class="content-section">
+            <h2>8. Creating a Risk Treatment Plan</h2>
+
+            <p>Key steps required to create a risk treatment plan:</p>
+
+            <div class="diagram-container">
+                <div class="diagram-title-section">
+                    <h3 class="diagram-title">Steps to Create a Risk Treatment Plan</h3>
+                </div>
+                <div class="process-steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
+                    <div class="process-step-card step-identify">
+                        <div class="step-number">1</div>
+                        <h4>Conduct Risk Assessment</h4>
+                        <p>Identify and prioritize information security risks</p>
+                    </div>
+                    <div class="process-step-card step-protect">
+                        <div class="step-number">2</div>
+                        <h4>Develop Mitigation Strategy</h4>
+                        <p>Decide how each risk will be handled (accept, avoid, share, or reduce)</p>
+                    </div>
+                    <div class="process-step-card step-detect">
+                        <div class="step-number">3</div>
+                        <h4>Implement Controls</h4>
+                        <p>Apply technical, administrative, or physical controls</p>
+                    </div>
+                    <div class="process-step-card step-respond">
+                        <div class="step-number">4</div>
+                        <h4>Monitor and Review</h4>
+                        <p>Continuously check effectiveness and improve when needed</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <h4>Statement of Applicability (SoA)</h4>
+                <p>The Statement of Applicability should be completed <strong>before</strong> creating the risk treatment plan, as it identifies which ISO 27001 controls are relevant to your organization.</p>
+            </div>
+        </section>
+
+        <!-- Section 9: Residual Risks -->
+        <section id="residual" class="content-section">
+            <h2>9. Identification of Residual Risks</h2>
+
+            <div class="definition">
+                <h3>What is Residual Risk?</h3>
+                <p><strong>Residual risk</strong> is the risk that remains after risk treatment options have been selected and controls have been implemented. Even when risks are reduced, avoided, or shared, it is almost impossible to eliminate all risk completely.</p>
+            </div>
+
+            <h3>Why Residual Risks Must Be Identified</h3>
+            <p>Organizations must identify residual risks in order to:</p>
+            <ul>
+                <li>Know what level of risk still exists</li>
+                <li>Decide whether the remaining risk is acceptable</li>
+                <li>Ensure management awareness and approval</li>
+                <li>Meet ISO 27001 requirements</li>
+            </ul>
+
+            <div class="warning-box">
+                <h4>Residual Risks Must Always Be:</h4>
+                <ul>
+                    <li>Documented</li>
+                    <li>Approved by management</li>
+                    <li>Regularly reviewed</li>
+                </ul>
+            </div>
+
+            <div class="example">
+                <h4>Example: Residual Risk</h4>
+                <p>After installing firewalls and MFA, the risk of hacking is reduced from high to low, but a low risk of advanced cyberattacks still remains. This remaining risk is the <strong>residual risk</strong>, and it must be formally accepted and monitored.</p>
+            </div>
+        </section>
+
+        <!-- Section 10: Most Effective Strategy -->
+        <section id="effective-strategy" class="content-section">
+            <h2>10. Most Effective Risk Treatment Strategy</h2>
+
+            <article class="security-concept">
+                <h4>Which Strategy is Best?</h4>
+                <p>The answer depends on the types of risk that you are dealing with as an organization and the associated risk levels.</p>
+            </article>
+
+            <div class="key-message">
+                <h4>Key Considerations</h4>
+                <ul>
+                    <li>A <strong>cost-benefit analysis</strong> is vital in picking the right strategy, whether you choose to avoid or accept the risk</li>
+                    <li>Key <strong>stakeholders</strong> must be involved in choosing the best treatment option</li>
+                    <li>Develop <strong>realistic objectives</strong> to match your risk assessment process</li>
+                </ul>
+            </div>
+
+            <div class="tip-box">
+                <h4>Who are Stakeholders?</h4>
+                <p><strong>Stakeholders</strong> are individuals, groups, or organizations that have an interest in, are affected by, or can influence an organization's activities, decisions, or outcomes.</p>
+            </div>
+        </section>
+
+        <!-- Student Activities -->
+        <section id="exercises" class="content-section">
+            <h2>Student Activities</h2>
+
+            <div class="review-questions">
+                <h3>Answer the Following Questions</h3>
+                <ol>
+                    <li>What are the four main risk treatment options?</li>
+                    <li>Which risk treatment option is most commonly used and why?</li>
+                    <li>What is a risk treatment plan?</li>
+                    <li>What are the main steps in creating a risk treatment plan?</li>
+                    <li>What is residual risk?</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section id="summary" class="content-section summary">
+            <h2>Summary and Key Takeaways</h2>
+
+            <h3>What We've Learned</h3>
+            <ol>
+                <li><strong>Risk Treatment</strong> is the process of selecting and applying measures to manage information security risks. ISO 27001 provides four treatment options: Accept, Avoid, Share, and Reduce.</li>
+
+                <li><strong>Risk Acceptance</strong> means living with the risk when treatment cost exceeds the benefit. It requires formal management approval and documentation.</li>
+
+                <li><strong>Risk Avoidance</strong> eliminates the activity causing the risk entirely. Used when risk is too high and cannot be adequately controlled.</li>
+
+                <li><strong>Risk Sharing (Transfer)</strong> passes part of the risk to a third party through insurance, outsourcing, or cloud services.</li>
+
+                <li><strong>Risk Reduction (Mitigation)</strong> is the most common option. It uses preventive and corrective controls to lower likelihood and impact.</li>
+
+                <li><strong>Treatment Plans</strong> are formal documents that turn risk decisions into practical, measurable actions with assigned responsibilities and timelines.</li>
+
+                <li><strong>Residual Risk</strong> always remains after treatment and must be documented, approved, and monitored.</li>
+            </ol>
+
+            <div class="key-message">
+                <p><strong>Looking Ahead:</strong> In the next lecture, we will explore the <strong>importance of risk treatment</strong> in more depth, including the five steps of the risk treatment process and how to create effective treatment plans with real-world scenarios.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <section id="image-credits">
+            <h2>Credits and Attributions</h2>
+            <p class="credits-intro">All diagrams in this document are original educational works created specifically for this course.</p>
+            <ul class="credits-list">
+                <li><strong>Risk Treatment Options Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+                <li><strong>Treatment Plan Steps Diagram:</strong> Original educational diagram. Licensed under CC BY 4.0</li>
+            </ul>
+        </section>
+
+        <p style="text-align: center; margin-top: 2rem;">
+            <a href="../index.html">&larr; Back to Course Home</a>
+        </p>
+    </footer>
+</body>
+</html>
